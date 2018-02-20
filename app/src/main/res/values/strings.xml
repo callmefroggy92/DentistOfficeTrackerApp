@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Dentist Office Tracker</string>
+    <string name="title_activity_admin">activity_admin</string>
+    <string name="title_activity_patient">activity_patient</string>
+</resources>

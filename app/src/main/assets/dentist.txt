@@ -1,0 +1,1 @@
+{"patients":[],"username":"dentist","password":"","hash":"p4gWifkAiO4x7wOk9sjIQi+373UF1n+mGW0QBVL4J8c\u003d","salt":"HiOOjdpoBktuzbnJy5CD0g\u003d\u003d","key":"M79KtXAry3Ngusd2pqwUBKNpuo7n31ILUmhWVj4OsTM\u003d","type":"Dentist","decKey":""}

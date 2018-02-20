@@ -1,0 +1,1 @@
+{"username":"admin","password":"","hash":"xulbev9qSfV7brqKq6QJRRZCu1CuN/eEkWE/UR61TTI\u003d","salt":"/leCrIHMerIgAT/ruDVWag\u003d\u003d","type":"Admin","key":"ztBFSNCSlBvhH+w2jEQ1+UkfmSZO/lcINcrazLjayj8\u003d","decKey":""}
