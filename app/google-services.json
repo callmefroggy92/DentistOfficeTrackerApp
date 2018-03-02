@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "838032196799",
+    "firebase_url": "https://dentist-tracker.firebaseio.com",
+    "project_id": "dentist-tracker",
+    "storage_bucket": "dentist-tracker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:838032196799:android:96987dbd52ee6309",
+        "android_client_info": {
+          "package_name": "com.example.froggy.dentistofficetracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "838032196799-bkq8js3pft6i0vrl08lhhr4rjn0uhl68.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjgMeX74d1rSgkzQcUxbRGJa_HOE51KRE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

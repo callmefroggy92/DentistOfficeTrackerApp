@@ -24,7 +24,9 @@
             android:name=".activity_patient"
             android:label="@string/title_activity_patient"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activity_dentist"></activity>
+        <activity android:name=".activity_dentist" />
+        <activity android:name=".activity_d_add_appointment" />
+        <activity android:name=".Add_Patient"></activity>
     </application>
 
 </manifest>

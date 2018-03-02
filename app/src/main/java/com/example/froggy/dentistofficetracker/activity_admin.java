@@ -1,8 +1,10 @@
 package com.example.froggy.dentistofficetracker;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 
 import com.google.gson.Gson;
 
@@ -34,5 +36,10 @@ public class activity_admin extends AppCompatActivity {
             Log.e("onCreate admin_activity", e.getMessage());
         }
 
+    }
+
+    public void onAddPatient(View view){
+        Intent i = new Intent(getApplicationContext(), Add_Patient.class);
+        startActivity(i);
     }
 }

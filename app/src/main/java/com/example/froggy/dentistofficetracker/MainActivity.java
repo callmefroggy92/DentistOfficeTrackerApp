@@ -9,91 +9,95 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 
 public class MainActivity extends AppCompatActivity {
 
-    private BufferedReader databaseReader;
-    private UserDatabase database;
+    private User user;
+    private FirebaseDatabase firebaseDatabase;
+    private DatabaseReference myRef;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        try {
-            InputStream is = getAssets().open("userdatabase.txt");
-            databaseReader = new BufferedReader(new InputStreamReader(is));
-
-        } catch(Exception e){
-            Log.e("onCreate: ", e.getMessage());
-        }
-
-        Gson gson = new Gson();
-        database = gson.fromJson(databaseReader, UserDatabase.class);
-
 
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void onLogin(View view) throws AuthException{
         EditText username_text = findViewById(R.id.username_text);
-        String username = username_text.getText().toString();
+        final String username = username_text.getText().toString();
         EditText password_text = findViewById(R.id.password_text);
-        String password = password_text.getText().toString();
+        final String password = password_text.getText().toString();
 
-        User user = new User();
-        try{
-            InputStream is = getAssets().open(username + ".txt");
-            BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-            Gson gson = new Gson();
+        firebaseDatabase = FirebaseDatabase.getInstance();
 
-            user = gson.fromJson(reader, User.class);
+            myRef = firebaseDatabase.getReference();
 
-        }catch(Exception e){
-            Log.e("onLogin: ", e.getMessage());
-        }
+            myRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
 
-        user.setPassword(password);
-        try {
-            if(LoginController.verifyPassword(user)){
-                Toast.makeText(getApplicationContext(), "Login Succesful!", Toast.LENGTH_SHORT).show();
+                    if(dataSnapshot.hasChild(username)) {
+                        Gson gson = new Gson();
 
-                if(user.getType() == UserType.Admin){
+                        user = new User();
+                        user.setSalt(dataSnapshot.child(username).child("salt").getValue().toString());
+                        user.setUsername(dataSnapshot.child(username).child("username").getValue().toString());
+                        user.setKey(dataSnapshot.child(username).child("key").getValue().toString());
+                        user.setHash(dataSnapshot.child(username).child("hash").getValue().toString());
 
-                    Intent i = new Intent(getApplicationContext(), activity_admin.class);
-                    i.putExtra("username", user.getUsername());
-                    i.putExtra("key", user.getDecKey());
-                    startActivity(i);
+                        if(dataSnapshot.child(username).child("type").getValue().toString().equals("Admin"))
+                            user.type = UserType.Admin;
+
+                        user.setPassword(password);
+                        try {
+                            if (LoginController.verifyPassword(user)) {
+                                Toast.makeText(getApplicationContext(), "Login Succesful!", Toast.LENGTH_SHORT).show();
+
+                                if (user.getType() == UserType.Admin) {
+
+                                    Intent i = new Intent(getApplicationContext(), activity_admin.class);
+                                    i.putExtra("username", user.getUsername());
+                                    i.putExtra("key", user.getDecKey());
+                                    startActivity(i);
+                                } else if (user.getType() == UserType.Patient) {
+
+                                    Intent i = new Intent(getApplicationContext(), activity_patient.class);
+                                    i.putExtra("username", user.getUsername());
+                                    i.putExtra("key", user.getDecKey());
+                                    startActivity(i);
+                                } else if (user.getType() == UserType.Dentist) {
+
+                                    Intent i = new Intent(getApplicationContext(), activity_dentist.class);
+                                    i.putExtra("username", user.getUsername());
+                                    i.putExtra("key", user.getDecKey());
+                                    startActivity(i);
+                                } else {
+                                    throw new AuthException("Error: User file inaccessible");
+                                }
+
+                            } else {
+                                Toast.makeText(getApplicationContext(), "Invalid credentials", Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (Exception e) {
+                            Log.e("LoginController: ", e.getMessage());
+                        }
+                    }
+                    else
+                        Toast.makeText(getApplicationContext(), "Invalid credentials", Toast.LENGTH_SHORT).show();
                 }
 
-                else if(user.getType() == UserType.Patient){
-
-                    Intent i = new Intent(getApplicationContext(), activity_patient.class);
-                    i.putExtra("username", user.getUsername());
-                    i.putExtra("key", user.getDecKey());
-                    startActivity(i);
+                @Override
+                public void onCancelled(DatabaseError error) {
+                    // Failed to read value
+                    Log.w("onCancelled: ", "Failed to read value.", error.toException());
                 }
-
-                else if(user.getType() == UserType.Dentist){
-
-                    Intent i = new Intent(getApplicationContext(), activity_dentist.class);
-                    i.putExtra("username", user.getUsername());
-                    i.putExtra("key", user.getDecKey());
-                    startActivity(i);
-                }
-                else{
-                    throw new AuthException("Error: User file inaccessible");
-                }
-
-            }
-            else{
-                Toast.makeText(getApplicationContext(), "Invalid credentials", Toast.LENGTH_SHORT).show();
-            }
-        } catch(Exception e){
-            Log.e("LoginController: ", e.getMessage());
-        }
+            });
     }
 }
