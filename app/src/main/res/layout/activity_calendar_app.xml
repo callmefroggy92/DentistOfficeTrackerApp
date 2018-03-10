@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.froggy.dentistofficetracker.activity_dentist">
+    tools:context="com.example.froggy.dentistofficetracker.CalendarApp">
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="63dp"
-        android:layout_height="20dp"
-        android:text="@string/dentist"
-        tools:layout_editor_absoluteX="122dp"
-        tools:layout_editor_absoluteY="230dp" />
+
+    <CalendarView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/calendar1"
+
+        ></CalendarView>
+
 </android.support.constraint.ConstraintLayout>
