@@ -52,8 +52,17 @@ public class MainActivity extends AppCompatActivity {
                         user.setKey(dataSnapshot.child(username).child("key").getValue().toString());
                         user.setHash(dataSnapshot.child(username).child("hash").getValue().toString());
 
-                        if(dataSnapshot.child(username).child("type").getValue().toString().equals("Admin"))
+                        String userType = dataSnapshot.child(username).child("type").getValue().toString();
+                        if(userType.equals("Admin"))
                             user.type = UserType.Admin;
+                        else if(userType.equals("Patient"))
+                            user.type = UserType.Patient;
+                        else if(userType.equals("Dentist"))
+                            user.type = UserType.Dentist;
+                        else {
+                            Toast.makeText(getApplicationContext(), "Invalid user file!", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
 
                         user.setPassword(password);
                         try {

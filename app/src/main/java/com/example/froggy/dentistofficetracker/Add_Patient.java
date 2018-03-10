@@ -23,6 +23,12 @@ public class Add_Patient extends AppCompatActivity {
     EditText patientAge;
     EditText patientUsername;
     EditText patientPassword;
+    EditText patientsFathersName;
+    EditText patientsFathersTelephone;
+    EditText patientsMothersName;
+    EditText patientsMothersTelephone;
+    EditText patientsSchoolsName;
+    EditText patientsSchoolsGrade;
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference myRef;
@@ -39,64 +45,97 @@ public class Add_Patient extends AppCompatActivity {
         patientAge = findViewById(R.id.patient_age);
         patientUsername = findViewById(R.id.patient_username);
         patientPassword = findViewById(R.id.patient_password);
+        patientsFathersName = findViewById(R.id.patient_father);
+        patientsFathersTelephone = findViewById(R.id.patients_fathers_telephone);
+        patientsMothersName = findViewById(R.id.patients_mother);
+        patientsMothersTelephone = findViewById(R.id.patients_mothers_telephone);
+        patientsSchoolsName = findViewById(R.id.patient_school);
+        patientsSchoolsGrade = findViewById(R.id.patient_grade);
 
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void onSubmit(View view){
-        Patient p = new Patient();
+        if(!patientName.getText().toString().isEmpty() && !patientAddress.getText().toString().isEmpty() && !patientNumber.getText().toString().isEmpty()
+                && !patientEmail.getText().toString().isEmpty() && !patientAge.getText().toString().isEmpty() && !patientUsername.getText().toString().isEmpty()
+                && !patientPassword.getText().toString().isEmpty()) {
+            Patient p = new Patient();
 
-        p.setAddress(patientAddress.getText().toString());
-        p.setName(patientName.getText().toString());
-        p.setTelephone(patientNumber.getText().toString());
-        p.setAge(Integer.valueOf(patientAge.getText().toString()));
-        p.setUsername(patientUsername.getText().toString());
-        p.setPassword(patientPassword.getText().toString());
+            p.setAddress(patientAddress.getText().toString());
+            p.setName(patientName.getText().toString());
+            p.setTelephone(patientNumber.getText().toString());
+            p.setAge(Integer.valueOf(patientAge.getText().toString()));
+            p.setUsername(patientUsername.getText().toString());
+            p.setPassword(patientPassword.getText().toString());
+            p.setFathersName(patientsFathersName.getText().toString());
+            p.setFathersTelephone(patientsFathersTelephone.getText().toString());
+            p.setMothersName(patientsMothersName.getText().toString());
+            p.setMothersTelephone(patientsMothersTelephone.getText().toString());
+            p.setNameOfSchool(patientsSchoolsName.getText().toString());
+            p.setGradeInSchool(patientsSchoolsGrade.getText().toString());
+            p.setEmail(patientEmail.getText().toString());
 
-        try {
-            LoginController.hashUserPassword(p);
-        } catch(Exception e){
-            Log.e("HashPassword: ", e.getMessage());
+            try {
+                LoginController.hashUserPassword(p);
+            } catch (Exception e) {
+                Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            firebaseDatabase = FirebaseDatabase.getInstance();
+
+            Log.w("create", "started");
+            myRef = firebaseDatabase.getReference().child(patientUsername.getText().toString());
+            Log.w("Create", "done");
+
+            final Patient u = p;
+
+            myRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    myRef.child("username").push();
+                    myRef.child("username").setValue(u.getUsername());
+                    myRef.child("hash").push();
+                    myRef.child("hash").setValue(u.getHash());
+                    myRef.child("address").push();
+                    myRef.child("address").setValue(u.getAddress());
+                    myRef.child("telephone").push();
+                    myRef.child("telephone").setValue(u.getTelephone());
+                    myRef.child("age").push();
+                    myRef.child("age").setValue(u.getAge());
+                    myRef.child("key").push();
+                    myRef.child("key").setValue(u.getKey());
+                    myRef.child("name").push();
+                    myRef.child("name").setValue(u.getName());
+                    myRef.child("father_name").push();
+                    myRef.child("father_name").setValue(u.getFathersName());
+                    myRef.child("father_telephone").push();
+                    myRef.child("father_telephone").setValue(u.getFathersTelephone());
+                    myRef.child("mother_name").push();
+                    myRef.child("mother_name").setValue(u.getMothersName());
+                    myRef.child("mother_telephone").push();
+                    myRef.child("mother_telephone").setValue(u.getMothersTelephone());
+                    myRef.child("school_name").push();
+                    myRef.child("school_name").setValue(u.getNameOfSchool());
+                    myRef.child("school_grade").push();
+                    myRef.child("school_grade").setValue(u.getGradeInSchool());
+                    myRef.child("email").push();
+                    myRef.child("email").setValue(u.getEmail());
+                    myRef.child("salt").push();
+                    myRef.child("salt").setValue(u.getSalt());
+                    myRef.child("type").push();
+                    myRef.child("type").setValue(UserType.Patient);
+                    Toast.makeText(getApplicationContext(), "Patient succesfuly added!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
         }
-
-
-        firebaseDatabase = FirebaseDatabase.getInstance();
-
-        Log.w("create", "started");
-        myRef = firebaseDatabase.getReference().child(patientUsername.getText().toString());
-        Log.w("Create", "done");
-
-        final Patient u = p;
-
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                myRef.child("username").push();
-                myRef.child("username").setValue(u.getUsername());
-                myRef.child("hash").push();
-                myRef.child("hash").setValue(u.getHash());
-                myRef.child("address").push();
-                myRef.child("address").setValue(u.getAddress());
-                myRef.child("telephone").push();
-                myRef.child("telephone").setValue(u.getTelephone());
-                myRef.child("age").push();
-                myRef.child("age").setValue(u.getAge());
-                myRef.child("key").push();
-                myRef.child("key").setValue(u.getKey());
-                myRef.child("name").push();
-                myRef.child("name").setValue(u.getName());
-                myRef.child("salt").push();
-                myRef.child("salt").setValue(u.getSalt());
-                myRef.child("type").push();
-                myRef.child("type").setValue(UserType.Patient);
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
+        else
+            Toast.makeText(getApplicationContext(), "Please fill in all fields!", Toast.LENGTH_SHORT).show();
     }
 }

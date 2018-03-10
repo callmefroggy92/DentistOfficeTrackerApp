@@ -7,103 +7,172 @@
     tools:context="com.example.froggy.dentistofficetracker.Add_Patient"
     tools:layout_editor_absoluteY="81dp">
 
-    <EditText
-        android:id="@+id/patient_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="14dp"
-        android:layout_marginTop="30dp"
-        android:ems="10"
-        android:hint="Name"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/patient_address"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/patient_address"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="14dp"
-        android:ems="10"
-        android:hint="Addresss"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/patient_number"
-        app:layout_constraintStart_toStartOf="@+id/patient_name"
-        app:layout_constraintTop_toBottomOf="@+id/patient_name" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
-    <EditText
-        android:id="@+id/patient_email"
-        android:layout_width="211dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="12dp"
-        android:ems="10"
-        android:hint="Email Address"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/patient_age"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/patient_number" />
+            <EditText
+                android:id="@+id/patient_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                android:layout_marginTop="30dp"
+                android:ems="10"
+                android:hint="Name"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toTopOf="@+id/patient_address"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/patient_number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:ems="10"
-        android:hint="Phone Number"
-        android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/patient_email"
-        app:layout_constraintStart_toStartOf="@+id/patient_address"
-        app:layout_constraintTop_toBottomOf="@+id/patient_address" />
+            <EditText
+                android:id="@+id/patient_age"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="11dp"
+                android:ems="10"
+                android:hint="Age"
+                android:inputType="number"
+                app:layout_constraintBottom_toTopOf="@+id/patient_username"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/patient_email" />
 
-    <EditText
-        android:id="@+id/patient_age"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="11dp"
-        android:ems="10"
-        android:hint="Age"
-        android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/patient_username"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/patient_email" />
+            <EditText
+                android:id="@+id/patient_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:ems="10"
+                android:hint="Phone Number"
+                android:inputType="number"
+                app:layout_constraintBottom_toTopOf="@+id/patient_email"
+                app:layout_constraintStart_toStartOf="@+id/patient_address"
+                app:layout_constraintTop_toBottomOf="@+id/patient_address" />
 
-    <Button
-        android:id="@+id/submit_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:onClick="onSubmit"
-        android:text="Submit"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/patient_password" />
+            <EditText
+                android:id="@+id/patient_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                android:ems="10"
+                android:hint="Addresss"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toTopOf="@+id/patient_number"
+                app:layout_constraintStart_toStartOf="@+id/patient_name"
+                app:layout_constraintTop_toBottomOf="@+id/patient_name" />
 
-    <EditText
-        android:id="@+id/patient_username"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginBottom="21dp"
-        android:ems="10"
-        android:hint="Username"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/patient_password"
-        app:layout_constraintStart_toStartOf="@+id/patient_age"
-        app:layout_constraintTop_toBottomOf="@+id/patient_age" />
+            <EditText
+                android:id="@+id/patient_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:ems="10"
+                android:hint="Email Address"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toTopOf="@+id/patient_age"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/patient_number" />
 
-    <EditText
-        android:id="@+id/patient_password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="13dp"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/submit_button"
-        app:layout_constraintStart_toStartOf="@+id/patient_username"
-        app:layout_constraintTop_toBottomOf="@+id/patient_username" />
+            <EditText
+                android:id="@+id/patients_birth_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Birth Date"
+                android:inputType="date" />
+
+            <EditText
+                android:id="@+id/patient_school"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Name of School"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/patient_grade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Grade in School"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/patient_father"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Father's Name"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/patients_fathers_telephone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Father's Phone Number"
+                android:inputType="phone" />
+
+            <EditText
+                android:id="@+id/patients_mother"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Mother's Name"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/patients_mothers_telephone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Mother's Phone Number"
+                android:inputType="phone" />
+
+            <EditText
+                android:id="@+id/patient_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="21dp"
+                android:ems="10"
+                android:hint="Username"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toTopOf="@+id/patient_password"
+                app:layout_constraintStart_toStartOf="@+id/patient_age"
+                app:layout_constraintTop_toBottomOf="@+id/patient_age" />
+
+            <EditText
+                android:id="@+id/patient_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="13dp"
+                android:ems="10"
+                android:hint="Password"
+                android:inputType="textPassword"
+                app:layout_constraintBottom_toTopOf="@+id/submit_button"
+                app:layout_constraintStart_toStartOf="@+id/patient_username"
+                app:layout_constraintTop_toBottomOf="@+id/patient_username" />
+
+            <Button
+                android:id="@+id/submit_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:onClick="onSubmit"
+                android:text="Submit"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/patient_password" />
+
+        </LinearLayout>
+    </ScrollView>
+
 </android.support.constraint.ConstraintLayout>

@@ -42,4 +42,13 @@ public class activity_admin extends AppCompatActivity {
         Intent i = new Intent(getApplicationContext(), Add_Patient.class);
         startActivity(i);
     }
+
+    public void onViewCalendar(View view){
+
+    }
+
+    public void onViewPatient(View view){
+        Intent i = new Intent(getApplicationContext(), Search_Patient.class);
+        startActivity(i);
+    }
 }

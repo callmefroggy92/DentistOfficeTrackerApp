@@ -9,13 +9,10 @@ package com.example.froggy.dentistofficetracker; /******************************
  *  uses that key to encrypt and decrypt strings.
  ******************************************/
 
-import android.os.Build;
-import android.support.annotation.RequiresApi;
-
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 import java.security.Key;
-import java.util.Base64;
+import android.util.Base64;
 import java.util.Random;
 
 public class EncryptionMachine {
@@ -39,7 +36,6 @@ public class EncryptionMachine {
     }
 
     // Takes string as argument and returns encrypted string
-    @RequiresApi(api = Build.VERSION_CODES.O)
     public String encrypt(String str) throws Exception{
 
         if(str == null)
@@ -51,7 +47,7 @@ public class EncryptionMachine {
 
             byte[] enc = cipher.doFinal(str.getBytes("UTF8"));
             System.out.println(enc);
-            return Base64.getEncoder().encodeToString(enc);
+            return Base64.encodeToString(enc, Base64.DEFAULT);
 
 
         } catch(Exception e){
@@ -62,7 +58,6 @@ public class EncryptionMachine {
     }
 
     // Takes encrypted string as argument and returns decrypted string
-    @RequiresApi(api = Build.VERSION_CODES.O)
     public String decrypt(String str) throws Exception{
 
         if(str == null)
@@ -70,7 +65,7 @@ public class EncryptionMachine {
 
         try{
             cipher.init(Cipher.DECRYPT_MODE, this.keySpec);
-            byte[] dec = Base64.getDecoder().decode(str);
+            byte[] dec = Base64.decode(str, Base64.DEFAULT);
             dec = cipher.doFinal(dec);
             return new String(dec, "UTF8");
 

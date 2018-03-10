@@ -19,6 +19,13 @@ public class Patient extends User {
     private Gender gender;
     private Vector<String> notes;
     private String data;
+    private String email;
+    private String fathersName;
+    private String fathersTelephone;
+    private String mothersName;
+    private String mothersTelephone;
+    private String gradeInSchool;
+    private String nameOfSchool;
 
     //////////////////////////////////////////////////////////////////
     // Getters and setters for each member variable
@@ -82,6 +89,62 @@ public class Patient extends User {
         }catch(Exception e){
             // This should be added to the log
         }
+    }
+
+    public String getMothersTelephone() {
+        return mothersTelephone;
+    }
+
+    public void setMothersTelephone(String mothersTelephone) {
+        this.mothersTelephone = mothersTelephone;
+    }
+
+    public String getMothersName() {
+        return mothersName;
+    }
+
+    public void setMothersName(String mothersName) {
+        this.mothersName = mothersName;
+    }
+
+    public String getFathersTelephone() {
+        return fathersTelephone;
+    }
+
+    public void setFathersTelephone(String fathersTelephone) {
+        this.fathersTelephone = fathersTelephone;
+    }
+
+    public String getFathersName() {
+        return fathersName;
+    }
+
+    public void setFathersName(String fathersName) {
+        this.fathersName = fathersName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getGradeInSchool() {
+        return gradeInSchool;
+    }
+
+    public void setGradeInSchool(String gradeInSchool) {
+        this.gradeInSchool = gradeInSchool;
+    }
+
+    public String getNameOfSchool() {
+        return nameOfSchool;
+    }
+
+    public void setNameOfSchool(String nameOfSchool) {
+        this.nameOfSchool = nameOfSchool;
     }
 
     /////////////////////////////////////////////////////////////////

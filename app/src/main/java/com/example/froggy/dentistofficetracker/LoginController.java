@@ -17,7 +17,7 @@ import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.SecretKeyFactory;
 
 import java.util.Arrays;
-import java.util.Base64;
+import android.util.Base64;
 
 /**
  * The NSALoginController class handles password hashing and verification
@@ -109,7 +109,6 @@ public final class LoginController {
      * @param user The user whose password needs to be hashed.
      * @exception Exception If there is a problem with the chosen hash function.
      */
-    @RequiresApi(api = Build.VERSION_CODES.O)
     public static void hashUserPassword(User user) throws Exception {
 
         // Get the next random salt value to use for this password
@@ -131,8 +130,8 @@ public final class LoginController {
             // For more information on Base64 encoding, see:
             // http://stackoverflow.com/questions/201479/what-is-base-64-encoding-used-for
             // https://en.wikipedia.org/wiki/Base64
-            String hashString = Base64.getEncoder().encodeToString(hash);
-            String saltString = Base64.getEncoder().encodeToString(salt);
+            String hashString = Base64.encodeToString(hash, Base64.DEFAULT);
+            String saltString = Base64.encodeToString(salt, Base64.DEFAULT);
 
             user.setHash(hashString);
             user.setSalt(saltString);
@@ -152,7 +151,6 @@ public final class LoginController {
      * @exception Exception If there is a problem with the chosen hash function.
      */
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     private static void createKey(User user) {
         try {
             // Needs to create a random string then encrypt it using the
@@ -174,16 +172,15 @@ public final class LoginController {
             e.printStackTrace();
         }
     }
-    @RequiresApi(api = Build.VERSION_CODES.O)
     public static Boolean verifyPassword(User user) throws Exception {
 
         // Have to get the raw data values to use on our hash function
         char[] password = user.getPassword().toCharArray();
-        byte[] salt = Base64.getDecoder().decode(user.getSalt());
+        byte[] salt = Base64.decode(user.getSalt(), Base64.DEFAULT);
 
         // Generate the new hash, and retrieve the user's hash
         byte[] expectedHash = getHash(password, salt);
-        byte[] userHash = Base64.getDecoder().decode(user.getHash());
+        byte[] userHash = Base64.decode(user.getHash(), Base64.DEFAULT);
 
         // If the new hash came out as null, or the lengths don't match,
         // we know that the original password is different
@@ -209,7 +206,6 @@ public final class LoginController {
         return true;
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     private static void restoreKey(User user){
         try{
             // This will decrypt the key using the user's password
