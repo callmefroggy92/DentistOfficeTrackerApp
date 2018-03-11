@@ -15,13 +15,13 @@ public class View_Patient_Info extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view__patient__info);
 
+        // Retrieves the patient info and creates a patient object
         extras = getIntent().getExtras();
-
         Gson gson = new Gson();
-
         p = gson.fromJson(extras.getString("patient"), Patient.class);
 
         {
+            // Displays all patient info by populating TextViews
             TextView patient_name = findViewById(R.id.view_patient_name);
             patient_name.setText("Patient name" + p.getName());
             TextView patient_address = findViewById(R.id.view_patient_address);

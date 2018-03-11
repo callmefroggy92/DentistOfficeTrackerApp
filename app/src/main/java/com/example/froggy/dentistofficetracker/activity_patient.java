@@ -1,8 +1,10 @@
 package com.example.froggy.dentistofficetracker;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 
 import com.google.gson.Gson;
 
@@ -16,23 +18,18 @@ import java.io.InputStreamReader;
 
 public class activity_patient extends AppCompatActivity {
 
-    Patient patient;
+    private String username;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient);
 
-        patient = new Patient();
+        username = getIntent().getExtras().getString("username");
+    }
 
-        try {
-            Gson gson = new Gson();
-            InputStream is = getAssets().open(getIntent().getExtras().getString("username") + ".txt");
-            BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-
-            patient = gson.fromJson(reader, Patient.class);
-        } catch(Exception e){
-            Log.e("patient_activity", e.getMessage());
-        }
-
+    public void onViewBalance(View view){
+        Intent i = new Intent(getApplicationContext(), View_Balance.class);
+        i.putExtra("username", username);
+        startActivity(i);
     }
 }

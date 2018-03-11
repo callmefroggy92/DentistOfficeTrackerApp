@@ -29,6 +29,7 @@ public class Add_Patient extends AppCompatActivity {
     EditText patientsMothersTelephone;
     EditText patientsSchoolsName;
     EditText patientsSchoolsGrade;
+    EditText patientsBirthday;
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference myRef;
@@ -38,6 +39,7 @@ public class Add_Patient extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add__patient);
 
+        // Text fields for all values. . .
         patientName = findViewById(R.id.patient_name);
         patientAddress = findViewById(R.id.patient_address);
         patientNumber = findViewById(R.id.patient_number);
@@ -51,14 +53,19 @@ public class Add_Patient extends AppCompatActivity {
         patientsMothersTelephone = findViewById(R.id.patients_mothers_telephone);
         patientsSchoolsName = findViewById(R.id.patient_school);
         patientsSchoolsGrade = findViewById(R.id.patient_grade);
+        patientsBirthday = findViewById(R.id.patients_birth_date);
 
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void onSubmit(View view){
+
+        // Verify textfields have been populated
         if(!patientName.getText().toString().isEmpty() && !patientAddress.getText().toString().isEmpty() && !patientNumber.getText().toString().isEmpty()
                 && !patientEmail.getText().toString().isEmpty() && !patientAge.getText().toString().isEmpty() && !patientUsername.getText().toString().isEmpty()
                 && !patientPassword.getText().toString().isEmpty()) {
+
+            // Creates and fills patient object
             Patient p = new Patient();
 
             p.setAddress(patientAddress.getText().toString());
@@ -76,23 +83,24 @@ public class Add_Patient extends AppCompatActivity {
             p.setEmail(patientEmail.getText().toString());
 
             try {
+                // Create the new user's password
                 LoginController.hashUserPassword(p);
             } catch (Exception e) {
                 Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
                 return;
             }
 
+            // Creates Firebase instance and creates a new child for the patient to be added
             firebaseDatabase = FirebaseDatabase.getInstance();
-
-            Log.w("create", "started");
             myRef = firebaseDatabase.getReference().child(patientUsername.getText().toString());
-            Log.w("Create", "done");
 
+            // Only final objects can be used in the EventListener...
             final Patient u = p;
 
             myRef.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
+                    // Adds all values to the Firebase
                     myRef.child("username").push();
                     myRef.child("username").setValue(u.getUsername());
                     myRef.child("hash").push();
@@ -135,6 +143,7 @@ public class Add_Patient extends AppCompatActivity {
                 }
             });
         }
+        // If a field hasn't been populated. . .
         else
             Toast.makeText(getApplicationContext(), "Please fill in all fields!", Toast.LENGTH_SHORT).show();
     }

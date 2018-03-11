@@ -1,8 +1,5 @@
-package com.example.froggy.dentistofficetracker; /*******************************************
- *  EncryptionMachine class takes a key
- *  as an argument in the constructor, then
- *  uses that key to encrypt and decrypt strings.
- ******************************************/
+package com.example.froggy.dentistofficetracker;
+
 /*******************************************
  *  EncryptionMachine class takes a key
  *  as an argument in the constructor, then
@@ -49,7 +46,6 @@ public class EncryptionMachine {
             System.out.println(enc);
             return Base64.encodeToString(enc, Base64.DEFAULT);
 
-
         } catch(Exception e){
             e.printStackTrace();
         }
@@ -90,5 +86,4 @@ public class EncryptionMachine {
 
         return str;
     }
-
 }

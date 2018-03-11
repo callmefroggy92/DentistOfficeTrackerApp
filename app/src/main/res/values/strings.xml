@@ -2,4 +2,11 @@
     <string name="app_name">Dentist Office Tracker</string>
     <string name="title_activity_admin">activity_admin</string>
     <string name="title_activity_patient">activity_patient</string>
+    <string name="dentist">Dentist</string>
+    <string name="title_activity_navigation_drawer">NavigationDrawer</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
 </resources>

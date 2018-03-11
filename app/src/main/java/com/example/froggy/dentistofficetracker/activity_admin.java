@@ -18,24 +18,9 @@ import java.io.InputStreamReader;
 
 public class activity_admin extends AppCompatActivity {
 
-    Admin admin;
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
-
-        admin = new Admin();
-
-        try {
-            Gson gson = new Gson();
-            InputStream is = getAssets().open(getIntent().getExtras().getString("username") + ".txt");
-            BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-
-            admin = gson.fromJson(reader, Admin.class);
-        } catch(Exception e){
-            Log.e("onCreate admin_activity", e.getMessage());
-        }
-
     }
 
     public void onAddPatient(View view){
@@ -43,12 +28,12 @@ public class activity_admin extends AppCompatActivity {
         startActivity(i);
     }
 
-    public void onViewCalendar(View view){
-
-    }
-
     public void onViewPatient(View view){
         Intent i = new Intent(getApplicationContext(), Search_Patient.class);
         startActivity(i);
+    }
+
+    public void onViewBalance(View view){
+
     }
 }
