@@ -9,4 +9,149 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+
+    //////////////////////////////////////////////
+    //////////////////////////////////////////////
+    //////////////////////////////////////////////
+    //////////////////////////////////////////////
+
+    // Isaac Odontograma
+    <string name="piece">Piece</string>
+    <string name="face">Face</string>
+    <string name="diagnostic">Diagnostic</string>
+    <string name="procedures">Procedures</string>
+    <string name="todo">TODO</string>
+    <string name="save">Save</string>
+    <string name="load">Load</string>
+
+
+    <string-array name="pieceList">
+        // Adults Teeth
+        <item>Face</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>31</item>
+        <item>32</item>
+        <item>33</item>
+        <item>34</item>
+        <item>35</item>
+        <item>36</item>
+        <item>37</item>
+        <item>38</item>
+        <item>41</item>
+        <item>42</item>
+        <item>43</item>
+        <item>44</item>
+        <item>45</item>
+        <item>46</item>
+        <item>47</item>
+        <item>48</item>
+
+        //Kids Teeth
+        <item>51</item>
+        <item>52</item>
+        <item>53</item>
+        <item>54</item>
+        <item>55</item>
+        <item>61</item>
+        <item>62</item>
+        <item>63</item>
+        <item>64</item>
+        <item>65</item>
+        <item>71</item>
+        <item>72</item>
+        <item>73</item>
+        <item>74</item>
+        <item>75</item>
+        <item>81</item>
+        <item>82</item>
+        <item>83</item>
+        <item>84</item>
+        <item>85</item>
+
+
+    </string-array>
+
+
+    <string-array name="faceList">
+        <item>face</item>
+        <item>Buccal</item>
+        <item>Mesial</item>
+        <item>Occlusal</item>
+        <item>Lingual</item>
+        <item>Distal</item>
+    </string-array>
+
+
+    <string-array name="diagList">
+        <item>diag</item>
+        <item>D1</item>
+        <item>D2</item>
+        <item>D3</item>
+        <item>RR</item>
+
+        <item>Gingivitis</item>
+        <item>Periodontitis</item>
+        <item>Tooth Mobility Grade 1</item>
+        <item>Tooth Mobility Grade 2</item>
+        <item>Tooth Mobility Grade 3</item>
+        <item>Dental Fracture</item>
+        <item>Tooth Wear</item>
+        <item>Abscess</item>
+        <item>Supernumerary Teeth</item>
+        <item>Periodontal Probe Depth</item>
+
+        <item>Enamel Hypoplasia</item>
+        <item>Fused Tooth</item>
+        <item>Tooth Gemination</item>
+        <item>Dental Fluorosis</item>
+        <item>Ectopic Eruption</item>
+        <item>Retained Teeth</item>
+        <item>Impacted Tooth</item>
+        <item>Rotation of Teeth</item>
+
+        <item>37</item>
+        <item>Unerupted Tooth</item>
+
+
+    </string-array>
+
+
+    <string-array name="procList">
+        <item>proc</item>
+        <item>incrustation</item>
+        <item>Root Canal Obturation</item>
+        <item>Provisional Obturation</item>
+        <item>Total Crown Prosthesis</item>
+        <item>Three-Quarter Crown</item>
+        <item>Absent</item>
+        <item>Endodoncy</item>
+        <item>Endopost </item>
+        <item>Removable Partial Denture</item>
+        <item>Fixed Prosthodontics</item>
+        <item>Total Dental Prosthesis</item>
+        <item>Dental Implants</item>
+    </string-array>
+    ////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////
+    //////////////////////////////////////////////
+    //////////////////////////////////////////////
+    //////////////////////////////////////////////
+
+
 </resources>
