@@ -92,17 +92,22 @@ public class MainActivity extends AppCompatActivity {
 
                             // Sends the user to different activity depending on the usertype
                             if (user.getType() == UserType.Admin) {
-                                Intent i = new Intent(getApplicationContext(), activity_admin.class);
+                                //Intent i = new Intent(getApplicationContext(), activity_admin.class);
+                                Intent i = new Intent(getApplicationContext(), NavigationDrawer.class);
                                 i.putExtra("username", user.getUsername());
                                 i.putExtra("key", user.getDecKey());
+                                //startActivity(i);
                                 startActivity(i);
                             } else if (user.getType() == UserType.Patient) {
-                                Intent i = new Intent(getApplicationContext(), activity_patient.class);
+                               // Intent i = new Intent(getApplicationContext(), activity_patient.class);
+                                Intent i = new Intent(getApplicationContext(), NavigationDrawer.class);
                                 i.putExtra("username", user.getUsername());
                                 i.putExtra("key", user.getDecKey());
+                               // startActivity(i);
                                 startActivity(i);
                             } else if (user.getType() == UserType.Dentist) {
-                                Intent i = new Intent(getApplicationContext(), activity_dentist.class);
+                                Intent i = new Intent(getApplicationContext(), NavigationDrawer.class);
+                               // Intent i = new Intent(getApplicationContext(), activity_dentist.class);
                                 i.putExtra("username", user.getUsername());
                                 i.putExtra("key", user.getDecKey());
                                 startActivity(i);
