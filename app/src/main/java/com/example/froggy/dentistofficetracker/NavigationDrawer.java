@@ -86,6 +86,9 @@ public class NavigationDrawer extends AppCompatActivity
             startActivity(intent);
         } else if (id == R.id.nav_patient_balance) {
 
+            //Handle the navigation to enter in the patient balance
+           // Intent intent = new Intent(this, View_Balance.class);
+           // startActivity(intent);
         } else if (id == R.id.nav_calendar) {
 
             //Handle the calendar

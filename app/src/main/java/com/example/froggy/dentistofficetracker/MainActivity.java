@@ -20,6 +20,8 @@ import com.google.gson.Gson;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = MainActivity.class.getSimpleName();
+
     private User user;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference myRef;
@@ -64,6 +66,9 @@ public class MainActivity extends AppCompatActivity {
                     user.setKey(dataSnapshot.child(username).child("key").getValue().toString());
                     user.setHash(dataSnapshot.child(username).child("hash").getValue().toString());
 
+                    //My first TAG
+                    Log.d(TAG, "My First TAG");
+
                     // The type determines where the user is sent after login
                     String userType = dataSnapshot.child(username).child("type").getValue().toString();
                     if (userType.equals("Admin"))
@@ -78,6 +83,11 @@ public class MainActivity extends AppCompatActivity {
                         return;
                     }
 
+                    // Get the type of the user
+                    Log.d(TAG, "name " +  user.getType());
+
+                    // Get the name of the user
+                    Log.d(TAG, "name " + user.getName());
                     user.setPassword(password);
                     try {
                         // Password verification
@@ -92,17 +102,22 @@ public class MainActivity extends AppCompatActivity {
 
                             // Sends the user to different activity depending on the usertype
                             if (user.getType() == UserType.Admin) {
-                                Intent i = new Intent(getApplicationContext(), activity_admin.class);
+                                //Intent i = new Intent(getApplicationContext(), activity_admin.class);
+                                Intent i = new Intent(getApplicationContext(), NavigationDrawer.class);
                                 i.putExtra("username", user.getUsername());
                                 i.putExtra("key", user.getDecKey());
+                                //startActivity(i);
                                 startActivity(i);
                             } else if (user.getType() == UserType.Patient) {
-                                Intent i = new Intent(getApplicationContext(), activity_patient.class);
+                               // Intent i = new Intent(getApplicationContext(), activity_patient.class);
+                                Intent i = new Intent(getApplicationContext(), NavigationDrawer.class);
                                 i.putExtra("username", user.getUsername());
                                 i.putExtra("key", user.getDecKey());
+                               // startActivity(i);
                                 startActivity(i);
                             } else if (user.getType() == UserType.Dentist) {
-                                Intent i = new Intent(getApplicationContext(), activity_dentist.class);
+                                Intent i = new Intent(getApplicationContext(), NavigationDrawer.class);
+                               // Intent i = new Intent(getApplicationContext(), activity_dentist.class);
                                 i.putExtra("username", user.getUsername());
                                 i.putExtra("key", user.getDecKey());
                                 startActivity(i);
