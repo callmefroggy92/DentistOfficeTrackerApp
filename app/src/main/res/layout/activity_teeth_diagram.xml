@@ -109,8 +109,8 @@
 
     <ImageView
         android:id="@+id/odontoGrama"
-        android:layout_width="614dp"
-        android:layout_height="258dp"
+        android:layout_width="591dp"
+        android:layout_height="243dp"
         android:layout_marginBottom="108dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
