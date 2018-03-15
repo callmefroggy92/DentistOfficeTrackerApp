@@ -428,4 +428,18 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="2dp" />
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/c48ActionButton"
+        android:layout_width="67dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="188dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="?android:attr/selectableItemBackground"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="128dp" />
+
 </android.support.constraint.ConstraintLayout>
