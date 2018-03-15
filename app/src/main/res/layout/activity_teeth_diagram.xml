@@ -401,7 +401,7 @@
         android:layout_marginLeft="3dp" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/b27ActionButton2"
+        android:id="@+id/b27ActionButton"
         android:layout_width="29dp"
         android:layout_height="29dp"
         android:layout_marginStart="3dp"
@@ -424,7 +424,7 @@
         android:focusable="true"
         android:src="?android:attr/selectableItemBackground"
         android:visibility="invisible"
-        app:layout_constraintStart_toEndOf="@+id/b27ActionButton2"
+        app:layout_constraintStart_toEndOf="@+id/b27ActionButton"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="2dp" />
 
@@ -439,6 +439,497 @@
         android:src="?android:attr/selectableItemBackground"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="126dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/c47ActionButton"
+        android:layout_width="30dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="188dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="?android:attr/selectableItemBackground"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/c48ActionButton"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="2dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/c46ActionButton"
+        android:layout_width="30dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="188dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="?android:attr/selectableItemBackground"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/c47ActionButton"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="2dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/c45ActionButton"
+        android:layout_width="30dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="188dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="?android:attr/selectableItemBackground"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/c46ActionButton"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="2dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/c44ActionButton"
+        android:layout_width="30dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="188dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="?android:attr/selectableItemBackground"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/c45ActionButton"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="2dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/c43ActionButton"
+        android:layout_width="30dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="188dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="?android:attr/selectableItemBackground"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/c44ActionButton"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="2dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/c42ActionButton"
+        android:layout_width="30dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="188dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="?android:attr/selectableItemBackground"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/c43ActionButton"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="2dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/c41ActionButton"
+        android:layout_width="30dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="188dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="?android:attr/selectableItemBackground"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/c42ActionButton"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="2dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/d38ActionButton"
+        android:layout_width="30dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="122dp"
+        android:layout_marginTop="188dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="?android:attr/selectableItemBackground"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="122dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/d37ActionButton"
+        android:layout_width="30dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginTop="188dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="?android:attr/selectableItemBackground"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/d38ActionButton"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="2dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/d36ActionButton"
+        android:layout_width="30dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginTop="188dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="?android:attr/selectableItemBackground"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/d37ActionButton"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="2dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/d35ActionButton"
+        android:layout_width="30dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginTop="188dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="?android:attr/selectableItemBackground"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/d36ActionButton"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="2dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/d34ActionButton"
+        android:layout_width="30dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginTop="188dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="?android:attr/selectableItemBackground"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/d35ActionButton"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="2dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/d33ActionButton"
+        android:layout_width="30dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginTop="188dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="?android:attr/selectableItemBackground"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/d34ActionButton"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="2dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/d32ActionButton"
+        android:layout_width="30dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginTop="188dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="?android:attr/selectableItemBackground"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/d33ActionButton"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="2dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/d31ActionButton"
+        android:layout_width="30dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginTop="188dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="?android:attr/selectableItemBackground"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/d32ActionButton"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="2dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/e55kidAButton"
+        android:layout_width="30dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="223dp"
+        android:layout_marginTop="91dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="?android:attr/selectableItemBackground"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="223dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/e54kidAButton"
+        android:layout_width="30dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="91dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="?android:attr/selectableItemBackground"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/e55kidAButton"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="2dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/e53kidAButton"
+        android:layout_width="30dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="91dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="?android:attr/selectableItemBackground"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/e54kidAButton"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="2dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/e52kidAButton"
+        android:layout_width="30dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="91dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="?android:attr/selectableItemBackground"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/e53kidAButton"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="2dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/e51kidAButton"
+        android:layout_width="30dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="91dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="?android:attr/selectableItemBackground"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/e52kidAButton"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="2dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/f14kidAButton"
+        android:layout_width="30dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="220dp"
+        android:layout_marginTop="91dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="?android:attr/selectableItemBackground"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="220dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/f15kidAButton"
+        android:layout_width="30dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginTop="91dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="?android:attr/selectableItemBackground"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/f14kidAButton"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="2dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/f16kidAButton"
+        android:layout_width="30dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginTop="91dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="?android:attr/selectableItemBackground"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/f15kidAButton"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="2dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/f17kidAButton"
+        android:layout_width="30dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginTop="91dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="?android:attr/selectableItemBackground"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/f16kidAButton"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="2dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/f18kidAButton"
+        android:layout_width="30dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginTop="91dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="?android:attr/selectableItemBackground"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/f17kidAButton"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="2dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/g85kidAButton"
+        android:layout_width="30dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="223dp"
+        android:layout_marginTop="132dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="?android:attr/selectableItemBackground"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="223dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/g84kidAButton"
+        android:layout_width="30dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="132dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="?android:attr/selectableItemBackground"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/g85kidAButton"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="2dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/g83kidAButton"
+        android:layout_width="30dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="132dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="?android:attr/selectableItemBackground"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/g84kidAButton"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="2dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/g82kidAButton"
+        android:layout_width="30dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="132dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="?android:attr/selectableItemBackground"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/g83kidAButton"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="2dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/g81kidAButton"
+        android:layout_width="30dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="132dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="?android:attr/selectableItemBackground"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/g82kidAButton"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="2dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/h75kidAButton"
+        android:layout_width="30dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="221dp"
+        android:layout_marginTop="132dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="?android:attr/selectableItemBackground"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="221dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/h74kidAButton"
+        android:layout_width="30dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginTop="132dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="?android:attr/selectableItemBackground"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/h75kidAButton"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="1dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/h73kidAButton"
+        android:layout_width="30dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginTop="132dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="?android:attr/selectableItemBackground"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/h74kidAButton"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="2dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/h72kidAButton"
+        android:layout_width="30dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginTop="132dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="?android:attr/selectableItemBackground"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/h73kidAButton"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="2dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/h72kidAButton2"
+        android:layout_width="30dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginTop="132dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="?android:attr/selectableItemBackground"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/h72kidAButton"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="2dp" />
 
 </android.support.constraint.ConstraintLayout>
