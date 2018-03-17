@@ -21,9 +21,16 @@
     <string name="face">Face</string>
     <string name="diagnostic">Diagnostic</string>
     <string name="procedures">Procedures</string>
-    <string name="todo">TODO</string>
+
     <string name="save">Save</string>
     <string name="load">Load</string>
+    <string name="history">History</string>
+    <string name="diastal">Diastal</string>
+    <string name="lingual">Lingual</string>
+    <string name="buccal">Buccal</string>
+    <string name="mesial">Mesial</string>
+    <string name="textview">TextView</string>
+
 
 
     <string-array name="pieceList">

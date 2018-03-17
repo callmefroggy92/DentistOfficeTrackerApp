@@ -1,8 +1,10 @@
 package com.example.froggy.dentistofficetracker;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
@@ -53,4 +55,14 @@ public class TeethDiagram extends Activity {// this change lets the requestWindo
         myProcSpinner.setAdapter(myProcAdapter);
 
     }
+
+    public void onClick(View v)
+    {
+        Intent i = new Intent(this,ToothInfo.class);
+        startActivity(i);
+        // Remember to use in the XML android:onClick="" and add the method to use at click
+    }
+
+
+
 }
