@@ -1,14 +1,21 @@
 package com.example.froggy.dentistofficetracker;
 
+import android.app.DatePickerDialog;
+import android.opengl.EGLExt;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.CalendarView;
 import android.widget.Toast;
+
+import java.util.Calendar;
 
 public class CalendarApp extends AppCompatActivity {
 
     CalendarView calendar;
+    private DatePickerDialog.OnDateSetListener mDateSetListerner;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,8 +29,38 @@ public class CalendarApp extends AppCompatActivity {
 
                 // Just for testing purposes.
                 Toast.makeText(getBaseContext(), "You have selected" + dayOfMonth + "/" + month + "/" + year, Toast.LENGTH_LONG).show();
+                final Calendar c = Calendar.getInstance();
+                int yearC = c.get(Calendar.YEAR);
+                int monthC = c.get(Calendar.MONTH);
+                int dayC = c.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog dialog = new DatePickerDialog(CalendarApp.this, android.R.style.Theme_Holo_Light_Dialog, mDateSetListerner, year, month, dayOfMonth);
+
+                dialog.show();
+
+
+                // Create a new instance of DatePickerDialog and return it
+
             }
         });
+
+      /*  calendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Calendar c = Calendar.getInstance();
+                int yearC = c.get(Calendar.YEAR);
+                int monthC = c.get(Calendar.MONTH);
+                int dayC = c.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog dialog = new DatePickerDialog(CalendarApp.this, android.R.style.Theme_Holo_Light_Dialog, mDateSetListerner, yearC, monthC, dayC);
+
+                dialog.show();
+
+            }
+        });*/
+
+
+
 
     }
 }
