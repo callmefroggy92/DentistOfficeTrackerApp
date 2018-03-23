@@ -214,7 +214,7 @@ public class TeethDiagram extends Activity {// this change lets the requestWindo
                 break;
         }
 
-        Toast.makeText(this, bottonVal, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "you clicked " +  bottonVal, Toast.LENGTH_LONG).show();
         Intent i = new Intent(this,ToothInfo.class);
         startActivity(i);
         // Remember to use in the XML android:onClick="" and add the method to use at click
