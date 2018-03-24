@@ -74,6 +74,8 @@ public class TeethDiagram extends Activity {// this change lets the requestWindo
 
     }
 
+
+    // onclick function used from the OnClick attribute at XML file
     public void onClick(View v)
     {
         switch(v.getId())
@@ -254,8 +256,11 @@ public class TeethDiagram extends Activity {// this change lets the requestWindo
 
         Toast.makeText(this, "you clicked " +  bottonVal, Toast.LENGTH_LONG).show();
         Intent i = new Intent(this,ToothInfo.class);
+        i.putExtra("teethNumber", bottonVal);
         startActivity(i);
         // Remember to use in the XML android:onClick="" and add the method to use at click
+
+
     }
 
 
