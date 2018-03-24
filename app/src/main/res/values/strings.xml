@@ -32,7 +32,6 @@
     <string name="textview">TextView</string>
 
 
-
     <string-array name="pieceList">
         // Adults Teeth
         <item>Face</item>

@@ -1,11 +1,4 @@
-package com.example.froggy.dentistofficetracker;/*	Note that we're not using wildcards in our import statements like:
-
-	import java.util.*
-
-	Instead, we're being explicit about the classes we use.
-	See the first answer here for a good discussion on why:
-	http://stackoverflow.com/questions/147454/why-is-using-a-wild-card-with-a-java-import-statement-bad
-*/
+package com.example.froggy.dentistofficetracker;
 
 import android.os.Build;
 import android.support.annotation.RequiresApi;
