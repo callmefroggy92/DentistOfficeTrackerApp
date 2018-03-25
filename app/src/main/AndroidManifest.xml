@@ -40,21 +40,10 @@
         </activity>
         <activity android:name=".CalendarApp" />
         <activity android:name=".View_Balance" />
-        <activity android:name=".TeethDiagram"
-
-
-
-            android:exported="true"
-
-
-
-            />
+        <activity android:name=".TeethDiagram" android:exported="true" />
         <activity android:name=".ToothInfo"></activity>
-        <activity android:name=".TeethDiagram" />
-        <activity android:name=".ToothInfo" />
         <activity android:name=".BillPatient" />
         <activity android:name=".BillPatientSearch" />
         <activity android:name=".ViewBills"></activity>
     </application>
-
 </manifest>
