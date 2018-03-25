@@ -14,6 +14,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+/**
+ * This class is designed to display and manage the different items
+ * in the navigation drawer to change between the differences interfaces
+ * in the application.
+ */
 public class NavigationDrawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
