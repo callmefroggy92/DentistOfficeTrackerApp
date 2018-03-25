@@ -7,10 +7,25 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
+/**
+ *
+ *
+ *
+ *
+ *
+ */
 public class TeethDiagram extends Activity {// this change lets the requestWindowFeature(Window.FEATURE_NO_TITLE) to work
     //public class TeethDiagram extends AppCompatActivity {
+
+
+    String bottonVal = null;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,13 +69,198 @@ public class TeethDiagram extends Activity {// this change lets the requestWindo
         myProcAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         myProcSpinner.setAdapter(myProcAdapter);
 
+
+
+
     }
 
+
+    // onclick function used from the OnClick attribute at XML file
     public void onClick(View v)
     {
+        switch(v.getId())
+        {
+            case R.id.a18ActionButton:
+            bottonVal = "18";
+            break;
+            case R.id.a17ActionButton:
+                bottonVal = "17";
+                break;
+            case R.id.a16ActionButton:
+                bottonVal = "16";
+                break;
+            case R.id.a15ActionButton:
+                bottonVal = "15";
+                break;
+            case R.id.a14ActionButton:
+                bottonVal = "14";
+                break;
+            case R.id.a13ActionButton:
+                bottonVal = "13";
+                break;
+            case R.id.a12ActionButton:
+                bottonVal = "12";
+                break;
+            case R.id.a11ActionButton:
+                bottonVal = "11";
+                break;
+
+
+            case R.id.b28ActionButton:
+                bottonVal = "28";
+                break;
+            case R.id.b27ActionButton:
+                bottonVal = "27";
+                break;
+            case R.id.b26ActionButton:
+                bottonVal = "26";
+                break;
+            case R.id.b25ActionButton:
+                bottonVal = "25";
+                break;
+            case R.id.b24ActionButton:
+                bottonVal = "24";
+                break;
+            case R.id.b23ActionButton:
+                bottonVal = "23";
+                break;
+            case R.id.b22ActionButton:
+                bottonVal = "22";
+                break;
+            case R.id.b21ActionButton:
+                bottonVal = "21";
+                break;
+
+
+            case R.id.d38ActionButton:
+                bottonVal = "38";
+                break;
+            case R.id.d37ActionButton:
+                bottonVal = "37";
+                break;
+            case R.id.d36ActionButton:
+                bottonVal = "36";
+                break;
+            case R.id.d35ActionButton:
+                bottonVal = "35";
+                break;
+            case R.id.d34ActionButton:
+                bottonVal = "34";
+                break;
+            case R.id.d33ActionButton:
+                bottonVal = "33";
+                break;
+            case R.id.d32ActionButton:
+                bottonVal = "32";
+                break;
+            case R.id.d31ActionButton:
+                bottonVal = "31";
+                break;
+
+
+            case R.id.c48ActionButton:
+                bottonVal = "48";
+                break;
+            case R.id.c47ActionButton:
+                bottonVal = "47";
+                break;
+            case R.id.c46ActionButton:
+                bottonVal = "46";
+                break;
+            case R.id.c45ActionButton:
+                bottonVal = "45";
+                break;
+            case R.id.c44ActionButton:
+                bottonVal = "44";
+                break;
+            case R.id.c43ActionButton:
+                bottonVal = "43";
+                break;
+            case R.id.c42ActionButton:
+                bottonVal = "42";
+                break;
+            case R.id.c41ActionButton:
+                bottonVal = "41";
+                break;
+
+
+            case R.id.e55kidAButton:
+                bottonVal = "55";
+                break;
+            case R.id.e54kidAButton:
+                bottonVal = "54";
+                break;
+            case R.id.e53kidAButton:
+                bottonVal = "53";
+                break;
+            case R.id.e52kidAButton:
+                bottonVal = "52";
+                break;
+            case R.id.e51kidAButton:
+                bottonVal = "51";
+                break;
+
+
+            case R.id.f65kidAButton:
+                bottonVal = "65";
+                break;
+            case R.id.f64kidAButton:
+                bottonVal = "64";
+                break;
+            case R.id.f63kidAButton:
+                bottonVal = "63";
+                break;
+            case R.id.f62kidAButton:
+                bottonVal = "62";
+                break;
+            case R.id.f61kidAButton:
+                bottonVal = "61";
+                break;
+
+
+            case R.id.h75kidAButton:
+                bottonVal = "75";
+                break;
+            case R.id.h74kidAButton:
+                bottonVal = "74";
+                break;
+            case R.id.h73kidAButton:
+                bottonVal = "73";
+                break;
+            case R.id.h72kidAButton:
+                bottonVal = "72";
+                break;
+            case R.id.h71kidAButton:
+                bottonVal = "71";
+                break;
+
+            case R.id.g85kidAButton:
+                bottonVal = "85";
+                break;
+            case R.id.g84kidAButton:
+                bottonVal = "84";
+                break;
+            case R.id.g83kidAButton:
+                bottonVal = "83";
+                break;
+            case R.id.g82kidAButton:
+                bottonVal = "82";
+                break;
+            case R.id.g81kidAButton:
+                bottonVal = "81";
+                break;
+
+            default:
+                break;
+        }
+
+        Toast.makeText(this, "you clicked " +  bottonVal, Toast.LENGTH_LONG).show();
         Intent i = new Intent(this,ToothInfo.class);
+        i.putExtra("teethNumber", bottonVal);
         startActivity(i);
         // Remember to use in the XML android:onClick="" and add the method to use at click
+
+
     }
 
 

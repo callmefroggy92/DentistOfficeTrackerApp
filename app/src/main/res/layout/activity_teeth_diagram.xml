@@ -13,40 +13,43 @@
 
         android:layout_width="135dp"
         android:layout_height="22dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="40dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:spinnerMode="dialog"
         app:layout_constraintBottom_toBottomOf="@+id/spinnerFaceList"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.161"
+        app:layout_constraintHorizontal_bias="0.158"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="36dp"
-        android:layout_height="20dp"
+        android:layout_width="76dp"
+        android:layout_height="22dp"
         android:layout_marginBottom="68dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:text="@string/piece"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.103"
+        app:layout_constraintHorizontal_bias="0.105"
         app:layout_constraintStart_toStartOf="parent"
         tools:text="Piece" />
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="43dp"
-        android:layout_height="17dp"
+        android:layout_width="63dp"
+        android:layout_height="22dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="20dp"
         android:text="@string/face"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.104"
+        app:layout_constraintHorizontal_bias="0.103"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:layout_constraintVertical_bias="0.0"
@@ -56,21 +59,23 @@
         android:id="@+id/spinnerFaceList"
         android:layout_width="134dp"
         android:layout_height="20dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="4dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:spinnerMode="dialog"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.16"
+        app:layout_constraintHorizontal_bias="0.145"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Spinner
         android:id="@+id/spinnerDiagList"
         android:layout_width="227dp"
         android:layout_height="26dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginBottom="44dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:spinnerMode="dialog"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.577"
@@ -79,32 +84,34 @@
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
-        android:layout_height="17dp"
-        android:layout_marginBottom="60dp"
+        android:layout_height="23dp"
+        android:layout_marginBottom="68dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:text="@string/diagnostic"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.399"
+        app:layout_constraintHorizontal_bias="0.41"
         app:layout_constraintStart_toStartOf="parent"
         tools:text="Diagnostic" />
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="70dp"
-        android:layout_height="24dp"
+        android:layout_width="110dp"
+        android:layout_height="23dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/procedures"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.402"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.68"
+        app:layout_constraintVertical_bias="0.4"
         tools:text="Procedures" />
 
     <Spinner
@@ -114,6 +121,7 @@
         android:layout_marginBottom="4dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:spinnerMode="dialog"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.561"
@@ -170,9 +178,7 @@
         app:layout_constraintHorizontal_bias="0.032"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.498"
-        android:layout_marginRight="8dp"
-        android:layout_marginLeft="5dp" />
+        app:layout_constraintVertical_bias="0.498" />
 
     <TextView
         android:id="@+id/textView"
@@ -219,13 +225,16 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:text="18"
+
+        android:tint="@android:color/transparent"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toStartOf="@+id/a17ActionButton"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginRight="2dp"
-        android:layout_marginLeft="16dp" />
+        app:rippleColor="@android:color/transparent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/a17ActionButton"
@@ -237,10 +246,11 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:text="17"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toStartOf="@+id/a16ActionButton"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginRight="2dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/a16ActionButton"
@@ -252,10 +262,10 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toStartOf="@+id/a15ActionButton"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginRight="2dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/a15ActionButton"
@@ -267,10 +277,10 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toStartOf="@+id/a14ActionButton"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginRight="2dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/a14ActionButton"
@@ -282,10 +292,10 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toStartOf="@+id/a13ActionButton"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginRight="2dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/a13ActionButton"
@@ -297,7 +307,8 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toStartOf="@+id/a12ActionButton"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginRight="2dp" />
@@ -312,7 +323,8 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toStartOf="@+id/a11ActionButton"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginRight="2dp" />
@@ -327,7 +339,8 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginRight="396dp" />
@@ -342,7 +355,8 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="399dp" />
@@ -357,7 +371,8 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toEndOf="@+id/b21ActionButton"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="2dp" />
@@ -372,7 +387,8 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toEndOf="@+id/b22ActionButton"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="3dp" />
@@ -387,7 +403,8 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toEndOf="@+id/b23ActionButton"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="3dp" />
@@ -402,7 +419,8 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toEndOf="@+id/b24ActionButton"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="2dp" />
@@ -417,7 +435,8 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toEndOf="@+id/b25ActionButton"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="3dp" />
@@ -432,7 +451,8 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toEndOf="@+id/b26ActionButton"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="3dp" />
@@ -447,7 +467,8 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toEndOf="@+id/b27ActionButton"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="2dp" />
@@ -462,7 +483,8 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="126dp" />
@@ -477,7 +499,8 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toEndOf="@+id/c48ActionButton"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="2dp" />
@@ -492,7 +515,8 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toEndOf="@+id/c47ActionButton"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="2dp" />
@@ -507,7 +531,8 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toEndOf="@+id/c46ActionButton"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="2dp" />
@@ -522,7 +547,8 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toEndOf="@+id/c45ActionButton"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="2dp" />
@@ -537,7 +563,8 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toEndOf="@+id/c44ActionButton"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="2dp" />
@@ -552,7 +579,8 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toEndOf="@+id/c43ActionButton"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="2dp" />
@@ -567,7 +595,8 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toEndOf="@+id/c42ActionButton"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="2dp" />
@@ -582,7 +611,8 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginRight="122dp" />
@@ -597,7 +627,8 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toStartOf="@+id/d38ActionButton"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginRight="2dp" />
@@ -612,7 +643,8 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toStartOf="@+id/d37ActionButton"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginRight="2dp" />
@@ -627,7 +659,8 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toStartOf="@+id/d36ActionButton"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginRight="2dp" />
@@ -642,7 +675,8 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toStartOf="@+id/d35ActionButton"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginRight="2dp" />
@@ -657,7 +691,8 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toStartOf="@+id/d34ActionButton"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginRight="2dp" />
@@ -672,7 +707,8 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toStartOf="@+id/d33ActionButton"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginRight="2dp" />
@@ -687,7 +723,8 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toStartOf="@+id/d32ActionButton"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginRight="2dp" />
@@ -702,7 +739,8 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="223dp" />
@@ -717,7 +755,8 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toEndOf="@+id/e55kidAButton"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="2dp" />
@@ -732,7 +771,8 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toEndOf="@+id/e54kidAButton"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="2dp" />
@@ -747,7 +787,8 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toEndOf="@+id/e53kidAButton"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="2dp" />
@@ -762,13 +803,14 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toEndOf="@+id/e52kidAButton"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="2dp" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/f14kidAButton"
+        android:id="@+id/f65kidAButton"
         android:layout_width="30dp"
         android:layout_height="31dp"
         android:layout_marginEnd="220dp"
@@ -777,13 +819,14 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginRight="220dp" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/f15kidAButton"
+        android:id="@+id/f64kidAButton"
         android:layout_width="30dp"
         android:layout_height="31dp"
         android:layout_marginEnd="2dp"
@@ -792,13 +835,14 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toStartOf="@+id/f14kidAButton"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
+        app:layout_constraintEnd_toStartOf="@+id/f65kidAButton"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginRight="2dp" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/f16kidAButton"
+        android:id="@+id/f63kidAButton"
         android:layout_width="30dp"
         android:layout_height="31dp"
         android:layout_marginEnd="2dp"
@@ -807,13 +851,31 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toStartOf="@+id/f15kidAButton"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
+        app:layout_constraintEnd_toStartOf="@+id/f64kidAButton"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="2dp"
+        android:text="63"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/f62kidAButton"
+        android:layout_width="30dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginTop="91dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="onClick"
+        android:src="?android:attr/selectableItemBackground"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
+        app:layout_constraintEnd_toStartOf="@+id/f63kidAButton"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginRight="2dp" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/f17kidAButton"
+        android:id="@+id/f61kidAButton"
         android:layout_width="30dp"
         android:layout_height="31dp"
         android:layout_marginEnd="2dp"
@@ -822,23 +884,9 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toStartOf="@+id/f16kidAButton"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginRight="2dp" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/f18kidAButton"
-        android:layout_width="30dp"
-        android:layout_height="31dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginTop="91dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:onClick="onClick"
-        android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toStartOf="@+id/f17kidAButton"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
+        app:layout_constraintEnd_toStartOf="@+id/f62kidAButton"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginRight="2dp" />
 
@@ -852,7 +900,8 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="223dp" />
@@ -867,7 +916,8 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toEndOf="@+id/g85kidAButton"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="2dp" />
@@ -882,7 +932,8 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toEndOf="@+id/g84kidAButton"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="2dp" />
@@ -897,7 +948,8 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toEndOf="@+id/g83kidAButton"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="2dp" />
@@ -912,7 +964,8 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toEndOf="@+id/g82kidAButton"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="2dp" />
@@ -927,7 +980,8 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginRight="221dp" />
@@ -942,7 +996,8 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toStartOf="@+id/h75kidAButton"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginRight="1dp" />
@@ -957,7 +1012,8 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toStartOf="@+id/h74kidAButton"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginRight="2dp" />
@@ -972,13 +1028,14 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toStartOf="@+id/h73kidAButton"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginRight="2dp" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/h72kidAButton2"
+        android:id="@+id/h71kidAButton"
         android:layout_width="30dp"
         android:layout_height="31dp"
         android:layout_marginEnd="2dp"
@@ -987,7 +1044,8 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toStartOf="@+id/h72kidAButton"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginRight="2dp" />
