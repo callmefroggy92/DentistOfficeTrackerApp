@@ -153,6 +153,9 @@
         <item>Total Dental Prosthesis</item>
         <item>Dental Implants</item>
     </string-array>
+    <string name="title_activity_todo_list">TodoList</string>
+    <string name="enter_your_task">Enter your task</string>
+    <string name="enter">Enter</string>
     ////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////
     //////////////////////////////////////////////
