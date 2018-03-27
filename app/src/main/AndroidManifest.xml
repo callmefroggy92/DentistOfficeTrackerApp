@@ -40,16 +40,15 @@
         </activity>
         <activity android:name=".CalendarApp" />
         <activity android:name=".View_Balance" />
-        <activity android:name=".TeethDiagram"
-
-
-
-            android:exported="true"
-
-
-
-            />
-        <activity android:name=".ToothInfo"></activity>
+        <activity
+            android:name=".TeethDiagram"
+            android:exported="true" />
+        <activity android:name=".ToothInfo" />
+        <activity
+            android:name=".TodoList"
+            android:label="@string/title_activity_todo_list"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".AddTask"></activity>
     </application>
 
 </manifest>

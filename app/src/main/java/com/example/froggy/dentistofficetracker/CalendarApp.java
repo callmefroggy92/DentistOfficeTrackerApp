@@ -11,6 +11,11 @@ import android.widget.Toast;
 
 import java.util.Calendar;
 
+/**
+ * This class is designed to generate a calendar and
+ * display it to the user. It also contains and implementation
+ * to pop up the date selected by the user.
+ */
 public class CalendarApp extends AppCompatActivity {
 
     CalendarView calendar;
