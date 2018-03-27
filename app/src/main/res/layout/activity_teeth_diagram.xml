@@ -62,7 +62,6 @@
         android:layout_marginBottom="4dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:spinnerMode="dialog"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.145"
@@ -333,7 +332,7 @@
         android:id="@+id/a11ActionButton"
         android:layout_width="29dp"
         android:layout_height="29dp"
-        android:layout_marginEnd="396dp"
+        android:layout_marginEnd="358dp"
         android:layout_marginTop="34dp"
         android:clickable="true"
         android:focusable="true"
@@ -342,14 +341,13 @@
         android:visibility="visible"
         app:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginRight="396dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/b21ActionButton"
         android:layout_width="29dp"
         android:layout_height="29dp"
-        android:layout_marginStart="399dp"
+        android:layout_marginStart="365dp"
         android:layout_marginTop="34dp"
         android:clickable="true"
         android:focusable="true"
@@ -358,8 +356,7 @@
         android:visibility="visible"
         app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="399dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/b22ActionButton"
@@ -374,14 +371,13 @@
         android:visibility="visible"
         app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toEndOf="@+id/b21ActionButton"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="2dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/b23ActionButton"
         android:layout_width="29dp"
         android:layout_height="29dp"
-        android:layout_marginStart="3dp"
+        android:layout_marginStart="2dp"
         android:layout_marginTop="34dp"
         android:clickable="true"
         android:focusable="true"
@@ -390,14 +386,13 @@
         android:visibility="visible"
         app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toEndOf="@+id/b22ActionButton"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="3dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/b24ActionButton"
         android:layout_width="29dp"
         android:layout_height="29dp"
-        android:layout_marginStart="3dp"
+        android:layout_marginStart="2dp"
         android:layout_marginTop="34dp"
         android:clickable="true"
         android:focusable="true"
@@ -406,8 +401,7 @@
         android:visibility="visible"
         app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toEndOf="@+id/b23ActionButton"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="3dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/b25ActionButton"
@@ -422,14 +416,13 @@
         android:visibility="visible"
         app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toEndOf="@+id/b24ActionButton"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="2dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/b26ActionButton"
         android:layout_width="29dp"
         android:layout_height="29dp"
-        android:layout_marginStart="3dp"
+        android:layout_marginStart="2dp"
         android:layout_marginTop="34dp"
         android:clickable="true"
         android:focusable="true"
@@ -438,14 +431,13 @@
         android:visibility="visible"
         app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toEndOf="@+id/b25ActionButton"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="3dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/b27ActionButton"
         android:layout_width="29dp"
         android:layout_height="29dp"
-        android:layout_marginStart="3dp"
+        android:layout_marginStart="2dp"
         android:layout_marginTop="34dp"
         android:clickable="true"
         android:focusable="true"
@@ -454,8 +446,7 @@
         android:visibility="visible"
         app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toEndOf="@+id/b26ActionButton"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="3dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/b28ActionButton"
@@ -470,14 +461,13 @@
         android:visibility="visible"
         app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toEndOf="@+id/b27ActionButton"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="2dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/c48ActionButton"
         android:layout_width="30dp"
         android:layout_height="31dp"
-        android:layout_marginStart="126dp"
+        android:layout_marginStart="92dp"
         android:layout_marginTop="188dp"
         android:clickable="true"
         android:focusable="true"
@@ -486,8 +476,7 @@
         android:visibility="visible"
         app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="126dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/c47ActionButton"
@@ -605,7 +594,7 @@
         android:id="@+id/d38ActionButton"
         android:layout_width="30dp"
         android:layout_height="31dp"
-        android:layout_marginEnd="122dp"
+        android:layout_marginEnd="87dp"
         android:layout_marginTop="188dp"
         android:clickable="true"
         android:focusable="true"
@@ -614,8 +603,7 @@
         android:visibility="visible"
         app:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginRight="122dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/d37ActionButton"
@@ -733,7 +721,7 @@
         android:id="@+id/e55kidAButton"
         android:layout_width="30dp"
         android:layout_height="31dp"
-        android:layout_marginStart="223dp"
+        android:layout_marginStart="190dp"
         android:layout_marginTop="91dp"
         android:clickable="true"
         android:focusable="true"
@@ -742,8 +730,7 @@
         android:visibility="visible"
         app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="223dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/e54kidAButton"
@@ -758,14 +745,12 @@
         android:visibility="visible"
         app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toEndOf="@+id/e55kidAButton"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="2dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/e53kidAButton"
         android:layout_width="30dp"
         android:layout_height="31dp"
-        android:layout_marginStart="2dp"
         android:layout_marginTop="91dp"
         android:clickable="true"
         android:focusable="true"
@@ -774,8 +759,7 @@
         android:visibility="visible"
         app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toEndOf="@+id/e54kidAButton"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="2dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/e52kidAButton"
@@ -790,8 +774,7 @@
         android:visibility="visible"
         app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toEndOf="@+id/e53kidAButton"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="2dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/e51kidAButton"
@@ -806,14 +789,13 @@
         android:visibility="visible"
         app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toEndOf="@+id/e52kidAButton"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="2dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/f65kidAButton"
         android:layout_width="30dp"
         android:layout_height="31dp"
-        android:layout_marginEnd="220dp"
+        android:layout_marginEnd="184dp"
         android:layout_marginTop="91dp"
         android:clickable="true"
         android:focusable="true"
@@ -822,8 +804,7 @@
         android:visibility="visible"
         app:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginRight="220dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/f64kidAButton"
@@ -838,8 +819,7 @@
         android:visibility="visible"
         app:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toStartOf="@+id/f65kidAButton"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginRight="2dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/f63kidAButton"
@@ -851,12 +831,11 @@
         android:focusable="true"
         android:onClick="onClick"
         android:src="?android:attr/selectableItemBackground"
+        android:text="63"
         android:visibility="visible"
         app:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toStartOf="@+id/f64kidAButton"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginRight="2dp"
-        android:text="63"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/f62kidAButton"
@@ -871,8 +850,7 @@
         android:visibility="visible"
         app:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toStartOf="@+id/f63kidAButton"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginRight="2dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/f61kidAButton"
@@ -887,14 +865,13 @@
         android:visibility="visible"
         app:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toStartOf="@+id/f62kidAButton"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginRight="2dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/g85kidAButton"
         android:layout_width="30dp"
         android:layout_height="31dp"
-        android:layout_marginStart="223dp"
+        android:layout_marginStart="188dp"
         android:layout_marginTop="132dp"
         android:clickable="true"
         android:focusable="true"
@@ -903,8 +880,7 @@
         android:visibility="visible"
         app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="223dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/g84kidAButton"
@@ -919,8 +895,7 @@
         android:visibility="visible"
         app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toEndOf="@+id/g85kidAButton"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="2dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/g83kidAButton"
@@ -935,14 +910,13 @@
         android:visibility="visible"
         app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toEndOf="@+id/g84kidAButton"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="2dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/g82kidAButton"
         android:layout_width="30dp"
         android:layout_height="31dp"
-        android:layout_marginStart="2dp"
+        android:layout_marginStart="3dp"
         android:layout_marginTop="132dp"
         android:clickable="true"
         android:focusable="true"
@@ -951,14 +925,13 @@
         android:visibility="visible"
         app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toEndOf="@+id/g83kidAButton"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="2dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/g81kidAButton"
         android:layout_width="30dp"
         android:layout_height="31dp"
-        android:layout_marginStart="2dp"
+        android:layout_marginStart="3dp"
         android:layout_marginTop="132dp"
         android:clickable="true"
         android:focusable="true"
@@ -967,14 +940,13 @@
         android:visibility="visible"
         app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toEndOf="@+id/g82kidAButton"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="2dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/h75kidAButton"
         android:layout_width="30dp"
         android:layout_height="31dp"
-        android:layout_marginEnd="221dp"
+        android:layout_marginEnd="188dp"
         android:layout_marginTop="132dp"
         android:clickable="true"
         android:focusable="true"
@@ -983,14 +955,12 @@
         android:visibility="visible"
         app:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginRight="221dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/h74kidAButton"
         android:layout_width="30dp"
         android:layout_height="31dp"
-        android:layout_marginEnd="1dp"
         android:layout_marginTop="132dp"
         android:clickable="true"
         android:focusable="true"
@@ -999,14 +969,12 @@
         android:visibility="visible"
         app:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toStartOf="@+id/h75kidAButton"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginRight="1dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/h73kidAButton"
         android:layout_width="30dp"
         android:layout_height="31dp"
-        android:layout_marginEnd="2dp"
         android:layout_marginTop="132dp"
         android:clickable="true"
         android:focusable="true"
@@ -1015,8 +983,7 @@
         android:visibility="visible"
         app:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toStartOf="@+id/h74kidAButton"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginRight="2dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/h72kidAButton"
@@ -1031,8 +998,7 @@
         android:visibility="visible"
         app:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toStartOf="@+id/h73kidAButton"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginRight="2dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/h71kidAButton"
@@ -1047,7 +1013,6 @@
         android:visibility="visible"
         app:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toStartOf="@+id/h72kidAButton"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginRight="2dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
