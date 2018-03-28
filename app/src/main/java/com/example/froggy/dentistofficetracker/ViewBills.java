@@ -3,8 +3,10 @@ package com.example.froggy.dentistofficetracker;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -22,6 +24,7 @@ public class ViewBills extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference myRef;
     List<Bill> bills;
+    LinearLayout lLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,18 +38,9 @@ public class ViewBills extends AppCompatActivity {
 
         bills = new ArrayList<>();
 
+        lLayout = findViewById(R.id.ViewBillsLinearLayout);
+
         getBills();
-
-        ListView listView = findViewById(R.id.listView);
-
-        List<String> billStrings = new ArrayList<>();
-
-        for(Bill b : bills){
-            billStrings.add("Name: " + b.patient_name + " date: " + b.date + " amount: " + b.amount + " details: " + b.details + " paid: " + b.paid);
-        }
-
-        ArrayAdapter adapter = new ArrayAdapter(this, R.layout.activity_list_view, billStrings);
-        listView.setAdapter(adapter);
 
     }
 
@@ -62,6 +56,8 @@ public class ViewBills extends AppCompatActivity {
                         bills.add(gson.fromJson(ds.getValue().toString(), Bill.class));
                     }
                 }
+
+                showBills();
             }
 
             @Override
@@ -69,5 +65,15 @@ public class ViewBills extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void showBills(){
+
+        for(Bill b : bills){
+            TextView t = new TextView(getApplicationContext());
+            t.setText("| NAME: " + b.patient_name + " | DATE: " + b.date.getTime().toString() + " | AMOUNT: " + b.amount +
+                    " | DETAILS: " + b.details + " | PAID: " + b.paid + " |\n");
+            lLayout.addView(t);
+        }
     }
 }
