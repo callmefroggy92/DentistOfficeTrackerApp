@@ -4,10 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.froggy.dentistofficetracker.Settings">
+    tools:context="com.example.froggy.dentistofficetracker.Settings"
+    android:background="@drawable/tile">
 
     <ToggleButton
         android:id="@+id/NotificationsSettingButton"
+        style="button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="16dp"

@@ -4,10 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.froggy.dentistofficetracker.BillPatientSearch">
+    tools:context="com.example.froggy.dentistofficetracker.BillPatientSearch"
+    android:background="@drawable/tile">
 
     <Button
         android:id="@+id/bill_patient_seach_button"
+        style="@style/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -34,6 +36,7 @@
 
     <Button
         android:id="@+id/button3"
+        style="@style/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"

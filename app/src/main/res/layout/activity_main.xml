@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.froggy.dentistofficetracker.MainActivity">
+    tools:context="com.example.froggy.dentistofficetracker.MainActivity"
+    android:background="@drawable/tile">
 
     <EditText
         android:id="@+id/username_text"
@@ -32,6 +33,7 @@
 
     <Button
         android:id="@+id/login_button"
+        style="@style/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="47dp"

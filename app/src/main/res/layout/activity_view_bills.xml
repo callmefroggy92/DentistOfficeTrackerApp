@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.froggy.dentistofficetracker.ViewBills">
+    tools:context="com.example.froggy.dentistofficetracker.ViewBills"
+    android:background="@drawable/tile">
 
     <ScrollView
         android:id="@+id/scrollView2"

@@ -112,7 +112,12 @@ public class NavigationDrawer extends AppCompatActivity
 
         } else if (id == R.id.nav_send) {
 
+        } else if (id == R.id.nav_view_patient){
+            Intent i = new Intent(getApplicationContext(), Search_Patient.class);
+            Log.v(TAG, "Starting Search_Patient Activity");
+            startActivity(i);
         }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.froggy.dentistofficetracker.Search_Patient">
+    tools:context="com.example.froggy.dentistofficetracker.Search_Patient"
+    android:background="@drawable/tile">
 
     <EditText
         android:id="@+id/search_patient_name"
@@ -22,6 +23,7 @@
 
     <Button
         android:id="@+id/search_patient_button"
+        style="@style/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="18dp"
@@ -30,6 +32,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/search_patient_name"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginRight="18dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

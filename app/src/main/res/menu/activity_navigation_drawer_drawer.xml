@@ -13,6 +13,9 @@
             android:icon="@drawable/ic_balance"
             android:title="Balance" />
         <item
+            android:id="@+id/nav_view_patient"
+            android:title="View Patient"/>
+        <item
             android:id="@+id/nav_calendar"
             android:icon="@drawable/ic_calendar"
             android:title="Calendar" />

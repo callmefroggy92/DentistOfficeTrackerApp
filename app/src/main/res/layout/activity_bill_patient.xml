@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.froggy.dentistofficetracker.BillPatient">
+    tools:context="com.example.froggy.dentistofficetracker.BillPatient"
+    android:background="@drawable/tile">
 
     <EditText
         android:id="@+id/bill_patients_name"
@@ -46,6 +47,7 @@
 
     <Button
         android:id="@+id/submit_bill_button"
+        style="@style/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="51dp"
