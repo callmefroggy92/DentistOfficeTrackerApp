@@ -156,6 +156,19 @@
     <string name="title_activity_todo_list">TodoList</string>
     <string name="enter_your_task">Enter your task</string>
     <string name="enter">Enter</string>
+    <string name="some_activity">Some activity</string>
+
+    <string name="just_for_testing">Just for testing</string>
+    <string name="time">Time</string>
+    <string name="you_have_selected">You have selected</string>
+    <string name="todo">TODO</string>
+    <string name="dentist_office">Dentist_Office</string>
+    <string name="monday">Monday</string>
+    <string name="_7_april">7 April</string>
+    <string name="the_office">The_Office</string>
+    <string name="lol">lol</string>
+    <string name="dentistofficecalendar">DentistOfficeCalendar</string>
+    <string name="_29_march">29 March</string>
     ////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////
     //////////////////////////////////////////////

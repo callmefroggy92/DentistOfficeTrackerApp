@@ -102,6 +102,8 @@ public class NavigationDrawer extends AppCompatActivity
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
+           // Intent intent = new Intent(this, TodoList.class);
+            //startActivity(intent);
 
         } else if (id == R.id.nav_send) {
 
