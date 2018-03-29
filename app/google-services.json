@@ -15,14 +15,6 @@
       },
       "oauth_client": [
         {
-          "client_id": "822333799510-o0d2tlorn95pftv85sbhl6l0dltia9ff.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.froggy.dentistofficetracker",
-            "certificate_hash": "28a7ff422142e61ce9fcdab2c0f944d5ec2d43fb"
-          }
-        },
-        {
           "client_id": "822333799510-3p814h91gs8s3psfgqnna852orom5142.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -37,13 +29,8 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "822333799510-3p814h91gs8s3psfgqnna852orom5142.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "status": 1,
+          "other_platform_oauth_client": []
         },
         "ads_service": {
           "status": 2

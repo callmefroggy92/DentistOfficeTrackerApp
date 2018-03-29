@@ -9,6 +9,8 @@ public class Dentist extends User{
 
     private Vector<Patient> patients;
 
+    private Appointment[] calendar;
+
     public Dentist(){
         patients = new Vector<Patient>();
         this.type = UserType.Dentist;
@@ -31,21 +33,16 @@ public class Dentist extends User{
                     p.encrypt(this.decKey);
                 }
 
-                // All info is saved in JSON style
-                Gson gson = new Gson();
-                String data = gson.toJson(this);
-
-                FileWriter writer = new FileWriter(this.username + ".txt");
-                BufferedWriter bw = new BufferedWriter(writer);
-
-                bw.write(data);
-
-                bw.close();
-                writer.close();
-
             } catch(Exception e){
 
             }
         }
 
+    public Appointment[] getCalendar() {
+        return calendar;
+    }
+
+    public void setCalendar(Appointment[] calendar) {
+        this.calendar = calendar;
+    }
 }

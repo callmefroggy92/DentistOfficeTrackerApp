@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -21,6 +22,9 @@ import android.view.MenuItem;
  */
 public class NavigationDrawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+
+    private static final String TAG= "Navigation Drawer";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,18 +92,21 @@ public class NavigationDrawer extends AppCompatActivity
 
         if (id == R.id.nav_register_Patient) {
             Intent intent = new Intent(this, Add_Patient.class);
+            Log.v(TAG, "Starting Register Patient activity");
             startActivity(intent);
         } else if (id == R.id.nav_patient_balance) {
-
-            //Handle the navigation to enter in the patient balance
-           // Intent intent = new Intent(this, View_Balance.class);
-           // startActivity(intent);
+           Intent intent = new Intent(this, BillPatientSearch.class);
+            Log.v(TAG, "Starting Patients' Balance activity");
+            startActivity(intent);
         } else if (id == R.id.nav_calendar) {
-
             //Handle the calendar
             Intent intent = new Intent(this, CalendarApp.class);
+            Log.v(TAG, "Starting Calendar activity");
             startActivity(intent);
         } else if (id == R.id.nav_manage) {
+            Intent i = new Intent(getApplicationContext(), Settings.class);
+            Log.v(TAG, "Starting Settings activity");
+            startActivity(i);
 
         } else if (id == R.id.nav_share) {
            // Intent intent = new Intent(this, TodoList.class);
@@ -107,7 +114,12 @@ public class NavigationDrawer extends AppCompatActivity
 
         } else if (id == R.id.nav_send) {
 
+        } else if (id == R.id.nav_view_patient){
+            Intent i = new Intent(getApplicationContext(), Search_Patient.class);
+            Log.v(TAG, "Starting Search_Patient Activity");
+            startActivity(i);
         }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

@@ -134,6 +134,7 @@ public class Add_Patient extends AppCompatActivity {
                     myRef.child("type").push();
                     myRef.child("type").setValue(UserType.Patient);
                     Toast.makeText(getApplicationContext(), "Patient succesfuly added!", Toast.LENGTH_SHORT).show();
+                    finish();
                     return;
                 }
 

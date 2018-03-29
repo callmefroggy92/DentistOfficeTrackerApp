@@ -17,10 +17,10 @@ import com.google.gson.Gson;
 
 public class Search_Patient extends AppCompatActivity {
 
-    FirebaseDatabase firebaseDatabase;
-    DatabaseReference myRef;
-    EditText patientName;
-    String name;
+    private FirebaseDatabase firebaseDatabase;
+    private DatabaseReference myRef;
+    private EditText patientName;
+    private String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,17 +34,22 @@ public class Search_Patient extends AppCompatActivity {
 
     public void onSearch(View view){
 
+        // Initiates the Firebase and sets the reference to root
         firebaseDatabase = FirebaseDatabase.getInstance();
-
-        name = patientName.getText().toString();
-
         myRef = firebaseDatabase.getReference().getRoot();
 
-        myRef.addValueEventListener(new ValueEventListener() {
+        // Retrieves the name of the patient being searched for
+        name = patientName.getText().toString();
+
+        // EventListenver retrieves values from database
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                // Searches entire database for specified patient
                 for(DataSnapshot ds : dataSnapshot.getChildren()){
                     if(ds.hasChild("name") && ds.child("name").getValue().toString().compareToIgnoreCase(name) == 0) {
+
+                        // When found, creates a patient object and fills in all values
                         Patient p = new Patient();
                         p.setEmail(ds.child("email").getValue().toString());
                         p.setName(ds.child("name").getValue().toString());
@@ -57,6 +62,7 @@ public class Search_Patient extends AppCompatActivity {
                         p.setNameOfSchool(ds.child("school_name").getValue().toString());
                         p.setGradeInSchool(ds.child("school_grade").getValue().toString());
 
+                        // Sends info on to the display activity
                         Intent i = new Intent(getApplicationContext(), View_Patient_Info.class);
                         Gson gson = new Gson();
                         i.putExtra("patient", gson.toJson(p));
@@ -65,6 +71,7 @@ public class Search_Patient extends AppCompatActivity {
                     }
                 }
 
+                // If it has made it this far, the patient has not been found
                 Toast.makeText(getApplicationContext(), "Not found!", Toast.LENGTH_SHORT).show();
                 return;
             }
