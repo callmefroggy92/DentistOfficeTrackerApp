@@ -34,7 +34,7 @@
 
     <string-array name="pieceList">
         // Adults Teeth
-        <item>Face</item>
+        <item>----</item>
         <item>11</item>
         <item>12</item>
         <item>13</item>
@@ -95,7 +95,7 @@
 
 
     <string-array name="faceList">
-        <item>face</item>
+        <item>----</item>
         <item>Buccal</item>
         <item>Mesial</item>
         <item>Occlusal</item>
@@ -105,7 +105,7 @@
 
 
     <string-array name="diagList">
-        <item>diag</item>
+        <item>----</item>
         <item>D1</item>
         <item>D2</item>
         <item>D3</item>
@@ -139,7 +139,7 @@
 
 
     <string-array name="procList">
-        <item>proc</item>
+        <item>----</item>
         <item>incrustation</item>
         <item>Root Canal Obturation</item>
         <item>Provisional Obturation</item>
@@ -156,6 +156,19 @@
     <string name="title_activity_todo_list">TodoList</string>
     <string name="enter_your_task">Enter your task</string>
     <string name="enter">Enter</string>
+    <string name="some_activity">Some activity</string>
+
+    <string name="just_for_testing">Just for testing</string>
+    <string name="time">Time</string>
+    <string name="you_have_selected">You have selected</string>
+    <string name="todo">TODO</string>
+    <string name="dentist_office">Dentist_Office</string>
+    <string name="monday">Monday</string>
+    <string name="_7_april">7 April</string>
+    <string name="the_office">The_Office</string>
+    <string name="lol">lol</string>
+    <string name="dentistofficecalendar">DentistOfficeCalendar</string>
+    <string name="_29_march">29 March</string>
     ////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////
     //////////////////////////////////////////////

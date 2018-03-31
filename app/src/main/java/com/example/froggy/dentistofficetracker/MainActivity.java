@@ -66,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
     public void onLogin(View view) throws AuthException{
 
 
-
     }
 
     private class BackgroundJob extends AsyncTask<Void,Void, Void>{
