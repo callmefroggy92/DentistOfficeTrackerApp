@@ -34,7 +34,7 @@
 
     <string-array name="pieceList">
         // Adults Teeth
-        <item>Face</item>
+        <item>----</item>
         <item>11</item>
         <item>12</item>
         <item>13</item>
@@ -95,7 +95,7 @@
 
 
     <string-array name="faceList">
-        <item>face</item>
+        <item>----</item>
         <item>Buccal</item>
         <item>Mesial</item>
         <item>Occlusal</item>
@@ -105,7 +105,7 @@
 
 
     <string-array name="diagList">
-        <item>diag</item>
+        <item>----</item>
         <item>D1</item>
         <item>D2</item>
         <item>D3</item>
@@ -139,7 +139,7 @@
 
 
     <string-array name="procList">
-        <item>proc</item>
+        <item>----</item>
         <item>incrustation</item>
         <item>Root Canal Obturation</item>
         <item>Provisional Obturation</item>
