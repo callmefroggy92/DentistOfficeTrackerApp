@@ -22,6 +22,14 @@ public class Settings extends AppCompatActivity {
 
         prefs = getSharedPreferences("settings", Context.MODE_PRIVATE);
         editor = prefs.edit();
+
+        loadSettings();
+    }
+
+    public void loadSettings(){
+
+        if(prefs.getString("notifications", "").compareToIgnoreCase("true") == 0)
+            notificationSetting.setChecked(true);
     }
 
     public void onNotificationsSettings(View view){

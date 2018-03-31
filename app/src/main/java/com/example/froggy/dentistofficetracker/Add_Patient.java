@@ -14,6 +14,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+/**
+ * The Add_Patient activity handles creating patients and sending the information
+ * to the database.
+ */
 public class Add_Patient extends AppCompatActivity {
 
     EditText patientName;
@@ -57,7 +61,6 @@ public class Add_Patient extends AppCompatActivity {
 
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     public void onSubmit(View view){
 
         // Verify textfields have been populated
