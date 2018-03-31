@@ -165,6 +165,7 @@ public final class LoginController {
             e.printStackTrace();
         }
     }
+
     public static Boolean verifyPassword(User user) throws Exception {
 
         // Have to get the raw data values to use on our hash function

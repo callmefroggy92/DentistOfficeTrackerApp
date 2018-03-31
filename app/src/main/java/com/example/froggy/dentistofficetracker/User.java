@@ -1,4 +1,6 @@
-package com.example.froggy.dentistofficetracker; /***************************
+package com.example.froggy.dentistofficetracker;
+
+/***************************
  * User is the base class from which
  * the admin, dentist and patient classes
  * are derived.  It contains basic information

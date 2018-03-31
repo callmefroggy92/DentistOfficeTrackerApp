@@ -149,6 +149,7 @@ public class MainActivity extends AppCompatActivity {
                                     Intent i = new Intent(getApplicationContext(), NavigationDrawer.class);
                                     i.putExtra("username", user.getUsername());
                                     i.putExtra("key", user.getDecKey());
+                                    i.putExtra("type", "admin");
                                     //startActivity(i);
                                     startActivity(i);
                                 } else if (user.getType() == UserType.Patient) {
@@ -156,6 +157,7 @@ public class MainActivity extends AppCompatActivity {
                                     Intent i = new Intent(getApplicationContext(), NavigationDrawer.class);
                                     i.putExtra("username", user.getUsername());
                                     i.putExtra("key", user.getDecKey());
+                                    i.putExtra("type", "patient");
                                     // startActivity(i);
                                     startActivity(i);
                                 } else if (user.getType() == UserType.Dentist) {
@@ -163,6 +165,7 @@ public class MainActivity extends AppCompatActivity {
                                     // Intent i = new Intent(getApplicationContext(), activity_dentist.class);
                                     i.putExtra("username", user.getUsername());
                                     i.putExtra("key", user.getDecKey());
+                                    i.putExtra("type", "dentist");
                                     startActivity(i);
                                 } else {
                                     throw new AuthException("Error: User file inaccessible");

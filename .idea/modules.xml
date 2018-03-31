@@ -3,9 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DentistOfficeTracker.iml" filepath="$PROJECT_DIR$/DentistOfficeTracker.iml" />
+      <module fileurl="file:///../../../osval_000/Desktop/Winter 2018/CS 235/week 7/Login_Main/DentistOfficeTrackerApp.iml" filepath="/../../../osval_000/Desktop/Winter 2018/CS 235/week 7/Login_Main/DentistOfficeTrackerApp.iml" />
+      <module fileurl="file:///../../../osval_000/Desktop/Winter 2018/CS 246/Project Dentist/DentistOfficeTrackerApp/DentistOfficeTrackerApp.iml" filepath="/../../../osval_000/Desktop/Winter 2018/CS 246/Project Dentist/DentistOfficeTrackerApp/DentistOfficeTrackerApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/DentistOfficeTrackerApp.iml" filepath="$PROJECT_DIR$/.idea/DentistOfficeTrackerApp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../../../../../../../osval_000/Desktop/Winter 2018/CS 246/Project Dentist/DentistOfficeTrackerApp/DentistOfficeTrackerApp.iml" filepath="$PROJECT_DIR$/../../../../../../../osval_000/Desktop/Winter 2018/CS 246/Project Dentist/DentistOfficeTrackerApp/DentistOfficeTrackerApp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../../../../../../../osval_000/Desktop/Winter 2018/CS 235/week 7/Login_Main/DentistOfficeTrackerApp.iml" filepath="$PROJECT_DIR$/../../../../../../../osval_000/Desktop/Winter 2018/CS 235/week 7/Login_Main/DentistOfficeTrackerApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/Login_Main.iml" filepath="$PROJECT_DIR$/Login_Main.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>

@@ -1,6 +1,7 @@
 package com.example.froggy.dentistofficetracker;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ public class Settings extends AppCompatActivity {
     SharedPreferences prefs;
     SharedPreferences.Editor editor;
     ToggleButton notificationSetting;
+    private String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,8 @@ public class Settings extends AppCompatActivity {
 
         prefs = getSharedPreferences("settings", Context.MODE_PRIVATE);
         editor = prefs.edit();
+
+        username = getIntent().getExtras().getString("username");
 
         loadSettings();
     }
@@ -40,6 +44,11 @@ public class Settings extends AppCompatActivity {
             editor.putString("notifications", "false");
         editor.apply();
 
+    }
 
+    public void onChangePassword(View view){
+        Intent i = new Intent(getApplicationContext(), ChangePassword.class);
+        i.putExtra("username", username);
+        startActivity(i);
     }
 }

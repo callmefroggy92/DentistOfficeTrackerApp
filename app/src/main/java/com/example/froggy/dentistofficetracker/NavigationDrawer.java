@@ -23,6 +23,9 @@ import android.view.MenuItem;
 public class NavigationDrawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private String type;
+    private String username;
+
 
     private static final String TAG= "Navigation Drawer";
 
@@ -42,6 +45,10 @@ public class NavigationDrawer extends AppCompatActivity
             }
         });
 
+        // This type is used to determine which activities the user has access to
+        type = getIntent().getExtras().getString("type");
+        username = getIntent().getExtras().getString("username");
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -49,6 +56,17 @@ public class NavigationDrawer extends AppCompatActivity
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.getMenu().clear();
+
+        // The navigation menu depends on the UserType
+        if(type.compareToIgnoreCase("admin") == 0)
+            navigationView.inflateMenu(R.menu.admin_menu);
+        else if(type.compareToIgnoreCase("patient") == 0)
+            navigationView.inflateMenu(R.menu.patient_menu);
+        else if(type.compareToIgnoreCase("dentist") == 0)
+            navigationView.inflateMenu(R.menu.dentist_menu);
+
+
         navigationView.setNavigationItemSelectedListener(this);
     }
 
@@ -106,6 +124,7 @@ public class NavigationDrawer extends AppCompatActivity
         } else if (id == R.id.nav_manage) {
             Intent i = new Intent(getApplicationContext(), Settings.class);
             Log.v(TAG, "Starting Settings activity");
+            i.putExtra("username", username);
             startActivity(i);
 
         } else if (id == R.id.nav_share) {
@@ -118,8 +137,10 @@ public class NavigationDrawer extends AppCompatActivity
             Intent i = new Intent(getApplicationContext(), Search_Patient.class);
             Log.v(TAG, "Starting Search_Patient Activity");
             startActivity(i);
+        } else if (id == R.id.nav_register_dentist){
+            Intent i = new Intent(getApplicationContext(), AddDentist.class);
+            startActivity(i);
         }
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
