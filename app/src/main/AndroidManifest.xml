@@ -46,5 +46,7 @@
         <activity android:name=".BillPatientSearch" />
         <activity android:name=".ViewBills"/>
         <activity android:name=".Settings"/>
+        <activity android:name=".TodoList"/>
+        <activity android:name=".AddTask"/>
     </application>
 </manifest>

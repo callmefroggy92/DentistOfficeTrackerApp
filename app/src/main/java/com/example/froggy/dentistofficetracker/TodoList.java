@@ -37,7 +37,7 @@ import java.util.List;
 
 public class TodoList extends AppCompatActivity {
 
-    public static final String EXTRA_DATE = "com.example.froggy.dentistofficetracker.EXTRA_DATE";
+   public static final String EXTRA_DATE = "com.example.froggy.dentistofficetracker.EXTRA_DATE";
     /*
     private RecyclerView mTaskList;
     private DatabaseReference mDataBase;
@@ -46,7 +46,7 @@ public class TodoList extends AppCompatActivity {
     Query query;*/
 
 
-    RecyclerView mTaskList;
+   RecyclerView mTaskList;
 
     List<RequestTask> tasks;
 
@@ -60,8 +60,8 @@ public class TodoList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_todo_list);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+ //       setSupportActionBar(toolbar);
 
         mTaskList = (RecyclerView) findViewById(R.id.add_task_list);
         mTaskList.setLayoutManager(new LinearLayoutManager(this));
@@ -87,10 +87,10 @@ public class TodoList extends AppCompatActivity {
         String dateOfMonth = dfBannerDate.format(bannerDate);
         textViewBannerDate.setText(dateOfMonth  );
 
-      /*  df = new SimpleDateFormat("d\\M\\yyyy");
+        df = new SimpleDateFormat("d\\M\\yyyy");
         date = df.format(Calendar.getInstance().getTime());
         Log.d("THE_CREATED_DATE", date);
-        System.out.println(date);*/
+        System.out.println(date);
 
       Intent intent = getIntent();
       date = intent.getStringExtra(CalendarApp.EXTRA_DATE);
@@ -136,7 +136,7 @@ public class TodoList extends AppCompatActivity {
 
         options = new FirebaseRecyclerOptions.Builder<RequestTask>().setQuery(query, RequestTask.class).build();*/
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.add_task);
+       FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.add_task);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
