@@ -43,7 +43,8 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
         requestWindowFeature(Window.FEATURE_NO_TITLE); // this removes the title
         setContentView(R.layout.activity_teeth_diagram);
 
-        myRef = new FirebaseDatabase("https://dentist-office-tracker.firebaseio.com/" + patientName);
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        myRef = firebaseDatabase.getReference();
 
 
 
@@ -308,7 +309,7 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
             // TODO Send to Firebase
 
 
-            FirebaseDatabase mRefChild = myRef.child("Face");
+            DatabaseReference mRefChild = myRef.child("Face");
             mRefChild.setValue(item4);
         }
 
