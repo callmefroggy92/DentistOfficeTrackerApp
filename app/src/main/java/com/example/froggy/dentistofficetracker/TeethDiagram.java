@@ -303,35 +303,43 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
         Spinner spinner = (Spinner) parent; // im not sure if this is the rigth way to do this
 
 
+        if(spinner.getId() == R.id.spinnerPiecelist)
+        {
+            item4 = parent.getItemAtPosition(position).toString();
+            Toast.makeText(this, item4 + " 1", Toast.LENGTH_LONG).show();
+
+            // TODO Send to Firebase
+
+            myRef = new FirebaseDatabase("https://dentist-office-tracker.firebaseio.com/" + patientName);
+            FirebaseDatabase mRefChild = myRef.child("Face");
+            mRefChild.setValue(item4);
+        }
+
+        if(spinner.getId() == R.id.spinnerFaceList)
+        {
+            item3 = parent.getItemAtPosition(position).toString();
+            Toast.makeText(this, item3 + " 2", Toast.LENGTH_LONG).show();
+
+            // TODO Send to Firebase
+        }
+
+        if(spinner.getId() == R.id.spinnerDiagList)
+        {
+            item2 = parent.getItemAtPosition(position).toString();
+            Toast.makeText(this, item2 + " 3", Toast.LENGTH_LONG).show();
+
+            // TODO Send to Firebase
+        }
+
 
         if(spinner.getId() == R.id.spinnerProcList)
         {
             item = parent.getItemAtPosition(position).toString();
-            Toast.makeText(this, item + " 1", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, item + " 4", Toast.LENGTH_LONG).show();
 
-            // TODO Send to Firebase
 
-        }
-        if(spinner.getId() == R.id.spinnerDiagList)
-        {
-            item2 = parent.getItemAtPosition(position).toString();
-            Toast.makeText(this, item2 + " 2", Toast.LENGTH_LONG).show();
 
-            // TODO Send to Firebase
-        }
-        if(spinner.getId() == R.id.spinnerFaceList)
-        {
-            item3 = parent.getItemAtPosition(position).toString();
-            Toast.makeText(this, item3 + " 3", Toast.LENGTH_LONG).show();
 
-            // TODO Send to Firebase
-        }
-        if(spinner.getId() == R.id.spinnerPiecelist)
-        {
-            item4 = parent.getItemAtPosition(position).toString();
-            Toast.makeText(this, item4 + " 4", Toast.LENGTH_LONG).show();
-
-            // TODO Send to Firebase
         }
 
 
