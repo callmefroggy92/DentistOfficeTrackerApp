@@ -2,12 +2,15 @@ package com.example.froggy.dentistofficetracker;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 import com.google.gson.Gson;
 
 public class View_Patient_Info extends AppCompatActivity {
 
-    Bundle extras;
+    private static final String TAG = "View_Patient_Info";
+
+    private Bundle extras;
     private Patient p;
 
     @Override
@@ -21,6 +24,7 @@ public class View_Patient_Info extends AppCompatActivity {
         p = gson.fromJson(extras.getString("patient"), Patient.class);
 
         {
+            Log.i(TAG, "Displaying patient info");
             // Displays all patient info by populating TextViews
             TextView patient_name = findViewById(R.id.view_patient_name);
             patient_name.setText("Patient name" + p.getName());

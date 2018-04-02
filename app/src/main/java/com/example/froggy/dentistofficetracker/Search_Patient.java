@@ -15,6 +15,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 
+/**
+ * The Search_Patient activity searches through the database to locate the
+ * desired patient.
+ */
+
 public class Search_Patient extends AppCompatActivity {
 
     private FirebaseDatabase firebaseDatabase;

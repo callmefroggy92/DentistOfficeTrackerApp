@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -18,11 +19,15 @@ import android.widget.Toast;
  *
  *
  */
-public class TeethDiagram extends Activity {// this change lets the requestWindowFeature(Window.FEATURE_NO_TITLE) to work
+public class TeethDiagram extends Activity implements AdapterView.OnItemSelectedListener{// this change lets the requestWindowFeature(Window.FEATURE_NO_TITLE) to work
     //public class TeethDiagram extends AppCompatActivity {
 
 
     String bottonVal = null;
+    String item;
+    String item2;
+    String item3;
+    String item4;
 
 
 
@@ -34,12 +39,13 @@ public class TeethDiagram extends Activity {// this change lets the requestWindo
 
 
         // PIECE Spinner
-        Spinner myPieceSpinner =(Spinner) findViewById(R.id.spinnerPiecelist);
+        Spinner myPieceSpinner = (Spinner) findViewById(R.id.spinnerPiecelist);
         ArrayAdapter<String> myPieceAdapter = new ArrayAdapter<String>(TeethDiagram.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.pieceList));
 
         myPieceAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         myPieceSpinner.setAdapter(myPieceAdapter);
+        myPieceSpinner.setOnItemSelectedListener(this); // new!!!!!!!!!!!
 
 
 
@@ -50,15 +56,22 @@ public class TeethDiagram extends Activity {// this change lets the requestWindo
 
         myFaceAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         myFaceSpinner.setAdapter(myFaceAdapter);
+        myFaceSpinner.setOnItemSelectedListener(this); // new!!!!!!!!!!!
+
 
 
         // DIAGNOSTICS Spinner
         Spinner myDiagSpinner =(Spinner) findViewById(R.id.spinnerDiagList);
+
+
+
         ArrayAdapter<String> myDiagAdapter = new ArrayAdapter<String>(TeethDiagram.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.diagList));
 
         myDiagAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         myDiagSpinner.setAdapter(myDiagAdapter);
+
+        myDiagSpinner.setOnItemSelectedListener(this); // new!!!!!!!!!!!
 
 
         // PROCEDURE Spinner
@@ -69,10 +82,54 @@ public class TeethDiagram extends Activity {// this change lets the requestWindo
         myProcAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         myProcSpinner.setAdapter(myProcAdapter);
 
+        myProcSpinner.setOnItemSelectedListener(this); // new!!!!!!!!!!!
+
+
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+        Spinner spinner = (Spinner) parent;
+        if(spinner.getId() == R.id.spinnerProcList)
+        {
+            item = parent.getItemAtPosition(position).toString();
+            Toast.makeText(this, item + " 1", Toast.LENGTH_LONG).show();
+
+            // TODO Send to Firebase
+
+        }
+        if(spinner.getId() == R.id.spinnerDiagList)
+        {
+            item2 = parent.getItemAtPosition(position).toString();
+            Toast.makeText(this, item2 + " 2", Toast.LENGTH_LONG).show();
+
+            // TODO Send to Firebase
+        }
+        if(spinner.getId() == R.id.spinnerFaceList)
+        {
+            item3 = parent.getItemAtPosition(position).toString();
+            Toast.makeText(this, item3 + " 3", Toast.LENGTH_LONG).show();
+
+            // TODO Send to Firebase
+        }
+        if(spinner.getId() == R.id.spinnerPiecelist)
+        {
+            item4 = parent.getItemAtPosition(position).toString();
+            Toast.makeText(this, item4 + " 4", Toast.LENGTH_LONG).show();
+
+            // TODO Send to Firebase
+        }
 
 
 
     }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+
 
 
     // onclick function used from the OnClick attribute at XML file

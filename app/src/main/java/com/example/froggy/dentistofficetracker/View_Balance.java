@@ -11,6 +11,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+/**
+ * View_Balance
+ */
 public class View_Balance extends AppCompatActivity {
 
     Bundle extras;
