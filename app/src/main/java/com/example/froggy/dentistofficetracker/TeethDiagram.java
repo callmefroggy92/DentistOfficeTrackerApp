@@ -12,6 +12,9 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 /**
  *
  *
@@ -29,13 +32,22 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
     String item3;
     String item4;
 
-
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference myRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE); // this removes the title
         setContentView(R.layout.activity_teeth_diagram);
+
+
+//mRef = new FirebaseDatabase("");
+
+
+
+
+
 
 
         // PIECE Spinner
@@ -87,43 +99,8 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
 
     }
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-        Spinner spinner = (Spinner) parent;
-        if(spinner.getId() == R.id.spinnerProcList)
-        {
-            item = parent.getItemAtPosition(position).toString();
-            Toast.makeText(this, item + " 1", Toast.LENGTH_LONG).show();
-
-            // TODO Send to Firebase
-
-        }
-        if(spinner.getId() == R.id.spinnerDiagList)
-        {
-            item2 = parent.getItemAtPosition(position).toString();
-            Toast.makeText(this, item2 + " 2", Toast.LENGTH_LONG).show();
-
-            // TODO Send to Firebase
-        }
-        if(spinner.getId() == R.id.spinnerFaceList)
-        {
-            item3 = parent.getItemAtPosition(position).toString();
-            Toast.makeText(this, item3 + " 3", Toast.LENGTH_LONG).show();
-
-            // TODO Send to Firebase
-        }
-        if(spinner.getId() == R.id.spinnerPiecelist)
-        {
-            item4 = parent.getItemAtPosition(position).toString();
-            Toast.makeText(this, item4 + " 4", Toast.LENGTH_LONG).show();
-
-            // TODO Send to Firebase
-        }
 
 
-
-    }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
@@ -320,6 +297,46 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
 
     }
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+        Spinner spinner = (Spinner) parent; // im not sure if this is the rigth way to do this
+
+
+
+        if(spinner.getId() == R.id.spinnerProcList)
+        {
+            item = parent.getItemAtPosition(position).toString();
+            Toast.makeText(this, item + " 1", Toast.LENGTH_LONG).show();
+
+            // TODO Send to Firebase
+
+        }
+        if(spinner.getId() == R.id.spinnerDiagList)
+        {
+            item2 = parent.getItemAtPosition(position).toString();
+            Toast.makeText(this, item2 + " 2", Toast.LENGTH_LONG).show();
+
+            // TODO Send to Firebase
+        }
+        if(spinner.getId() == R.id.spinnerFaceList)
+        {
+            item3 = parent.getItemAtPosition(position).toString();
+            Toast.makeText(this, item3 + " 3", Toast.LENGTH_LONG).show();
+
+            // TODO Send to Firebase
+        }
+        if(spinner.getId() == R.id.spinnerPiecelist)
+        {
+            item4 = parent.getItemAtPosition(position).toString();
+            Toast.makeText(this, item4 + " 4", Toast.LENGTH_LONG).show();
+
+            // TODO Send to Firebase
+        }
+
+
+
+    }
 
 
 }
