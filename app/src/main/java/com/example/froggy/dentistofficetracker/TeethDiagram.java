@@ -32,6 +32,8 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
     String item3;
     String item4;
 
+    String patientName; // this should contain the Patient name of the last activity
+
     FirebaseDatabase firebaseDatabase;
     DatabaseReference myRef;
 
@@ -41,12 +43,7 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
         requestWindowFeature(Window.FEATURE_NO_TITLE); // this removes the title
         setContentView(R.layout.activity_teeth_diagram);
 
-
-//mRef = new FirebaseDatabase("");
-
-
-
-
+        myRef = new FirebaseDatabase("https://dentist-office-tracker.firebaseio.com/" + patientName);
 
 
 
@@ -310,7 +307,7 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
 
             // TODO Send to Firebase
 
-            myRef = new FirebaseDatabase("https://dentist-office-tracker.firebaseio.com/" + patientName);
+
             FirebaseDatabase mRefChild = myRef.child("Face");
             mRefChild.setValue(item4);
         }
