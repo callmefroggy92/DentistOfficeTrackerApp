@@ -22,6 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
  *
  *
  */
+
 public class TeethDiagram extends Activity implements AdapterView.OnItemSelectedListener{// this change lets the requestWindowFeature(Window.FEATURE_NO_TITLE) to work
     //public class TeethDiagram extends AppCompatActivity {
 
@@ -32,7 +33,7 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
     String item3;
     String item4;
 
-    String patientName; // this should contain the Patient name of the last activity
+    private String username;
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference myRef;
@@ -43,10 +44,10 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
         requestWindowFeature(Window.FEATURE_NO_TITLE); // this removes the title
         setContentView(R.layout.activity_teeth_diagram);
 
+        username = getIntent().getExtras().getString("username");
+
         firebaseDatabase = FirebaseDatabase.getInstance();
-        myRef = firebaseDatabase.getReference();
-
-
+        myRef = firebaseDatabase.getReference().child(username);
 
         // PIECE Spinner
         Spinner myPieceSpinner = (Spinner) findViewById(R.id.spinnerPiecelist);
@@ -104,8 +105,6 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
-
-
 
     // onclick function used from the OnClick attribute at XML file
     public void onClick(View v)
@@ -291,7 +290,6 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
         i.putExtra("teethNumber", bottonVal);
         startActivity(i);
         // Remember to use in the XML android:onClick="" and add the method to use at click
-
 
     }
 
