@@ -302,45 +302,53 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
         if(spinner.getId() == R.id.spinnerPiecelist)
         {
             item4 = parent.getItemAtPosition(position).toString();
-            Toast.makeText(this, item4 + " 1", Toast.LENGTH_LONG).show();
-
-            // TODO Send to Firebase
-
-
-            DatabaseReference mRefChild = myRef.child("Face");
-            mRefChild.setValue(item4);
+            Toast.makeText(this, item4 , Toast.LENGTH_LONG).show();
         }
 
         if(spinner.getId() == R.id.spinnerFaceList)
         {
             item3 = parent.getItemAtPosition(position).toString();
-            Toast.makeText(this, item3 + " 2", Toast.LENGTH_LONG).show();
-
-            // TODO Send to Firebase
+            Toast.makeText(this, item3 , Toast.LENGTH_LONG).show();
         }
 
         if(spinner.getId() == R.id.spinnerDiagList)
         {
             item2 = parent.getItemAtPosition(position).toString();
-            Toast.makeText(this, item2 + " 3", Toast.LENGTH_LONG).show();
-
-            // TODO Send to Firebase
+            Toast.makeText(this, item2 , Toast.LENGTH_LONG).show();
         }
 
 
         if(spinner.getId() == R.id.spinnerProcList)
         {
             item = parent.getItemAtPosition(position).toString();
-            Toast.makeText(this, item + " 4", Toast.LENGTH_LONG).show();
-
-
-
-
+            Toast.makeText(this, item , Toast.LENGTH_LONG).show();
         }
 
 
 
     }
+
+
+    //this function will submit the info to Firebase
+    public void OnButtonSend(){
+
+       DatabaseReference mRefChild = myRef.child("Piece");
+       mRefChild.setValue(item4);
+
+       myRef.child("Piece").child("Face");
+       mRefChild.setValue(item3);
+
+       myRef.child("Piece").child("Face").child("Diagnostic");
+       mRefChild.setValue(item2);
+
+       myRef.child("Piece").child("Face").child("Procedures");
+       mRefChild.setValue(item);
+
+
+   }
+
+
+
 
 
 }
