@@ -45,7 +45,6 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
         setContentView(R.layout.activity_teeth_diagram);
 
         username = getIntent().getExtras().getString("username");
-
         firebaseDatabase = FirebaseDatabase.getInstance();
         myRef = firebaseDatabase.getReference().child(username);
 
@@ -58,8 +57,6 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
         myPieceSpinner.setAdapter(myPieceAdapter);
         myPieceSpinner.setOnItemSelectedListener(this); // new!!!!!!!!!!!
 
-
-
         // FACE Spinner
         Spinner myFaceSpinner =(Spinner) findViewById(R.id.spinnerFaceList);
         ArrayAdapter<String> myFaceAdapter = new ArrayAdapter<String>(TeethDiagram.this,
@@ -69,12 +66,8 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
         myFaceSpinner.setAdapter(myFaceAdapter);
         myFaceSpinner.setOnItemSelectedListener(this); // new!!!!!!!!!!!
 
-
-
         // DIAGNOSTICS Spinner
         Spinner myDiagSpinner =(Spinner) findViewById(R.id.spinnerDiagList);
-
-
 
         ArrayAdapter<String> myDiagAdapter = new ArrayAdapter<String>(TeethDiagram.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.diagList));
@@ -83,7 +76,6 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
         myDiagSpinner.setAdapter(myDiagAdapter);
 
         myDiagSpinner.setOnItemSelectedListener(this); // new!!!!!!!!!!!
-
 
         // PROCEDURE Spinner
         Spinner myProcSpinner =(Spinner) findViewById(R.id.spinnerProcList);
@@ -95,11 +87,7 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
 
         myProcSpinner.setOnItemSelectedListener(this); // new!!!!!!!!!!!
 
-
     }
-
-
-
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
@@ -136,7 +124,6 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
                 bottonVal = "11";
                 break;
 
-
             case R.id.b28ActionButton:
                 bottonVal = "28";
                 break;
@@ -161,7 +148,6 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
             case R.id.b21ActionButton:
                 bottonVal = "21";
                 break;
-
 
             case R.id.d38ActionButton:
                 bottonVal = "38";
@@ -188,7 +174,6 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
                 bottonVal = "31";
                 break;
 
-
             case R.id.c48ActionButton:
                 bottonVal = "48";
                 break;
@@ -214,7 +199,6 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
                 bottonVal = "41";
                 break;
 
-
             case R.id.e55kidAButton:
                 bottonVal = "55";
                 break;
@@ -231,7 +215,6 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
                 bottonVal = "51";
                 break;
 
-
             case R.id.f65kidAButton:
                 bottonVal = "65";
                 break;
@@ -247,7 +230,6 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
             case R.id.f61kidAButton:
                 bottonVal = "61";
                 break;
-
 
             case R.id.h75kidAButton:
                 bottonVal = "75";
@@ -299,8 +281,7 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
         Spinner spinner = (Spinner) parent; // im not sure if this is the rigth way to do this
 
 
-        if(spinner.getId() == R.id.spinnerPiecelist)
-        {
+        if(spinner.getId() == R.id.spinnerPiecelist) {
             item4 = parent.getItemAtPosition(position).toString();
             Toast.makeText(this, item4 + " 1", Toast.LENGTH_LONG).show();
 
@@ -311,36 +292,26 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
             mRefChild.setValue(item4);
         }
 
-        if(spinner.getId() == R.id.spinnerFaceList)
-        {
+        if(spinner.getId() == R.id.spinnerFaceList) {
             item3 = parent.getItemAtPosition(position).toString();
             Toast.makeText(this, item3 + " 2", Toast.LENGTH_LONG).show();
 
             // TODO Send to Firebase
         }
 
-        if(spinner.getId() == R.id.spinnerDiagList)
-        {
+        if(spinner.getId() == R.id.spinnerDiagList) {
             item2 = parent.getItemAtPosition(position).toString();
             Toast.makeText(this, item2 + " 3", Toast.LENGTH_LONG).show();
 
             // TODO Send to Firebase
         }
 
-
-        if(spinner.getId() == R.id.spinnerProcList)
-        {
+        if(spinner.getId() == R.id.spinnerProcList) {
             item = parent.getItemAtPosition(position).toString();
             Toast.makeText(this, item + " 4", Toast.LENGTH_LONG).show();
 
-
-
-
         }
 
-
-
     }
-
 
 }
