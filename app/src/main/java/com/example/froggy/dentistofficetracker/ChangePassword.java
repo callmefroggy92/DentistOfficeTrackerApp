@@ -25,7 +25,6 @@ public class ChangePassword extends AppCompatActivity {
     private final static String TAG = "ChangePassword";
 
     private String username;
-
     private User user;
 
     @Override
@@ -135,6 +134,7 @@ public class ChangePassword extends AppCompatActivity {
     * Finally, after everything else, the new credentials are stored in the database
      */
     private void updateChange(){
+
         myRef.child(username).child("hash").setValue(user.getHash());
         myRef.child(username).child("salt").setValue(user.getSalt());
         myRef.child(username).child("key").setValue(user.getKey());

@@ -12,6 +12,9 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 /**
  *
  *
@@ -19,6 +22,7 @@ import android.widget.Toast;
  *
  *
  */
+
 public class TeethDiagram extends Activity implements AdapterView.OnItemSelectedListener{// this change lets the requestWindowFeature(Window.FEATURE_NO_TITLE) to work
     //public class TeethDiagram extends AppCompatActivity {
 
@@ -29,7 +33,10 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
     String item3;
     String item4;
 
+    private String username;
 
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference myRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +44,10 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
         requestWindowFeature(Window.FEATURE_NO_TITLE); // this removes the title
         setContentView(R.layout.activity_teeth_diagram);
 
+        username = getIntent().getExtras().getString("username");
+
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        myRef = firebaseDatabase.getReference().child(username);
 
         // PIECE Spinner
         Spinner myPieceSpinner = (Spinner) findViewById(R.id.spinnerPiecelist);
@@ -87,50 +98,13 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
 
     }
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-        Spinner spinner = (Spinner) parent;
-        if(spinner.getId() == R.id.spinnerProcList)
-        {
-            item = parent.getItemAtPosition(position).toString();
-            Toast.makeText(this, item + " 1", Toast.LENGTH_LONG).show();
-
-            // TODO Send to Firebase
-
-        }
-        if(spinner.getId() == R.id.spinnerDiagList)
-        {
-            item2 = parent.getItemAtPosition(position).toString();
-            Toast.makeText(this, item2 + " 2", Toast.LENGTH_LONG).show();
-
-            // TODO Send to Firebase
-        }
-        if(spinner.getId() == R.id.spinnerFaceList)
-        {
-            item3 = parent.getItemAtPosition(position).toString();
-            Toast.makeText(this, item3 + " 3", Toast.LENGTH_LONG).show();
-
-            // TODO Send to Firebase
-        }
-        if(spinner.getId() == R.id.spinnerPiecelist)
-        {
-            item4 = parent.getItemAtPosition(position).toString();
-            Toast.makeText(this, item4 + " 4", Toast.LENGTH_LONG).show();
-
-            // TODO Send to Firebase
-        }
 
 
-
-    }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
-
-
 
     // onclick function used from the OnClick attribute at XML file
     public void onClick(View v)
@@ -317,8 +291,63 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
         startActivity(i);
         // Remember to use in the XML android:onClick="" and add the method to use at click
 
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+        Spinner spinner = (Spinner) parent; // im not sure if this is the rigth way to do this
+
+
+        if(spinner.getId() == R.id.spinnerPiecelist)
+        {
+            item4 = parent.getItemAtPosition(position).toString();
+            Toast.makeText(this, item4 , Toast.LENGTH_LONG).show();
+        }
+
+        if(spinner.getId() == R.id.spinnerFaceList)
+        {
+            item3 = parent.getItemAtPosition(position).toString();
+            Toast.makeText(this, item3 , Toast.LENGTH_LONG).show();
+        }
+
+        if(spinner.getId() == R.id.spinnerDiagList)
+        {
+            item2 = parent.getItemAtPosition(position).toString();
+            Toast.makeText(this, item2 , Toast.LENGTH_LONG).show();
+        }
+
+
+        if(spinner.getId() == R.id.spinnerProcList)
+        {
+            item = parent.getItemAtPosition(position).toString();
+            Toast.makeText(this, item , Toast.LENGTH_LONG).show();
+        }
+
+
 
     }
+
+
+    //this function will submit the info to Firebase
+    public void OnButtonSend(){
+
+       DatabaseReference mRefChild = myRef.child("Piece");
+       mRefChild.setValue(item4);
+
+       myRef.child("Piece").child("Face");
+       mRefChild.setValue(item3);
+
+       myRef.child("Piece").child("Face").child("Diagnostic");
+       mRefChild.setValue(item2);
+
+       myRef.child("Piece").child("Face").child("Procedures");
+       mRefChild.setValue(item);
+
+
+   }
+
+
 
 
 
