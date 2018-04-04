@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -54,6 +55,11 @@ public class EditInfo extends AppCompatActivity {
 
         username = getIntent().getExtras().getString("username", "");
 
+        if(username.compareTo("") == 0){
+            Toast.makeText(getApplicationContext(), "Unable to access user file", Toast.LENGTH_SHORT).show();
+            finish();
+        }
+
         retrieveUserInfo();
 
     }
@@ -76,6 +82,7 @@ public class EditInfo extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot ds) {
                 if(ds.hasChild(username)){
+                    ds = ds.child(username);
                     p.setName(ds.child("name").getValue().toString());
                     p.setEmail(ds.child("email").getValue().toString());
                     p.setTelephone(ds.child("telephone").getValue().toString());
