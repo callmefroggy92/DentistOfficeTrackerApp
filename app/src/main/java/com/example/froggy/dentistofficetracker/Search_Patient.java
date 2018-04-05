@@ -66,6 +66,7 @@ public class Search_Patient extends AppCompatActivity {
                         p.setMothersTelephone(ds.child("mother_telephone").getValue().toString());
                         p.setNameOfSchool(ds.child("school_name").getValue().toString());
                         p.setGradeInSchool(ds.child("school_grade").getValue().toString());
+                        p.setUsername(ds.child("username").getValue().toString());
 
                         // Sends info on to the display activity
                         Intent i = new Intent(getApplicationContext(), View_Patient_Info.class);
