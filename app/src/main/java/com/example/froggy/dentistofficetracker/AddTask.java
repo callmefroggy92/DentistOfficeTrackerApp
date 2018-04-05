@@ -1,10 +1,12 @@
 package com.example.froggy.dentistofficetracker;
 
+import android.app.AlarmManager;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.os.SystemClock;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,6 +24,7 @@ import org.w3c.dom.Text;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 /**
  * This class is designed to create a new task and
@@ -39,8 +42,6 @@ public class AddTask extends AppCompatActivity {
     private DatabaseReference myRef;
     String text_date;
 
-    public static final String ANDROID_CHANNEL_NAME = "ANDROID CHANNEL";
-    public static final String ANDROID_CHANNEL_ID = "com.example.froggy.dentistofficetracker";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,22 +101,9 @@ public class AddTask extends AppCompatActivity {
 
     private void addNotification(){
 
-        NotificationCompat.Builder builder =
-                new NotificationCompat.Builder(this, ANDROID_CHANNEL_ID)
-                        .setSmallIcon(R.drawable.icon)
-                        .setContentTitle("Dentist Tracker")
-                        .setContentText("This is a reminder for your appointment!");
-
-        // Add as notification
-        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-
-
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            NotificationChannel androidChannel = new NotificationChannel(ANDROID_CHANNEL_ID,
-                    ANDROID_CHANNEL_NAME, NotificationManager.IMPORTANCE_DEFAULT);
-            manager.createNotificationChannel(androidChannel);
-        }
-
-        manager.notify(0, builder.build());
+        Intent i = new Intent(getApplicationContext(), MyBroadcastReceiver.class);
+        PendingIntent pi = PendingIntent.getBroadcast(this, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, Calendar.getInstance().getTimeInMillis() + 5000, pi);
     }
 }
