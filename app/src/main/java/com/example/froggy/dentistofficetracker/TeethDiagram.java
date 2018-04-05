@@ -337,14 +337,12 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
        DatabaseReference mRefChild = myRef.child("Piece");
        mRefChild.setValue(item4);
 
-       myRef.child("Piece").child("Face");
-       mRefChild.setValue(item3);
+       mRefChild.child("Face").setValue(item3);
 
-       myRef.child("Piece").child("Face").child("Diagnostic");
-       mRefChild.setValue(item2);
+       mRefChild.child("Face").child("Diagnostic").setValue(item2);
 
-       myRef.child("Piece").child("Face").child("Procedures");
-       mRefChild.setValue(item);
+       mRefChild.child("Face").child("Procedures").setValue(item);
+
  }
 
 
