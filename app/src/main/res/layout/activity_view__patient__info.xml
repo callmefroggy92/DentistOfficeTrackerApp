@@ -151,6 +151,13 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:text="TextView" />
+
+            <Button
+                android:id="@+id/button7"
+                style="@style/button"
+                android:layout_height="wrap_content"
+                android:onClick="onViewDentagram"
+                android:text="View Dentagram" />
         </LinearLayout>
 
     </ScrollView>

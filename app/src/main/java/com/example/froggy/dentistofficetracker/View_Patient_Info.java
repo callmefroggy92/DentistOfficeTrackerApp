@@ -1,8 +1,10 @@
 package com.example.froggy.dentistofficetracker;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 import com.google.gson.Gson;
 
@@ -12,6 +14,7 @@ public class View_Patient_Info extends AppCompatActivity {
 
     private Bundle extras;
     private Patient p;
+    private String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +25,7 @@ public class View_Patient_Info extends AppCompatActivity {
         extras = getIntent().getExtras();
         Gson gson = new Gson();
         p = gson.fromJson(extras.getString("patient"), Patient.class);
+        username = p.getUsername();
 
         {
             Log.i(TAG, "Displaying patient info");
@@ -49,5 +53,11 @@ public class View_Patient_Info extends AppCompatActivity {
             TextView patients_school_grade = findViewById(R.id.view_patients_school_grade);
             patients_school_grade.setText("Patients grade in school: " + p.getGradeInSchool());
         }
+    }
+
+    public void onViewDentagram(View view){
+        Intent i = new Intent(getApplicationContext(), TeethDiagram.class);
+        i.putExtra("username", username);
+        startActivity(i);
     }
 }
