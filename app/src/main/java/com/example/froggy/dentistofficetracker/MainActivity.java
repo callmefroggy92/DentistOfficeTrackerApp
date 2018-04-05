@@ -56,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
 
                 progressDialog.show();
                 new BackgroundJob().execute();
-                Toast.makeText(MainActivity.this, "TASK STARTED", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -94,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     // First, check to see if the given username exists in the database
-                    if (dataSnapshot.hasChild(username)) {
+                    if (dataSnapshot.hasChild(username) && !username.isEmpty() && !password.isEmpty() ) {
                         Gson gson = new Gson();
 
                         // create a new user object and fill it with login information
@@ -133,6 +132,7 @@ public class MainActivity extends AppCompatActivity {
 
                             // Password verification
                             if (LoginController.verifyPassword(user)) {
+                                progressDialog.cancel();
                                 Toast.makeText(getApplicationContext(), "Login Succesful!", Toast.LENGTH_SHORT).show();
 
                                 // If login was successful, the username is saved in sharedpreferences
@@ -168,19 +168,24 @@ public class MainActivity extends AppCompatActivity {
                                     i.putExtra("type", "dentist");
                                     startActivity(i);
                                 } else {
+
+                                    progressDialog.cancel();
                                     throw new AuthException("Error: User file inaccessible");
                                 }
 
                             } else {
                                 // If the password is wrong. . .
+                                progressDialog.cancel();
                                 Toast.makeText(getApplicationContext(), "Invalid credentials", Toast.LENGTH_SHORT).show();
                             }
                         } catch (Exception e) {
                             Log.e("LoginController: ", e.getMessage());
                         }
-                    } else
+                    } else {
                         // If the username is wrong. . .
-                        Toast.makeText(getApplicationContext(), "Invalid credentials", Toast.LENGTH_SHORT).show();
+                        progressDialog.cancel();
+                        Toast.makeText(getApplicationContext(), "Invalid credentials. Please check all the fields.", Toast.LENGTH_SHORT).show();
+                    }
                 }
 
                 @Override
@@ -199,8 +204,8 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void aVoid) {
             //super.onPostExecute(aVoid);
-            Toast.makeText(MainActivity.this, "STOPPED", Toast.LENGTH_SHORT).show();
-            progressDialog.cancel();
+          // Toast.makeText(MainActivity.this, "STOPPED", Toast.LENGTH_SHORT).show();
+          //  progressDialog.cancel();
         }
     }
 }
