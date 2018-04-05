@@ -46,8 +46,14 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
 
         username = getIntent().getExtras().getString("username");
 
+
+
+
         firebaseDatabase = FirebaseDatabase.getInstance();
-        myRef = firebaseDatabase.getReference().child(username);
+        myRef = firebaseDatabase.getReference().child(username); // issue!!!!!
+
+
+
 
         // PIECE Spinner
         Spinner myPieceSpinner = (Spinner) findViewById(R.id.spinnerPiecelist);
@@ -302,26 +308,22 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
         if(spinner.getId() == R.id.spinnerPiecelist)
         {
             item4 = parent.getItemAtPosition(position).toString();
-            Toast.makeText(this, item4 , Toast.LENGTH_LONG).show();
         }
 
         if(spinner.getId() == R.id.spinnerFaceList)
         {
             item3 = parent.getItemAtPosition(position).toString();
-            Toast.makeText(this, item3 , Toast.LENGTH_LONG).show();
         }
 
         if(spinner.getId() == R.id.spinnerDiagList)
         {
             item2 = parent.getItemAtPosition(position).toString();
-            Toast.makeText(this, item2 , Toast.LENGTH_LONG).show();
         }
 
 
         if(spinner.getId() == R.id.spinnerProcList)
         {
             item = parent.getItemAtPosition(position).toString();
-            Toast.makeText(this, item , Toast.LENGTH_LONG).show();
         }
 
 
@@ -343,9 +345,9 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
 
        myRef.child("Piece").child("Face").child("Procedures");
        mRefChild.setValue(item);
+ }
 
 
-   }
 
 
 
