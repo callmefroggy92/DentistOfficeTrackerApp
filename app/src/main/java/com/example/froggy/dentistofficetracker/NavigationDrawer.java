@@ -135,6 +135,8 @@ public class NavigationDrawer extends AppCompatActivity
         } else if (id == R.id.nav_view_patient){
             Intent i = new Intent(getApplicationContext(), Search_Patient.class);
             Log.v(TAG, "Starting Search_Patient Activity");
+            i.putExtra("type", type);
+            i.putExtra("username", username);
             startActivity(i);
         } else if (id == R.id.nav_register_dentist){
             Intent i = new Intent(getApplicationContext(), AddDentist.class);

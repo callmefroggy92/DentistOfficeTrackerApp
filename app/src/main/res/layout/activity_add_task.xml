@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.froggy.dentistofficetracker.AddTask">
+    tools:context="com.example.froggy.dentistofficetracker.AddTask"
+    android:background="@drawable/tile">
 
     <EditText
         android:id="@+id/editText_task"
@@ -15,8 +16,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
+        android:hint="Enter your appointment details"
         android:inputType="textPersonName"
-        android:text="@string/enter_your_task"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.506"
@@ -48,8 +49,8 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:ems="10"
+        android:hint="Appointment time, HH:MM"
         android:inputType="textPersonName|time"
-        android:text="@string/time"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.506"

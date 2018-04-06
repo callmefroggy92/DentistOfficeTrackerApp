@@ -27,6 +27,8 @@ public class Search_Patient extends AppCompatActivity {
     private EditText patientName;
     private String name;
 
+    private String username;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +36,8 @@ public class Search_Patient extends AppCompatActivity {
 
         patientName = findViewById(R.id.search_patient_name);
         name = "";
+
+        username = getIntent().getExtras().getString("username", "");
 
     }
 

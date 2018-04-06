@@ -7,6 +7,7 @@ import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.SystemClock;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -15,18 +16,22 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.gson.Gson;
 
 import org.w3c.dom.Text;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * This class is designed to create a new task and
@@ -51,6 +56,10 @@ public class AddTask extends AppCompatActivity {
 
     private TimePickerDialog.OnTimeSetListener mTimeListener;
 
+    private Calendar c;
+
+    Gson gson;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +74,9 @@ public class AddTask extends AppCompatActivity {
 
         textView_date.setText(text_date);
 
+        gson = new Gson();
+
+        c = gson.fromJson(getIntent().getExtras().getString("date").toString(), GregorianCalendar.class);
 
         username = getIntent().getExtras().getString("username");
         System.out.println("OSVALDO " + username);
@@ -74,6 +86,15 @@ public class AddTask extends AppCompatActivity {
 
     }
 
+    private boolean timeIsCorrect(){
+        editTime = findViewById(R.id.editText_time);
+        String s = editTime.getText().toString();
+        Pattern p = Pattern.compile("[0-9][0-9][:][0-9][0-9]");
+        Matcher m = p.matcher(s);
+        if(m.find())
+            return true;
+        return false;
+    }
 
     public void addButtonClicked(View view){
 
@@ -81,6 +102,10 @@ public class AddTask extends AppCompatActivity {
         editTask = (EditText) findViewById(R.id.editText_task);
         editTime = (EditText) findViewById(R.id.editText_time);
 
+        if(!timeIsCorrect()){
+            Toast.makeText(getApplicationContext(), "Make sure time entered matches HH:MM, example: 09:30", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         int hour = 0;
         int seconds = 0;
@@ -89,20 +114,11 @@ public class AddTask extends AppCompatActivity {
         final String taskActivity = editTask.getText().toString();
         String timeActivity = editTime.getText().toString();
 
-        // Establish the current data
-       // long date = System.currentTimeMillis();
-        //SimpleDateFormat sdf = new SimpleDateFormat("MMMM MM dd, yyyyy h:mm a");
-
-        //Hold the date
-       // String dateString = sdf.format(date);
-
+        c.set(Calendar.HOUR_OF_DAY, new Integer(timeActivity.split(":")[0]));
+        c.set(Calendar.MINUTE, new Integer(timeActivity.split(":")[1]));
 
         // Store in Firebase
         myRef = database.getInstance("https://calendar-dentist.firebaseio.com/").getReference().child(text_date);
-
-        // Store the information inside of the mew created task
-     //  DatabaseReference newSomething = myRef.push()
-      // newSomething.child("task").setValue(taskActivity);
 
         DatabaseReference newOne = myRef.push();
         newOne.child("username").setValue(username);
@@ -111,11 +127,6 @@ public class AddTask extends AppCompatActivity {
 
         addNotification();
 
-      //  myRef.child("task").push();
-       // myRef.child("task").setValue(editTask.getText().toString() + " Time: " + editTime.getText().toString());
-      //  myRef.child("time").push();
-       // myRef.child("time").setValue(editTime.getText().toString());
-
     }
 
     private void addNotification(){
@@ -123,6 +134,9 @@ public class AddTask extends AppCompatActivity {
         Intent i = new Intent(getApplicationContext(), MyBroadcastReceiver.class);
         PendingIntent pi = PendingIntent.getBroadcast(this, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        alarmManager.set(AlarmManager.RTC_WAKEUP, Calendar.getInstance().getTimeInMillis() + 5000, pi);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
+            alarmManager.setExact(AlarmManager.RTC_WAKEUP, c.getTimeInMillis() - 15000, pi);
+        else
+            alarmManager.set(AlarmManager.RTC_WAKEUP, c.getTimeInMillis() - 15000, pi);
     }
 }

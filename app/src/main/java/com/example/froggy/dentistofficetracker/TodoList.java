@@ -38,30 +38,19 @@ import java.util.List;
 public class TodoList extends AppCompatActivity {
 
    public static final String EXTRA_DATE = "com.example.froggy.dentistofficetracker.EXTRA_DATE";
-    /*
+
     private RecyclerView mTaskList;
-    private DatabaseReference mDataBase;
-    private FirebaseRecyclerOptions<RequestTask>  options;
-    private FirebaseRecyclerAdapter<RequestTask,TaskViewHolder> FBRA;
-    Query query;*/
 
-
-   RecyclerView mTaskList;
-
-    List<RequestTask> tasks;
-
-    Adapter adapter;
-
-    DateFormat df;
-    String date;
- //   TextView textViewDate = (TextView) findViewById(R.id.date_text_view);
+    private List<RequestTask> tasks;
+    private Adapter adapter;
+    private DateFormat df;
+    private String date;
+    private String appointmentDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_todo_list);
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
- //       setSupportActionBar(toolbar);
 
         mTaskList = (RecyclerView) findViewById(R.id.add_task_list);
         mTaskList.setLayoutManager(new LinearLayoutManager(this));
@@ -72,6 +61,7 @@ public class TodoList extends AppCompatActivity {
 
         mTaskList.setAdapter(adapter);
 
+        appointmentDate = getIntent().getExtras().get("date").toString();
 
         // Set the banners
         TextView textViewBannerDay = (TextView) findViewById(R.id.DayBanner);
@@ -101,15 +91,11 @@ public class TodoList extends AppCompatActivity {
                 tasks.removeAll(tasks);
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
 
-
                     String taskF = snapshot.child("task").getValue(String.class);
-                    String time = snapshot.child("time").getValue(String.class);//snapshot.getValue(RequestTask.class);
+                    String time = snapshot.child("time").getValue(String.class);
                     RequestTask task = new RequestTask(time, taskF);
-                   // task.setTask(taskF);
-                    //task.setTask(time);
                     tasks.add(task);
                     Log.d("THE CREATED DATE", date);
-
 
                 }
                 adapter.notifyDataSetChanged();
@@ -121,21 +107,6 @@ public class TodoList extends AppCompatActivity {
             }
         });
 
-
-       /* mTaskList = (RecyclerView) findViewById(R.id.add_task_list);
-      //  mTaskList.setHasFixedSize(true);
-        mTaskList.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        mRef = FirebaseDatabase.getInstance().getReference().child("New Task");*/
-
-
-       /* mTaskList = (RecyclerView) findViewById(R.id.add_task_list);
-        mTaskList.setHasFixedSize(true);
-        mTaskList.setLayoutManager(new LinearLayoutManager(this));
-        mDataBase = FirebaseDatabase.getInstance().getReference().child("New Task");
-        query = mDataBase.orderByKey();
-
-        options = new FirebaseRecyclerOptions.Builder<RequestTask>().setQuery(query, RequestTask.class).build();*/
-
        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.add_task);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -145,6 +116,7 @@ public class TodoList extends AppCompatActivity {
 
                 Intent intent = new Intent(getApplicationContext(), AddTask.class);
                 intent.putExtra(EXTRA_DATE, date);
+                intent.putExtra("date", appointmentDate);
                 startActivity(intent);
 
             }
@@ -152,59 +124,4 @@ public class TodoList extends AppCompatActivity {
 
         });
     }
-/*
-    public static class TaskViewHolder extends RecyclerView.ViewHolder{
-
-
-        public TaskViewHolder(View itemView) {
-            super(itemView);
-            View mView = itemView;
-        }
-
-        public void setName(String name){
-            TextView task_name = (TextView) itemView.findViewById(R.id.task_name);
-            task_name.setText(name);
-
-        }
-
-        public void setTime(String time){
-            TextView time_selected = (TextView) itemView.findViewById(R.id.time_selected);
-            time_selected.setText(time);
-
-        }
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        FirebaseRecyclerAdapter<RequestTask, TaskViewHolder> FBRA = new FirebaseRecyclerAdapter<RequestTask, TaskViewHolder>(RequestTask.class, R.layout.task_list_row, TaskViewHolder.class, mRef) {
-            @Override
-            protected void populateViewHolder(TaskViewHolder viewHolder, RequestTask model, int position) {
-                viewHolder.setName(model.getName());
-                viewHolder.setTime(model.getTime());
-                Toast.makeText(getApplicationContext(), "THIS IS POPULATE",Toast.LENGTH_LONG).show();
-            }
-        };
-
-
-        Toast.makeText(this,"This is OnStart",Toast.LENGTH_LONG).show();
-        mTaskList.setAdapter(FBRA);*/
-        /*FBRA = new FirebaseRecyclerAdapter<RequestTask, TaskViewHolder>(options) {
-            @Override
-            protected void onBindViewHolder(@NonNull TaskViewHolder holder, int position, @NonNull RequestTask model) {
-                holder.setName(model.getName());
-                holder.setTime(model.getTime());
-            }
-
-            @Override
-            public TaskViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.task_list_row, parent, false);
-                return new TaskViewHolder(view);
-            }
-        };
-        mTaskList.setAdapter(FBRA);*/
-        //FBRA.startListening();
-   // }
 }

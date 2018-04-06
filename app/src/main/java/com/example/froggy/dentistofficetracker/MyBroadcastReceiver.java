@@ -48,4 +48,6 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
         Toast.makeText(context, "Your appointment reminder!", Toast.LENGTH_LONG).show();
 
     }
+
+
 }
