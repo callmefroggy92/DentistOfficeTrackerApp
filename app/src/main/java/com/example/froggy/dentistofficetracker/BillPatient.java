@@ -68,6 +68,15 @@ public class BillPatient extends AppCompatActivity {
                         myRef.child(username).child("bills").push();
                     myRef.child(username).child("bills").child("bill" + dataSnapshot.child(username).child("bills").getChildrenCount()).push();
                     myRef.child(username).child("bills").child("bill" + dataSnapshot.child(username).child("bills").getChildrenCount()).setValue(json);
+
+                    double balance = 0.00;
+
+                    if(dataSnapshot.child(username).hasChild("balance"))
+                        balance = new Double(dataSnapshot.child("username").child("balance").getValue().toString());
+
+                    balance += bill.amount;
+                    myRef.child(username).child("balance").setValue(String.valueOf(balance));
+                    
                     return;
                 }
             }
