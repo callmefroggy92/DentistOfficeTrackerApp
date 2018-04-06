@@ -335,16 +335,29 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
     //this function will submit the info to Firebase
     public void OnButtonSend(View v){
 
-       DatabaseReference mRefChild = myRef.child("Piece");
-       mRefChild.setValue(item4);
+       DatabaseReference mRefChild = myRef.child("Odontograma");
 
-       mRefChild.child("Face").setValue(item3);
+        // creates Piece and piece child with value
+        mRefChild.child("Piece").child("Piece").setValue(item4);
 
-       mRefChild.child("Face").child("Diagnostic").setValue(item2);
+        // creates Face and Face child with value but not with it value !!!! wrong
+        mRefChild.child("Piece").child("Face").child("Face").setValue(item3);
 
-       mRefChild.child("Face").child("Procedures").setValue(item);
+        // creates Diagnostic and diagnostic child with value but  inside face !!!!
+        mRefChild.child("Piece").child("Face").child("Face").child("Diagnostic").child("Diagnostic").setValue(item2);
 
- }
+        // creates Procedure and Procedure child with value but  inside face !!!!
+        mRefChild.child("Piece").child("Face").child("Face").child("Procedure").child("Procedure").setValue(item);
+
+
+
+        //mRefChild.setValue(item4); // original
+        //mRefChild.child("Face").setValue(item3); // original
+        //mRefChild.child("Face").child("Diagnostic").setValue(item2); // original
+        //mRefChild.child("Face").child("Procedures").setValue(item); // original
+
+
+    }
 
 
 
