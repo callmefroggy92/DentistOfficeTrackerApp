@@ -11,45 +11,45 @@ import java.util.List;
 public class Adapter extends RecyclerView.Adapter<Adapter.TaskViewHolder>{
 
 
-    List<RequestTask> tasks;
+  List<RequestTask> tasks;
 
-    public Adapter(List<RequestTask> tasks){
-        this.tasks = tasks;
-    }
+  public Adapter(List<RequestTask> tasks){
+    this.tasks = tasks;
+  }
 
 
-    @Override
-    public TaskViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.task_list_row,parent,false);
-        TaskViewHolder holder = new TaskViewHolder(view);
-        return holder;
-    }
+  @Override
+  public TaskViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.task_list_row,parent,false);
+    TaskViewHolder holder = new TaskViewHolder(view);
+    return holder;
+  }
 
-    @Override
-    public void onBindViewHolder(TaskViewHolder holder, int position) {
-        RequestTask task = tasks.get(position);
+  @Override
+  public void onBindViewHolder(TaskViewHolder holder, int position) {
+    RequestTask task = tasks.get(position);
 
 //        holder.textViewDate.setText(task.getDate());
-        holder.textViewTask.setText(task.getTask());
-        holder.textViewTime.setText(task.getTime());
-    }
+    holder.textViewTask.setText(task.getTask());
+    holder.textViewTime.setText(task.getTime());
+  }
 
-    @Override
-    public int getItemCount() {
-        return tasks.size();
-    }
+  @Override
+  public int getItemCount() {
+    return tasks.size();
+  }
 
-    public static class TaskViewHolder extends RecyclerView.ViewHolder{
+  public static class TaskViewHolder extends RecyclerView.ViewHolder{
 
-        TextView textViewTask, textViewTime, textViewDate;
+    TextView textViewTask, textViewTime, textViewDate;
 
-        public TaskViewHolder(View itemView) {
-            super(itemView);
-            textViewTask = (TextView) itemView.findViewById(R.id.task_name);
-            textViewTime = (TextView) itemView.findViewById(R.id.time_selected);
-            textViewDate = (TextView) itemView.findViewById(R.id.date_text_view);
-
-        }
+    public TaskViewHolder(View itemView) {
+      super(itemView);
+      textViewTask = (TextView) itemView.findViewById(R.id.task_name);
+      textViewTime = (TextView) itemView.findViewById(R.id.time_selected);
+      textViewDate = (TextView) itemView.findViewById(R.id.date_text_view);
 
     }
+
+  }
 }

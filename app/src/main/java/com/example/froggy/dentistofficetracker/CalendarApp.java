@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.DatePicker;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -24,17 +25,24 @@ import java.util.GregorianCalendar;
 public class CalendarApp extends AppCompatActivity {
 
     public static final String EXTRA_DATE = "com.example.froggy.dentistofficetracker.EXTRA_DATE";
+
+    // Create the Calendar widget
     CalendarView calendar;
     private DatePickerDialog.OnDateSetListener mDateSetListerner;
     Calendar c;
 
     Gson gson;
+    private String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar_app);
 
+        // Get the username of the current person
+        username = getIntent().getExtras().getString("username");
+
+        // Find the interface to display the calendar
         calendar = (CalendarView) findViewById(R.id.calendar1);
 
         c = new GregorianCalendar();
@@ -45,27 +53,35 @@ public class CalendarApp extends AppCompatActivity {
             public void onSelectedDayChange(@NonNull CalendarView view, final int year, final int month, final int dayOfMonth) {
 
                 // Set the correct month
+                Toast.makeText(getBaseContext(), "You have selected: " + dayOfMonth + "/" + (month + 1) + "/" + year, Toast.LENGTH_LONG).show();
+                 c.set(year, month, dayOfMonth);
 
-                Toast.makeText(getBaseContext(), "You have selected" + dayOfMonth + "/" + (month + 1) + "/" + year, Toast.LENGTH_LONG).show();
-
-                c.set(year, month, dayOfMonth);
-
+                // Create a DatePicker dialog widget
                 DatePickerDialog dialog = new DatePickerDialog(CalendarApp.this, android.R.style.Theme_Holo_Light_Dialog, mDateSetListerner, year, month, dayOfMonth);
 
+                // Display the DatePicker
                 dialog.show();
 
+                // Find the button to execute the next activity. The TODO LIST.
                 Button button1 = (Button) dialog.getButton(dialog.BUTTON_POSITIVE);
 
                 button1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
+                        // Open the next activity
                         Intent intent = new Intent(getApplicationContext(), TodoList.class);
+
+                        // Store the day, month and year.
                         String dayS = Integer.toString(dayOfMonth);
                         String monthS = Integer.toString(month + 1);
                         String yearS = Integer.toString(year);
                         String date = dayS  + "\\" +  monthS + "\\" + yearS;
-                        intent.putExtra(EXTRA_DATE,date);
+
+                        // Pass some values to the next activity.
+                        intent.putExtra(EXTRA_DATE, date);
                         intent.putExtra("date", gson.toJson(c));
+                        intent.putExtra("username", username);
                         startActivity(intent);
                     }
                 });

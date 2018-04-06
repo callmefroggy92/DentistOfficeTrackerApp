@@ -39,10 +39,8 @@ import java.util.regex.Pattern;
  */
 public class AddTask extends AppCompatActivity {
 
+    // Store the username
     private String username;
-
-
-
 
     //Edit text to get the user input
     EditText editTask;
@@ -51,11 +49,10 @@ public class AddTask extends AppCompatActivity {
     // Read and write data from firebase
     private FirebaseDatabase database;
     private DatabaseReference myRef;
-    private DatabaseReference firstMyRef;
+
+
+    // Store the date.
     String text_date;
-
-    private TimePickerDialog.OnTimeSetListener mTimeListener;
-
     private Calendar c;
 
     Gson gson;
@@ -67,19 +64,19 @@ public class AddTask extends AppCompatActivity {
         setContentView(R.layout.activity_add_task);
         database = FirebaseDatabase.getInstance();
 
+        // Get the date of the previous activity.
         Intent intent = getIntent();
         text_date = intent.getStringExtra(TodoList.EXTRA_DATE);
 
+        // Set the date of the previous activity on the screen
         TextView textView_date = (TextView) findViewById(R.id.date_text_view);
-
         textView_date.setText(text_date);
 
         gson = new Gson();
-
         c = gson.fromJson(getIntent().getExtras().getString("date").toString(), GregorianCalendar.class);
 
+        // Retrieve the username of the previous activity.
         username = getIntent().getExtras().getString("username");
-        System.out.println("OSVALDO " + username);
 
 
 
@@ -107,9 +104,7 @@ public class AddTask extends AppCompatActivity {
             return;
         }
 
-        int hour = 0;
-        int seconds = 0;
-      // TimePickerDialog dialog = new TimePickerDialog(AddTask.this, TimePickerDialog.OnTimeSetListener listener, hour, seconds, true);
+
         // Store the activity
         final String taskActivity = editTask.getText().toString();
         String timeActivity = editTime.getText().toString();
@@ -118,10 +113,9 @@ public class AddTask extends AppCompatActivity {
         c.set(Calendar.MINUTE, new Integer(timeActivity.split(":")[1]));
 
         // Store in Firebase
-        myRef = database.getInstance("https://calendar-dentist.firebaseio.com/").getReference().child(text_date);
+        myRef = database.getInstance("https://calendar-dentist.firebaseio.com/").getReference().child(username).child(text_date);
 
         DatabaseReference newOne = myRef.push();
-        newOne.child("username").setValue(username);
         newOne.child("task").setValue(editTask.getText().toString());
         newOne.child("time").setValue(editTime.getText().toString());
 

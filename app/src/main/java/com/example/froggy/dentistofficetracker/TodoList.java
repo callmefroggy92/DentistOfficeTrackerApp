@@ -47,26 +47,35 @@ public class TodoList extends AppCompatActivity {
     private String date;
     private String appointmentDate;
 
+    private String username;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_todo_list);
 
+        // Get the username of the previous activity.
+        username = getIntent().getExtras().getString("username");
+
+        // Set the recycle view in rows
         mTaskList = (RecyclerView) findViewById(R.id.add_task_list);
         mTaskList.setLayoutManager(new LinearLayoutManager(this));
         tasks = new ArrayList<>();
         FirebaseDatabase database = FirebaseDatabase.getInstance("https://calendar-dentist.firebaseio.com/");
 
+        // Create a new class Adapter.
         adapter = new Adapter(tasks);
 
         mTaskList.setAdapter(adapter);
 
+        // Get the date of the previous activity.
         appointmentDate = getIntent().getExtras().get("date").toString();
 
         // Set the banners
         TextView textViewBannerDay = (TextView) findViewById(R.id.DayBanner);
         TextView textViewBannerDate = (TextView) findViewById(R.id.DateBanner);
 
+        // Format the date
         SimpleDateFormat dfBanner = new SimpleDateFormat("EEEE");
         Date dateBanner = new Date();
         String dayOfWeek = dfBanner.format(dateBanner);
@@ -82,15 +91,19 @@ public class TodoList extends AppCompatActivity {
         Log.d("THE_CREATED_DATE", date);
         System.out.println(date);
 
+        // Get the previous date.
       Intent intent = getIntent();
       date = intent.getStringExtra(CalendarApp.EXTRA_DATE);
 
-        database.getReference().child(date).addValueEventListener(new ValueEventListener() {
+
+      // Find the appointment of the week, under the username and under the date.
+        database.getReference().child(username).child(date).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 tasks.removeAll(tasks);
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
 
+                    // Find the tasks and the time
                     String taskF = snapshot.child("task").getValue(String.class);
                     String time = snapshot.child("time").getValue(String.class);
                     RequestTask task = new RequestTask(time, taskF);
@@ -117,6 +130,7 @@ public class TodoList extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), AddTask.class);
                 intent.putExtra(EXTRA_DATE, date);
                 intent.putExtra("date", appointmentDate);
+                intent.putExtra("username", username);
                 startActivity(intent);
 
             }
