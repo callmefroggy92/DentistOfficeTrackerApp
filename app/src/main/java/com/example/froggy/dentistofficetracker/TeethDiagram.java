@@ -2,6 +2,7 @@ package com.example.froggy.dentistofficetracker;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.renderscript.Sampler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,8 +13,13 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.Map;
 
 /**
  *
@@ -32,6 +38,9 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
     String item2;
     String item3;
     String item4;
+
+    // This map will hold all the info from Firebase
+    Map<String, Tooth> teeth;
 
     private String username;
 
@@ -349,17 +358,29 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
         // creates Procedure and Procedure child with value but inside face !!!!
         mRefChild.child("Piece").child("Face").child("Procedure").child("Procedure").setValue(item);
 
-
-
-        //mRefChild.setValue(item4); // original
-        //mRefChild.child("Face").setValue(item3); // original
-        //mRefChild.child("Face").child("Diagnostic").setValue(item2); // original
-        //mRefChild.child("Face").child("Procedures").setValue(item); // original
-
-
     }
 
+    // Call this to load the info from Firebase
+    private void loadInfo(){
+        myRef.child("Odontograma").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+             for(DataSnapshot ds : dataSnapshot.getChildren()){
+                 Tooth t = new Tooth();
+                 t.piece = ds.child("Piece").child("Piece").getValue().toString();
+                 t.diagnostic = ds.child("Piece").child("Diagnostic").getValue().toString();
+                 t.face = ds.child("Piece").child("Face").child("Face").getValue().toString();
+                 t.procedure = ds.child("Piece").child("Face").child("Procedure").child("Procedure").getValue().toString();
+                 teeth.put(t.piece, t);
+             }
+            }
 
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
 
 
 
