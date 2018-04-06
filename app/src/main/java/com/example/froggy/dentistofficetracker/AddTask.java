@@ -4,6 +4,7 @@ import android.app.AlarmManager;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.SystemClock;
@@ -13,6 +14,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,6 +34,10 @@ import java.util.GregorianCalendar;
  */
 public class AddTask extends AppCompatActivity {
 
+    private String username;
+
+
+
 
     //Edit text to get the user input
     EditText editTask;
@@ -40,7 +46,10 @@ public class AddTask extends AppCompatActivity {
     // Read and write data from firebase
     private FirebaseDatabase database;
     private DatabaseReference myRef;
+    private DatabaseReference firstMyRef;
     String text_date;
+
+    private TimePickerDialog.OnTimeSetListener mTimeListener;
 
 
     @Override
@@ -57,6 +66,12 @@ public class AddTask extends AppCompatActivity {
         textView_date.setText(text_date);
 
 
+        username = getIntent().getExtras().getString("username");
+        System.out.println("OSVALDO " + username);
+
+
+
+
     }
 
 
@@ -67,6 +82,9 @@ public class AddTask extends AppCompatActivity {
         editTime = (EditText) findViewById(R.id.editText_time);
 
 
+        int hour = 0;
+        int seconds = 0;
+      // TimePickerDialog dialog = new TimePickerDialog(AddTask.this, TimePickerDialog.OnTimeSetListener listener, hour, seconds, true);
         // Store the activity
         final String taskActivity = editTask.getText().toString();
         String timeActivity = editTime.getText().toString();
@@ -87,6 +105,7 @@ public class AddTask extends AppCompatActivity {
       // newSomething.child("task").setValue(taskActivity);
 
         DatabaseReference newOne = myRef.push();
+        newOne.child("username").setValue(username);
         newOne.child("task").setValue(editTask.getText().toString());
         newOne.child("time").setValue(editTime.getText().toString());
 
