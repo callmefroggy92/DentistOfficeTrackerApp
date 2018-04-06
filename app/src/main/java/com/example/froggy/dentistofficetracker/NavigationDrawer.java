@@ -142,6 +142,10 @@ public class NavigationDrawer extends AppCompatActivity
         } else if (id == R.id.nav_register_dentist){
             Intent i = new Intent(getApplicationContext(), AddDentist.class);
             startActivity(i);
+        } else  if(id == R.id.EditProfile){
+            Intent i = new Intent(getApplicationContext(), EditInfo.class);
+            i.putExtra("username", username);
+            startActivity(i);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

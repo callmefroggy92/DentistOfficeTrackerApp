@@ -87,7 +87,7 @@ public class EditInfo extends AppCompatActivity {
                     p.setEmail(ds.child("email").getValue().toString());
                     p.setTelephone(ds.child("telephone").getValue().toString());
                     p.setAddress(ds.child("address").getValue().toString());
-                    p.setNameOfSchool(ds.child("name_school").getValue().toString());
+                    p.setNameOfSchool(ds.child("school_name").getValue().toString());
                     p.setFathersName(ds.child("father_name").getValue().toString());
                     p.setFathersTelephone(ds.child("father_telephone").getValue().toString());
                     p.setMothersName(ds.child("mother_name").getValue().toString());
@@ -127,5 +127,8 @@ public class EditInfo extends AppCompatActivity {
         ref.child("mother_name").setValue(p.getMothersName());
         ref.child("mother_telephone").setValue(p.getMothersTelephone());
         ref.child("scool_name").setValue(p.getNameOfSchool());
+
+        Toast.makeText(getApplicationContext(), "Information successfully updated!", Toast.LENGTH_SHORT).show();
+        finish();
     }
 }
