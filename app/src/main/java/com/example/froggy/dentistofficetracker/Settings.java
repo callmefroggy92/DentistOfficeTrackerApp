@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ToggleButton;
 
 public class Settings extends AppCompatActivity {
@@ -50,5 +51,10 @@ public class Settings extends AppCompatActivity {
         Intent i = new Intent(getApplicationContext(), ChangePassword.class);
         i.putExtra("username", username);
         startActivity(i);
+    }
+
+    public void onSetReminderTime(View view){
+        EditText editText = findViewById(R.id.reminderTimeText);
+        editor.putInt("reminder", Integer.getInteger(editText.getText().toString()));
     }
 }

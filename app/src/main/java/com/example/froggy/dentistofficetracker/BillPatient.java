@@ -76,7 +76,7 @@ public class BillPatient extends AppCompatActivity {
 
                     balance += bill.amount;
                     myRef.child(username).child("balance").setValue(String.valueOf(balance));
-                    
+
                     return;
                 }
             }

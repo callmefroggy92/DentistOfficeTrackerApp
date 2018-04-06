@@ -7,6 +7,7 @@ import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.SystemClock;
 import android.support.v4.app.NotificationCompat;
@@ -43,8 +44,8 @@ public class AddTask extends AppCompatActivity {
     private String username;
 
     //Edit text to get the user input
-    EditText editTask;
-    EditText editTime;
+    private EditText editTask;
+    private EditText editTime;
 
     // Read and write data from firebase
     private FirebaseDatabase database;
@@ -55,7 +56,7 @@ public class AddTask extends AppCompatActivity {
     String text_date;
     private Calendar c;
 
-    Gson gson;
+    private Gson gson;
 
 
     @Override
@@ -123,14 +124,21 @@ public class AddTask extends AppCompatActivity {
 
     }
 
-    private void addNotification(){
+    private void addNotification() {
 
-        Intent i = new Intent(getApplicationContext(), MyBroadcastReceiver.class);
-        PendingIntent pi = PendingIntent.getBroadcast(this, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
-        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
-            alarmManager.setExact(AlarmManager.RTC_WAKEUP, c.getTimeInMillis() - 15000, pi);
-        else
-            alarmManager.set(AlarmManager.RTC_WAKEUP, c.getTimeInMillis() - 15000, pi);
+        SharedPreferences prefs = getSharedPreferences("settings", Context.MODE_PRIVATE);
+
+        if (prefs.contains("notications") && prefs.getString("notications", "").compareToIgnoreCase("true") == 0) {
+            Intent i = new Intent(getApplicationContext(), MyBroadcastReceiver.class);
+            PendingIntent pi = PendingIntent.getBroadcast(this, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
+            AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+            int reminder = prefs.getInt("reminder", 15000);
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
+                alarmManager.setExact(AlarmManager.RTC_WAKEUP, c.getTimeInMillis() - reminder, pi);
+            else
+                alarmManager.set(AlarmManager.RTC_WAKEUP, c.getTimeInMillis() - reminder, pi);
+        }
     }
 }
