@@ -333,7 +333,7 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
 
 
     //this function will submit the info to Firebase
-    public void OnButtonSend(){
+    public void OnButtonSend(View v){
 
        DatabaseReference mRefChild = myRef.child("Piece");
        mRefChild.setValue(item4);

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://C:\Users\osval_000\Desktop\Winter 2018\CS 246\Project Dentist\DentistOfficeTrackerApp\DentistOfficeTracker.iml" filepath="C:\Users\osval_000\Desktop\Winter 2018\CS 246\Project Dentist\DentistOfficeTrackerApp\DentistOfficeTracker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../../../../../osval_000/Desktop/Winter 2018/CS 246/Project Dentist/DentistOfficeTrackerApp/DentistOfficeTracker.iml" filepath="$PROJECT_DIR$/../../../../../../../osval_000/Desktop/Winter 2018/CS 246/Project Dentist/DentistOfficeTrackerApp/DentistOfficeTracker.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/DentistOfficeTrackerApp.iml" filepath="$PROJECT_DIR$/.idea/DentistOfficeTrackerApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
