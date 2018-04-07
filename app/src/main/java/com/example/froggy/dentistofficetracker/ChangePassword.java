@@ -13,8 +13,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+/**
+ * An activity to change the password of a given user account.
+ *
+ * @author Logan Holland
+ * @since 4-7-18
+ */
 public class ChangePassword extends AppCompatActivity {
 
+    // The EditText used for input
     private EditText oldPasswordText;
     private EditText newPasswordText;
     private EditText verifyPasswordText;

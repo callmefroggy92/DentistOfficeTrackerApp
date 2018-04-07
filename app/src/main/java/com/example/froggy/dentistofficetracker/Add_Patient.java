@@ -17,6 +17,9 @@ import com.google.firebase.database.ValueEventListener;
 /**
  * The Add_Patient activity handles creating patients and sending the information
  * to the database.
+ *
+ * @author Logan Holland
+ * @since 4-7-2018
  */
 public class Add_Patient extends AppCompatActivity {
 

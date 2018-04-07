@@ -5,6 +5,12 @@ import java.io.FileWriter;
 import java.util.Vector;
 import com.google.gson.Gson;
 
+/**
+ * <p>A sub-class of User, designed to hold information for a Dentist object</p>
+ *
+ * @author Logan Holland
+ */
+
 public class Dentist extends User{
 
     private Vector<Patient> patients;
@@ -24,19 +30,6 @@ public class Dentist extends User{
     public void removePatient(Patient pt){
         // Needs created
     }
-
-        public void save() throws Exception{
-            try {
-
-                // Each patient will encrypt itself using the dentist's key before saving
-                for(Patient p : patients){
-                    p.encrypt(this.decKey);
-                }
-
-            } catch(Exception e){
-
-            }
-        }
 
     public Appointment[] getCalendar() {
         return calendar;

@@ -1,9 +1,11 @@
 package com.example.froggy.dentistofficetracker;
 
 /*******************************************
- *  EncryptionMachine class takes a key
- *  as an argument in the constructor, then
- *  uses that key to encrypt and decrypt strings.
+ *  <p>EncryptionMachine class takes a key as an argument in the constructor, then
+ *  uses that key to encrypt and decrypt strings. </p>
+ *
+ *  @author Logan Holland
+ *  @since 4-7-18
  ******************************************/
 
 import javax.crypto.Cipher;
@@ -17,7 +19,12 @@ public class EncryptionMachine {
     private Key keySpec;
     private Cipher cipher;
 
-    // When object is created, a key is taken which will be used for all encrypting and decrypting
+    /**
+     * The public constructor for EncryptionMachine takes a string as an argument.  That string is used as the
+     * key for all encryption/decryption used by the class instance.
+      * @param key This key MUST be 16 characters long.
+     * @throws Exception An exception is thrown if the key is not 16 characters long.
+     */
     public EncryptionMachine(String key) throws Exception{
         if(key.length() != 16)
             throw new EMException("EncryptionMachineException: Invalid key length.  Key must be length 16");
@@ -32,7 +39,12 @@ public class EncryptionMachine {
         }
     }
 
-    // Takes string as argument and returns encrypted string
+    /**
+     * Encrypts a given string using the key provided in the constructor
+      * @param str This is the string that is desired to be encrypted
+     * @return The return value is the encrypted String
+     * @throws Exception An exception is thrown if the str argument is empty
+     */
     public String encrypt(String str) throws Exception{
 
         if(str == null)
@@ -53,7 +65,11 @@ public class EncryptionMachine {
         return null;
     }
 
-    // Takes encrypted string as argument and returns decrypted string
+    /**
+      * @param str This is the encrypted string that is desired to be decrypted
+     * @return The return value is the decrypted version of the string passed by argument
+     * @throws Exception an exception is thrown if the str argument is empty;
+     */
     public String decrypt(String str) throws Exception{
 
         if(str == null)
@@ -72,7 +88,9 @@ public class EncryptionMachine {
         return null;
     }
 
-    // Creates random, 16 character string
+    /**
+     * @return Returns a random 16 character key that can be used for encryption/decryption
+     */
     public static String createKey(){
 
         Random rand = new Random(System.currentTimeMillis());

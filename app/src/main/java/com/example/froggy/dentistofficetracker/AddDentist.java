@@ -16,8 +16,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 /**
- * The AddDentist activity allows an Admin user to create a new Dentist user and
- * add him or her to the database.
+ * <p>The AddDentist activity allows an Admin user to create a new Dentist user and
+ * add him or her to the database. </p>
+ *
+ * @author Logan Holland
+ * @since 4-7-2018
  */
 public class AddDentist extends AppCompatActivity {
 

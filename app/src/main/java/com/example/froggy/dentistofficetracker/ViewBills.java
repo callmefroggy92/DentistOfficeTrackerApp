@@ -64,7 +64,7 @@ public class ViewBills extends AppCompatActivity {
                 Gson gson = new Gson();
 
                 // All bills are taken from the database and stored to the arrayList
-                if(dataSnapshot.child(name).hasChild("bills")){
+                if(dataSnapshot.hasChild(name) && dataSnapshot.child(name).hasChild("bills")){
                     for(DataSnapshot ds : dataSnapshot.child(name).child("bills").getChildren()){
                         bills.add(gson.fromJson(ds.getValue().toString(), Bill.class));
                     }

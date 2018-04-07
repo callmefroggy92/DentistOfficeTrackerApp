@@ -16,8 +16,11 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 /**
- * An activity that creates a bill for a patient, then submits that bill to the external
- * database.
+ * <p>An activity that creates a bill for a patient, then submits that bill to the external
+ * database. </p>
+ *
+ * @author Logan Holland
+ * @since 4-7-2018
  * */
 public class BillPatient extends AppCompatActivity {
 
@@ -47,6 +50,9 @@ public class BillPatient extends AppCompatActivity {
         bill = new Bill();
     }
 
+    /*
+    * Submits the bill to Firebase
+     */
     public void onSubmit(View view){
 
         date = GregorianCalendar.getInstance();
@@ -68,14 +74,6 @@ public class BillPatient extends AppCompatActivity {
                         myRef.child(username).child("bills").push();
                     myRef.child(username).child("bills").child("bill" + dataSnapshot.child(username).child("bills").getChildrenCount()).push();
                     myRef.child(username).child("bills").child("bill" + dataSnapshot.child(username).child("bills").getChildrenCount()).setValue(json);
-
-                    double balance = 0.00;
-
-                    if(dataSnapshot.child(username).hasChild("balance"))
-                        balance = new Double(dataSnapshot.child("username").child("balance").getValue().toString());
-
-                    balance += bill.amount;
-                    myRef.child(username).child("balance").setValue(String.valueOf(balance));
 
                     return;
                 }

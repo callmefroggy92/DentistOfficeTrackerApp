@@ -82,7 +82,6 @@ public class ToothInfo extends Activity implements ValueEventListener {// this c
       }
      *******/
 
-
     @Override
     public void onDataChange(DataSnapshot dataSnapshot) {
         if (dataSnapshot.getValue(String.class) != null)
@@ -106,17 +105,8 @@ public class ToothInfo extends Activity implements ValueEventListener {// this c
     @Override
     protected void onStart() {
 
-
         super.onStart();
         mTextViewPiece.addValueEventListener(this);
 
     }
-
-
-
 }
-
-
-
-
-

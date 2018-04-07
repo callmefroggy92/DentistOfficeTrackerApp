@@ -34,10 +34,6 @@ import java.util.GregorianCalendar;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * This class is designed to create a new task and
- * store it in the database Firebase.
- */
 public class AddTask extends AppCompatActivity {
 
     // Store the username
@@ -53,7 +49,7 @@ public class AddTask extends AppCompatActivity {
 
 
     // Store the date.
-    String text_date;
+    private String text_date;
     private Calendar c;
 
     private Gson gson;
@@ -79,11 +75,10 @@ public class AddTask extends AppCompatActivity {
         // Retrieve the username of the previous activity.
         username = getIntent().getExtras().getString("username");
 
-
-
-
     }
 
+
+    //A simple method to verify that the time has been entered in HH:MM format
     private boolean timeIsCorrect(){
         editTime = findViewById(R.id.editText_time);
         String s = editTime.getText().toString();
@@ -94,12 +89,18 @@ public class AddTask extends AppCompatActivity {
         return false;
     }
 
+    /**
+     * This method is called when the ADD button is clicked.  It submits the new
+     * task to the database.
+     * @param view
+     */
     public void addButtonClicked(View view){
 
         //Get the task from the user
         editTask = (EditText) findViewById(R.id.editText_task);
         editTime = (EditText) findViewById(R.id.editText_time);
 
+        // The time has to be in the correct format. . .
         if(!timeIsCorrect()){
             Toast.makeText(getApplicationContext(), "Make sure time entered matches HH:MM, example: 09:30", Toast.LENGTH_SHORT).show();
             return;
@@ -110,6 +111,7 @@ public class AddTask extends AppCompatActivity {
         final String taskActivity = editTask.getText().toString();
         String timeActivity = editTime.getText().toString();
 
+        // Adds the time to the date
         c.set(Calendar.HOUR_OF_DAY, new Integer(timeActivity.split(":")[0]));
         c.set(Calendar.MINUTE, new Integer(timeActivity.split(":")[1]));
 
@@ -124,17 +126,24 @@ public class AddTask extends AppCompatActivity {
 
     }
 
+    // This private method adds a notification and alarm to reminder the user of the new appointment
     private void addNotification() {
 
         SharedPreferences prefs = getSharedPreferences("settings", Context.MODE_PRIVATE);
 
+        // The user has to have notifications turned on. . .
         if (prefs.contains("notications") && prefs.getString("notications", "").compareToIgnoreCase("true") == 0) {
+
+            // MyBroadcastReceiver.class should be called in order to display the notification
             Intent i = new Intent(getApplicationContext(), MyBroadcastReceiver.class);
             PendingIntent pi = PendingIntent.getBroadcast(this, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
             AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 
+            // If the user hasn't set a time for the reminder, the default value should be 15 minutes
             int reminder = prefs.getInt("reminder", 15000);
 
+            // The characteristics of alarmManager depends on the API level.  Thus, we have two
+            // different options of how to handle the alarmManager. . .
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
                 alarmManager.setExact(AlarmManager.RTC_WAKEUP, c.getTimeInMillis() - reminder, pi);
             else

@@ -21,6 +21,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 
+/**
+ * <p>Dentist Office Tracker was created by Osvaldo Carrillo, Isaac Sanchez and Logan Holland.  It
+ * is designed to help to organize a dentist office by organizing the patients and their information,
+ * appointments, and other implementations designed to aid in dental work.  </p>
+ *
+ * @author Osvaldo Carrillo, Isaac Sanchez, Logan Holland
+ * @since 4-7-2018
+ */
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
@@ -203,9 +211,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(Void aVoid) {
-            //super.onPostExecute(aVoid);
-          // Toast.makeText(MainActivity.this, "STOPPED", Toast.LENGTH_SHORT).show();
-          //  progressDialog.cancel();
+
         }
     }
 }

@@ -9,6 +9,11 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ToggleButton;
 
+/**
+ * An activity to change the settings on a User's device
+ *
+ * @author Logan Holland
+ */
 public class Settings extends AppCompatActivity {
 
     SharedPreferences prefs;
@@ -31,10 +36,15 @@ public class Settings extends AppCompatActivity {
         loadSettings();
     }
 
+    /**
+     * Loads the settings currently saved on the device
+     */
     public void loadSettings(){
 
         if(prefs.getString("notifications", "").compareToIgnoreCase("true") == 0)
             notificationSetting.setChecked(true);
+        EditText reminderTime = findViewById(R.id.reminderTimeText);
+        reminderTime.setText(new Integer(prefs.getString("reminder", "15000")) / 1000);
     }
 
     public void onNotificationsSettings(View view){
@@ -55,6 +65,6 @@ public class Settings extends AppCompatActivity {
 
     public void onSetReminderTime(View view){
         EditText editText = findViewById(R.id.reminderTimeText);
-        editor.putInt("reminder", Integer.getInteger(editText.getText().toString()));
+        editor.putInt("reminder", Integer.getInteger(editText.getText().toString()) * 1000);
     }
 }

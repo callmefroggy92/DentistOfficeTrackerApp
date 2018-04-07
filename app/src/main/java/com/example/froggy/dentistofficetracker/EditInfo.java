@@ -64,6 +64,10 @@ public class EditInfo extends AppCompatActivity {
 
     }
 
+    /*
+    * This method is called by retrieveUserInfo().  It takes the information that retrieveUserInfo()
+    * retrieved and fills the EditTexts with that info.
+     */
     private void fillForms(){
         nameText.setText(p.getName());
         emailText.setText(p.getEmail());
@@ -77,6 +81,10 @@ public class EditInfo extends AppCompatActivity {
 
     }
 
+    /*
+    * This method retrieves the current user info from Firebase then calls fillForms.  It is
+    * only called by onCreate()
+     */
     private void retrieveUserInfo(){
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -103,6 +111,10 @@ public class EditInfo extends AppCompatActivity {
         });
     }
 
+    /*
+    * This method is called by the Submit button.  It takes the info the user entered into
+    * the EditTexts and puts it into the Patient object
+     */
     public void changeUserInfo(View view){
         p.setName(nameText.getText().toString());
         p.setAddress(addressText.getText().toString());
@@ -116,6 +128,10 @@ public class EditInfo extends AppCompatActivity {
         updateUserInfo();
     }
 
+    /*
+    * This function updates the Firebase using the Patient object updated by the
+    * changeUserInfo method
+     */
     private void updateUserInfo(){
         DatabaseReference ref = myRef.child(username);
         ref.child("name").setValue(p.getName());
