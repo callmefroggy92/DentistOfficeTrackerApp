@@ -37,30 +37,37 @@ public class ToothInfo extends Activity {// this change lets the requestWindowFe
         setContentView(R.layout.activity_tooth_info);
 
 
-        textDiagnost = (TextView) findViewById(R.id.textDiag);
-        textProcedure = (TextView) findViewById(R.id.textProced);
-        textFaces = (TextView) findViewById(R.id.textFace);
 
+        TextView teethNum = (TextView) findViewById(R.id.pieceNumber);
         teethNum.setText(getIntent().getExtras().getString("teethNumber"));
 
 
 
 
+/**
 
-        mDatabase = FirebaseDatabase.getInstance().getReference("teethNumber");
-        mDatabase.child("Face").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String face = dataSnapshot.getValue(String.class);
-                textFaces.setText(face);
+            // Call this to load the info from Firebase
+            private void loadInfo() {
+                myRef.child("Odontograma").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                            Tooth t = new Tooth();
+                            t.piece = ds.child("Piece").child("Piece").getValue().toString();
+                            t.diagnostic = ds.child("Piece").child("Diagnostic").getValue().toString();
+                            t.face = ds.child("Piece").child("Face").child("Face").getValue().toString();
+                            t.procedure = ds.child("Piece").child("Face").child("Procedure").child("Procedure").getValue().toString();
+                            teeth.put(t.piece, t);
+                        }
+                    }
 
-                String diag = dataSnapshot.getValue(String.class);
-                textDiagnost.setText(diag);
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
 
-                String proc = dataSnapshot.getValue(String.class);
-                textProcedure.setText(proc);
-
+                    }
+                });
             }
+
 
 
 
@@ -71,6 +78,8 @@ public class ToothInfo extends Activity {// this change lets the requestWindowFe
             }
         });
 
+ **/
 
     }
+
 }

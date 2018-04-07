@@ -344,43 +344,27 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
     //this function will submit the info to Firebase
     public void OnButtonSend(View v){
 
-       DatabaseReference mRefChild = myRef.child("Odontograma").child(item4);
+        DatabaseReference mRefChild = myRef.child("Odontograma").child(item4);
 
         // creates Piece and piece child with value
-        mRefChild.child("Piece").child("Piece").setValue(item4);
+        // mRefChild.child("Piece").child("Piece Number").setValue(item4);
 
         // creates Face and Face child with value  !!!!
-        mRefChild.child("Piece").child("Face").child("Face").setValue(item3);
+        mRefChild.child("Face").child("Face Name").setValue(item3);
 
         // creates Diagnostic and diagnostic child with value but  inside face !!!!
-        mRefChild.child("Piece").child("Face").child("Diagnostic").child("Diagnostic").setValue(item2);
+        mRefChild.child("Face").child("Diagnostic").child("Diagnostic name").setValue(item2);
 
         // creates Procedure and Procedure child with value but inside face !!!!
-        mRefChild.child("Piece").child("Face").child("Procedure").child("Procedure").setValue(item);
+        mRefChild.child("Face").child("Procedure").child("Procedure name").setValue(item);
+
 
     }
 
-    // Call this to load the info from Firebase
-    private void loadInfo(){
-        myRef.child("Odontograma").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-             for(DataSnapshot ds : dataSnapshot.getChildren()){
-                 Tooth t = new Tooth();
-                 t.piece = ds.child("Piece").child("Piece").getValue().toString();
-                 t.diagnostic = ds.child("Piece").child("Diagnostic").getValue().toString();
-                 t.face = ds.child("Piece").child("Face").child("Face").getValue().toString();
-                 t.procedure = ds.child("Piece").child("Face").child("Procedure").child("Procedure").getValue().toString();
-                 teeth.put(t.piece, t);
-             }
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });
-    }
+
+
 
 
 
