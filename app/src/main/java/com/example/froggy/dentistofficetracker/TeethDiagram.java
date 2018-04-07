@@ -59,7 +59,7 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
 
 
         firebaseDatabase = FirebaseDatabase.getInstance();
-        myRef = firebaseDatabase.getReference().child(username); // issue!!!!!
+        myRef = firebaseDatabase.getReference().child(username);
 
 
 

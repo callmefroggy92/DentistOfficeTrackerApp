@@ -26,9 +26,6 @@ public class ToothInfo extends Activity  {// this change lets the requestWindowF
     //public class ToothInfo extends AppCompatActivity {
     TextView teethNum; // used
     TextView textFaces;
-    TextView textDiagnost;
-    TextView textProcedure;
-
 
 private DatabaseReference mDatabase;
 
@@ -48,12 +45,8 @@ private DatabaseReference mDatabase;
         teethNum.setText(getIntent().getExtras().getString("teethNumber"));
 
         // textviews that will be populated from fireBase
-        textFaces = (TextView) findViewById((R.id.textFace));
-        //textDiagnost = (TextView) findViewById((R.id.textDiag));
-        //textProcedure = (TextView) findViewById((R.id.textProced));
-
-
         mDatabase = FirebaseDatabase.getInstance().getReference().child(getIntent().getExtras().getString("teethNumber"));
+        textFaces = (TextView) findViewById((R.id.textFace));
 
 
         mDatabase.addValueEventListener(new ValueEventListener() {
