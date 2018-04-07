@@ -43,8 +43,6 @@ public class Settings extends AppCompatActivity {
 
         if(prefs.getString("notifications", "").compareToIgnoreCase("true") == 0)
             notificationSetting.setChecked(true);
-        EditText reminderTime = findViewById(R.id.reminderTimeText);
-        reminderTime.setText(new Integer(prefs.getString("reminder", "15000")) / 1000);
     }
 
     public void onNotificationsSettings(View view){

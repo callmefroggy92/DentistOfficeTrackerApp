@@ -106,7 +106,6 @@ public class AddTask extends AppCompatActivity {
             return;
         }
 
-
         // Store the activity
         final String taskActivity = editTask.getText().toString();
         String timeActivity = editTime.getText().toString();
@@ -115,15 +114,21 @@ public class AddTask extends AppCompatActivity {
         c.set(Calendar.HOUR_OF_DAY, new Integer(timeActivity.split(":")[0]));
         c.set(Calendar.MINUTE, new Integer(timeActivity.split(":")[1]));
 
-        // Store in Firebase
+        submit();
+
+        addNotification();
+
+        Toast.makeText(getApplicationContext(), "Appointment succesfully added!", Toast.LENGTH_SHORT).show();
+        finish();
+    }
+
+    // Store in Firebase
+    private void submit(){
         myRef = database.getInstance("https://calendar-dentist.firebaseio.com/").getReference().child(username).child(text_date);
 
         DatabaseReference newOne = myRef.push();
         newOne.child("task").setValue(editTask.getText().toString());
         newOne.child("time").setValue(editTime.getText().toString());
-
-        addNotification();
-
     }
 
     // This private method adds a notification and alarm to reminder the user of the new appointment

@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -24,14 +25,14 @@ import java.util.GregorianCalendar;
  * */
 public class BillPatient extends AppCompatActivity {
 
-    EditText name;
-    EditText amount;
-    EditText details;
-    Calendar date;
-    Bill bill;
-    String username;
-    FirebaseDatabase firebaseDatabase;
-    DatabaseReference myRef;
+    private EditText name;
+    private EditText amount;
+    private EditText details;
+    private Calendar date;
+    private Bill bill;
+    private String username;
+    private FirebaseDatabase firebaseDatabase;
+    private DatabaseReference myRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +75,9 @@ public class BillPatient extends AppCompatActivity {
                         myRef.child(username).child("bills").push();
                     myRef.child(username).child("bills").child("bill" + dataSnapshot.child(username).child("bills").getChildrenCount()).push();
                     myRef.child(username).child("bills").child("bill" + dataSnapshot.child(username).child("bills").getChildrenCount()).setValue(json);
+
+                    Toast.makeText(getApplicationContext(), "Bill successfully submitted!", Toast.LENGTH_SHORT).show();
+                    finish();
 
                     return;
                 }
