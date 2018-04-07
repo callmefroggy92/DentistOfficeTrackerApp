@@ -59,7 +59,7 @@ private DatabaseReference mDatabase;
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+                System.out.println("The read failed: " + databaseError.getCode());
             }
         });
 
