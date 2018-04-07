@@ -300,7 +300,7 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
                 break;
         }
 
-        Toast.makeText(this, "you clicked " +  bottonVal, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, bottonVal, Toast.LENGTH_LONG).show();
         Intent i = new Intent(this,ToothInfo.class);
         i.putExtra("teethNumber", bottonVal);
         startActivity(i);

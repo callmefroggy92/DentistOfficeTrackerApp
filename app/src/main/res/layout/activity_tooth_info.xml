@@ -16,7 +16,8 @@
         android:layout_marginTop="52dp"
         android:src="@drawable/dentalpiece"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="TODO" />
 
 
     <TextView
@@ -24,7 +25,8 @@
         android:layout_width="68dp"
         android:layout_height="34dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="16dp"
         android:text="@string/textview"
         android:textAlignment="center"
@@ -103,26 +105,68 @@
 
     <TextView
         android:id="@+id/textProced"
-        android:layout_width="217dp"
-        android:layout_height="36dp"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="447dp"
-        tools:layout_editor_absoluteY="192dp" />
+        android:layout_width="268dp"
+        android:layout_height="61dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="198dp"
+        android:text="@string/textview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textDiag"
-        android:layout_width="217dp"
-        android:layout_height="36dp"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="447dp"
-        tools:layout_editor_absoluteY="124dp" />
+        android:layout_width="267dp"
+        android:layout_height="51dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="128dp"
+        android:text="@string/textview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textFace"
-        android:layout_width="217dp"
-        android:layout_height="36dp"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="447dp"
-        tools:layout_editor_absoluteY="60dp" />
+        android:layout_width="279dp"
+        android:layout_height="37dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="72dp"
+        android:text="@string/textview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="252dp"
+        android:layout_marginRight="252dp"
+        android:layout_marginTop="52dp"
+        android:text="@string/face"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="216dp"
+        android:layout_marginRight="216dp"
+        android:layout_marginTop="108dp"
+        android:text="@string/diagnostic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="212dp"
+        android:layout_marginRight="212dp"
+        android:layout_marginTop="179dp"
+        android:text="@string/procedures"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
