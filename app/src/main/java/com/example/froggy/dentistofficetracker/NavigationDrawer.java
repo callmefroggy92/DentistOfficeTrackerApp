@@ -160,7 +160,7 @@ public class NavigationDrawer extends AppCompatActivity
         } else if(id == R.id.nav_patient_payment_history){
             Intent i = new Intent(getApplicationContext(), ViewBills.class);
             Log.v(TAG, "Starting ViewBills Activity");
-            i.putExtra("name", username);
+            i.putExtra("username", username);
             startActivity(i);
         }
 

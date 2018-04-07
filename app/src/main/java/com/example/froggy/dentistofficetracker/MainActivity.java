@@ -79,13 +79,6 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... voids) {
 
-            try {
-                Thread.sleep(4000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
-
             EditText username_text = findViewById(R.id.username_text);
             final String username = username_text.getText().toString();
             EditText password_text = findViewById(R.id.password_text);
