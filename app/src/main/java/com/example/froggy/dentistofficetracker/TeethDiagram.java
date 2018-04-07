@@ -39,8 +39,7 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
     String item3;
     String item4;
 
-    // This map will hold all the info from Firebase
-    Map<String, Tooth> teeth;
+
 
     private String username;
 
