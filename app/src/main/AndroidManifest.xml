@@ -21,15 +21,6 @@
 
         <receiver android:name=".MyBroadcastReceiver" />
 
-        <activity
-            android:name=".activity_admin"
-            android:label="@string/title_activity_admin"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".activity_patient"
-            android:label="@string/title_activity_patient"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activity_dentist" />
         <activity android:name=".Search_Patient" />
         <activity android:name=".View_Patient_Info" />
         <activity android:name=".Add_Patient" />
