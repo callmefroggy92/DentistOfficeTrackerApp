@@ -24,14 +24,17 @@ import java.util.Map;
 
 public class ToothInfo extends Activity  {// this change lets the requestWindowFeature(Window.FEATURE_NO_TITLE) to work
     //public class ToothInfo extends AppCompatActivity {
-    TextView teethNum; // used
+    TextView teethNum; // it receives the value from previews activity
     TextView textFaces;
+
+    String pieceNum;
+
 
 private DatabaseReference mDatabase;
 
 
     // This map will hold all the info from Firebase
-    Map<String, Tooth> teeth;
+    //Map<String, Tooth> teeth;
 
 
     @Override
@@ -42,14 +45,20 @@ private DatabaseReference mDatabase;
 
         // sets by intent the number on top of the piece diagram
         TextView teethNum = (TextView) findViewById(R.id.pieceNumber);
-        teethNum.setText(getIntent().getExtras().getString("teethNumber"));
+        teethNum.setText(getIntent().getExtras().getString("teethNumber")); // sets  the value from previews activity to textView
+
+
+
+
+
 
         // textviews that will be populated from fireBase
-        mDatabase = FirebaseDatabase.getInstance().getReference().child(getIntent().getExtras().getString("teethNumber"));
-        textFaces = (TextView) findViewById((R.id.textFace));
+        pieceNum = (getIntent().getExtras().getString("teethNumber")); // current piece been working on
 
+        mDatabase = FirebaseDatabase.getInstance().getReference().child(pieceNum);
+        textFaces = (TextView) findViewById(R.id.textFace);
 
-        mDatabase.addValueEventListener(new ValueEventListener() {
+       mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -77,7 +86,7 @@ private DatabaseReference mDatabase;
 
 
 
-    /***
+    /*
      // Call this to load the info from Firebase
      private void loadInfo() {
      myRef.child("Odontograma").addListenerForSingleValueEvent(new ValueEventListener() {
