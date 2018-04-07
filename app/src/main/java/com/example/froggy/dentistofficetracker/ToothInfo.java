@@ -22,16 +22,15 @@ import com.google.gson.Gson;
 
 import java.util.Map;
 
-public class ToothInfo extends Activity implements ValueEventListener {// this change lets the requestWindowFeature(Window.FEATURE_NO_TITLE) to work
+public class ToothInfo extends Activity  {// this change lets the requestWindowFeature(Window.FEATURE_NO_TITLE) to work
     //public class ToothInfo extends AppCompatActivity {
     TextView teethNum; // used
     TextView textFaces;
     TextView textDiagnost;
     TextView textProcedure;
 
-    FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = firebaseDatabase.getReference(); //MrootReference
-    DatabaseReference mTextViewPiece = myRef.child(getIntent().getExtras().getString("teethNumber")); //mheadingreference
+
+private DatabaseReference mDatabase;
 
 
     // This map will hold all the info from Firebase
@@ -54,69 +53,59 @@ public class ToothInfo extends Activity implements ValueEventListener {// this c
         //textProcedure = (TextView) findViewById((R.id.textProced));
 
 
+        mDatabase = FirebaseDatabase.getInstance().getReference().child(getIntent().getExtras().getString("teethNumber"));
+
+
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                String name = dataSnapshot.getValue().toString();
+                textFaces.setText(name);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+
+
+
     }
+
+
+
+
+
+
 
 
     /***
      // Call this to load the info from Firebase
-      private void loadInfo() {
-      myRef.child("Odontograma").addListenerForSingleValueEvent(new ValueEventListener() {
+     private void loadInfo() {
+     myRef.child("Odontograma").addListenerForSingleValueEvent(new ValueEventListener() {
 
-     @Override
-    public void onDataChange(DataSnapshot dataSnapshot) {
-      for (DataSnapshot ds : dataSnapshot.getChildren()) {
-      Tooth t = new Tooth();
+    @Override public void onDataChange(DataSnapshot dataSnapshot) {
+    for (DataSnapshot ds : dataSnapshot.getChildren()) {
+    Tooth t = new Tooth();
 
-      t.diagnostic = ds.child(getIntent().getExtras().getString("teethNumber")).child("Diagnostic").getValue().toString();
-      t.face = ds.child(getIntent().getExtras().getString("teethNumber")).child("Face").child("Face").getValue().toString();
-      t.procedure = ds.child(getIntent().getExtras().getString("teethNumber")).child("Face").child("Procedure").child("Procedure").getValue().toString();
-     teeth.put(t.piece, t);
-      }
+    t.diagnostic = ds.child(getIntent().getExtras().getString("teethNumber")).child("Diagnostic").getValue().toString();
+    t.face = ds.child(getIntent().getExtras().getString("teethNumber")).child("Face").child("Face").getValue().toString();
+    t.procedure = ds.child(getIntent().getExtras().getString("teethNumber")).child("Face").child("Procedure").child("Procedure").getValue().toString();
+    teeth.put(t.piece, t);
+    }
 
-      }
-      @Override
-    public void onCancelled(DatabaseError databaseError) {
+    }
+    @Override public void onCancelled(DatabaseError databaseError) {
 
-      }
-      });
-      }
+    }
+    });
+     }
      *******/
 
-
-    @Override
-    public void onDataChange(DataSnapshot dataSnapshot) {
-        if (dataSnapshot.getValue(String.class) != null)
-        {
-            String key = dataSnapshot.getKey();
-
-            if (key.equals("Face Name")) ;
-            {
-                String faceText = dataSnapshot.getValue(String.class);
-                textFaces.setText(faceText);
-            }
-
-        }
-    }
-
-    @Override
-    public void onCancelled(DatabaseError databaseError) {
-        System.out.println("The read failed: " + databaseError.getCode());
-    }
-
-    @Override
-    protected void onStart() {
-
-
-        super.onStart();
-        mTextViewPiece.addValueEventListener(this);
-
-    }
-
-
-
 }
-
-
-
-
 
