@@ -13,8 +13,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+/**
+ * An activity to change the password of a given user account.
+ *
+ * @author Logan Holland
+ * @since 4-7-18
+ */
 public class ChangePassword extends AppCompatActivity {
 
+    // The EditText used for input
     private EditText oldPasswordText;
     private EditText newPasswordText;
     private EditText verifyPasswordText;
@@ -39,13 +46,14 @@ public class ChangePassword extends AppCompatActivity {
         firebaseDatabase = FirebaseDatabase.getInstance();
         myRef = firebaseDatabase.getReference().getRoot();
 
-        username = getIntent().getExtras().getString("username");
+        username = getIntent().getExtras().getString("username", "");
 
         // Verifies that the username matches one that is stored in the database
         verifyUser();
 
     }
 
+    // Verifies that the user exists inside the database
     private void verifyUser(){
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -63,6 +71,11 @@ public class ChangePassword extends AppCompatActivity {
         });
     }
 
+    /**
+     * This method is called by the GO button in the corresponding view.  Once called, it initiates
+     * a new User object, then calls the verifyPassword() method
+     * @param view
+     */
     public void changePassword(View view){
         user = new User();
 

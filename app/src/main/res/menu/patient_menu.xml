@@ -3,9 +3,9 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_patient_balance"
+            android:id="@+id/nav_patient_payment_history"
             android:icon="@drawable/ic_balance"
-            android:title="Balance" />
+            android:title="Payment History" />
         <item
             android:id="@+id/nav_calendar"
             android:icon="@drawable/ic_calendar"

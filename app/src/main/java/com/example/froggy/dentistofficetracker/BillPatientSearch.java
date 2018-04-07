@@ -14,6 +14,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+/**
+ * <p>An activity designed to search through the database for a Patient.  If found
+ * the patient should be passed on to the next activity.</p>
+ *
+ * @author Logan Holland
+ * @since 4-7-2018
+ */
 public class BillPatientSearch extends AppCompatActivity {
 
     private EditText name;
@@ -30,17 +37,27 @@ public class BillPatientSearch extends AppCompatActivity {
         myRef = firebaseDatabase.getReference().getRoot();
     }
 
+    /**
+     * <p> This function is called by the New Bill button in the corresponding activity.  When called, it
+     * searches through the database for the appropriate patient.  If found, it calls the next activity.
+     * If not found, it notifies the user. </p>
+     * @param view
+     */
     public void onGo(View view){
+
+        Log.d(TAG, "New Bill button pressed");
 
         name = findViewById(R.id.bill_patients_name_search);
         final String patientName = name.getText().toString();
 
+        // To retrieve information from the database
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Log.d(TAG, "Opened database: ");
+                Log.d(TAG, "Opened database ");
+
+                // Searches through all User accounts in the database
                 for(DataSnapshot ds : dataSnapshot.getChildren()){
-                    Log.d(TAG, ds.getKey());
                     if(ds.hasChild("name") && ds.child("name").getValue().toString().compareToIgnoreCase(patientName) == 0){
                         Intent i = new Intent(getApplicationContext(), BillPatient.class);
                         i.putExtra("username", ds.getKey());
@@ -60,16 +77,24 @@ public class BillPatientSearch extends AppCompatActivity {
 
     }
 
+    /**
+     * <p> This function is called by the View Bills button in the corresponding activity.  When called, it
+     * searches through the database for the appropriate patient.  If found, it calls the next activity.
+     * If not found, it notifies the user. </p>
+     * @param view
+     */
     public void onViewBills(View view){
         name = findViewById(R.id.bill_patients_name_search);
         final String patientName = name.getText().toString();
+        Log.d(TAG, "View Bill button pressed");
 
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Log.d(TAG, "Opened database: ");
+                Log.d(TAG, "Opened database");
+
+                // Searches through all Users to find the desired patient
                 for(DataSnapshot ds : dataSnapshot.getChildren()){
-                    Log.d(TAG, ds.getKey());
                     if(ds.hasChild("name") && ds.child("name").getValue().toString().compareToIgnoreCase(patientName) == 0){
                         Intent i = new Intent(getApplicationContext(), ViewBills.class);
                         i.putExtra("username", ds.getKey());

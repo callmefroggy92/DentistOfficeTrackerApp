@@ -13,54 +13,20 @@ import java.util.Arrays;
 import android.util.Base64;
 
 /**
- * The NSALoginController class handles password hashing and verification
- * for the {@link User} class.
- * <p>
- * It contains only static methods, and therefore maintains no state.
- * Another example of a class containing only static methods is
- * Java's built-in {@link java.lang.Math} class.
- * <p>
- * Notice the interesting formatting used in this comment block.
- * This special formatting is called Javadocs and is used by Java IDEs
- * to automatically generate documentation for classes.
- * <p>
- * Many Java IDEs will help you automatically generate the formatting
- * for the Javadoc comments.
- * <p>
- * Javadocs are widely used in industry, and if you work for a company that
- * uses Java code, you will almost certainly be expected to include Javadocs
- * in your own code, so it's a good habit to develop.
- * <p>
- * You can use the <code>javadoc</code> tool to generate fancy HTML files. For example:
- * <p>
- * <code>javadoc *.java -d ./doc</code>
- * <p>
- * Then you can open the index.html file in the doc directory.
- * <p>
- * For more information about <em>how</em> to write javadocs see:
- * <p>
- * <a href="https://www.tutorialspoint.com/java/java_documentation.htm">Javadoc Tutorial</a>
- * <p>
- * For more information about <em>when</em> to write javadocs see these Stack Overflow posts:
- * <ul>
- * <li><a href="http://stackoverflow.com/questions/211041/do-you-use-javadoc-for-every-method-you-write">Do you use Javadoc for every method you write?</a></li>
- * <li><a href="http://stackoverflow.com/questions/398546/technical-tips-for-writing-great-javadoc">Technical tips for writing great Javadoc</a></li>
- * <li><a href="http://stackoverflow.com/questions/1028967/simple-getter-setter-comments">Simple Getter/Setter comments</a></li>
- * <li><a href="http://stackoverflow.com/questions/3607641/javadoc-comments-vs-block-comments">Javadoc comments vs block comments?</a></li>
- * <li><a href="http://stackoverflow.com/questions/21632086/javadoc-for-private-protected-methods">Javadoc for private/protected methods?</a></li>
- * </ul>
- * @author  Brother Falin
- * @version 1.0
- * @since   2016-12-08
+ * <p>This code was adapted from a code created by Brother Falin of BYU-I.</p>
  *
- * This code was adapted from <a href="http://stackoverflow.com/a/18143616/28106">this Stack Overflow post</a>.
+ * <p>This class has several functions: take a User class and hash its password, take a User class
+ * verify that the password matches its hash, create a random key for a User account(to be used
+ * for data encryption), then encrypt/decrypt that key using the User's password. </p>
+ *
+ * @author  Logan Holland, (adapted from code by Brother Falin of BYU-I)
+ * @version 1.0
+ * @since   4-7-18
+ *
+ * Brother Falin's code was adapted from <a href="http://stackoverflow.com/a/18143616/28106">this Stack Overflow post</a>.
  */
 public final class LoginController {
 
-    // The SecureRandom() class is a special subclass of Random() in
-    // order to make our "random" salt values less predictable.
-    // For more information, see:
-    // http://stackoverflow.com/questions/11051205/difference-between-java-util-random-and-java-security-securerandom
     private static final Random RANDOM = new SecureRandom();
 
     // The use of "static final" here is the equivalent of "const" in C++

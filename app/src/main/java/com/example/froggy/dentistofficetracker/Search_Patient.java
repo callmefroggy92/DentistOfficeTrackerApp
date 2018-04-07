@@ -16,8 +16,10 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 
 /**
- * The Search_Patient activity searches through the database to locate the
- * desired patient.
+ * <p>The Search_Patient activity searches through the database to locate the
+ * desired patient. </p>
+ *
+ * @author Logan Holland
  */
 
 public class Search_Patient extends AppCompatActivity {

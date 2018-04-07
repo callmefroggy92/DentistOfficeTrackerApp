@@ -33,6 +33,18 @@ public class NavigationDrawer extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_drawer);
+
+        // This type is used to determine which activities the user has access to
+        type = getIntent().getExtras().getString("type");
+        username = getIntent().getExtras().getString("username");
+
+        setDrawer();
+        setNavigationMenu();
+    }
+
+    // Creates the drawer and toolbar
+    public void setDrawer(){
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -45,15 +57,15 @@ public class NavigationDrawer extends AppCompatActivity
             }
         });
 
-        // This type is used to determine which activities the user has access to
-        type = getIntent().getExtras().getString("type");
-        username = getIntent().getExtras().getString("username");
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+    }
+
+    // Creates the navigation menu depending on the user type
+    public void setNavigationMenu(){
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.getMenu().clear();
@@ -65,7 +77,6 @@ public class NavigationDrawer extends AppCompatActivity
             navigationView.inflateMenu(R.menu.patient_menu);
         else if(type.compareToIgnoreCase("dentist") == 0)
             navigationView.inflateMenu(R.menu.dentist_menu);
-
 
         navigationView.setNavigationItemSelectedListener(this);
     }
@@ -127,12 +138,10 @@ public class NavigationDrawer extends AppCompatActivity
             Log.v(TAG, "Starting Settings activity");
             i.putExtra("username", username);
             startActivity(i);
-
         } else if (id == R.id.nav_share) {
-
-
+            // For later use
         } else if (id == R.id.nav_send) {
-
+            // For later use
         } else if (id == R.id.nav_view_patient){
             Intent i = new Intent(getApplicationContext(), Search_Patient.class);
             Log.v(TAG, "Starting Search_Patient Activity");
@@ -141,10 +150,17 @@ public class NavigationDrawer extends AppCompatActivity
             startActivity(i);
         } else if (id == R.id.nav_register_dentist){
             Intent i = new Intent(getApplicationContext(), AddDentist.class);
+            Log.v(TAG, "Starting RegisterDentist Activity");
             startActivity(i);
         } else  if(id == R.id.EditProfile){
             Intent i = new Intent(getApplicationContext(), EditInfo.class);
+            Log.v(TAG, "Starting EditInfo Activity");
             i.putExtra("username", username);
+            startActivity(i);
+        } else if(id == R.id.nav_patient_payment_history){
+            Intent i = new Intent(getApplicationContext(), ViewBills.class);
+            Log.v(TAG, "Starting ViewBills Activity");
+            i.putExtra("name", username);
             startActivity(i);
         }
 

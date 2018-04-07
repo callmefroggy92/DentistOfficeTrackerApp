@@ -13,7 +13,10 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 /**
- * Created by froggy on 4/5/18.
+ * A broadcast receiver that receives alarm notifications from the TodoList activity.  The purpose
+ * of these notifications are to notify the User that an appointment is upcoming.
+ * @author Logan Holland
+ * @since 4-7-2018
  */
 
 public class MyBroadcastReceiver extends BroadcastReceiver {
@@ -25,15 +28,11 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent){
 
 
-        Calendar c = new GregorianCalendar(2018,4,5,6,40);
-
         NotificationCompat.Builder builder =
                 (new NotificationCompat.Builder(context, ANDROID_CHANNEL_ID))
                         .setSmallIcon(R.drawable.icon)
                         .setContentTitle("Dentist Tracker")
-                        .setContentText("This is a reminder for your appointment!")
-                        .setWhen(c.getTimeInMillis());
-
+                        .setContentText("This is a reminder for your appointment!");
         // Add as notification
         NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
@@ -45,7 +44,6 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
         }
 
         manager.notify(0, builder.build());
-        Toast.makeText(context, "Your appointment reminder!", Toast.LENGTH_LONG).show();
 
     }
 
