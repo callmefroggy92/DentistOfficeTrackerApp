@@ -18,21 +18,21 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 /**
- * This class is designed to generate a calendar and
+ * <p>This class is designed to generate a calendar and
  * display it to the user. It also contains and implementation
- * to pop up the date selected by the user.
+ * to pop up the date selected by the user.</p>
  */
 public class CalendarApp extends AppCompatActivity {
 
     public static final String EXTRA_DATE = "com.example.froggy.dentistofficetracker.EXTRA_DATE";
 
     // Create the Calendar widget
-    CalendarView calendar;
+    private CalendarView calendar;
     private DatePickerDialog.OnDateSetListener mDateSetListerner;
-    Calendar c;
-
-    Gson gson;
+    private Calendar c;
+    private Gson gson;
     private String username;
+    private String type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +40,8 @@ public class CalendarApp extends AppCompatActivity {
         setContentView(R.layout.activity_calendar_app);
 
         // Get the username of the current person
-        username = getIntent().getExtras().getString("username");
+        username = getIntent().getExtras().getString("username", "");
+        type = getIntent().getExtras().getString("type", "");
 
         // Find the interface to display the calendar
         calendar = (CalendarView) findViewById(R.id.calendar1);
@@ -48,13 +49,21 @@ public class CalendarApp extends AppCompatActivity {
         c = new GregorianCalendar();
         gson = new Gson();
 
+        createCalendar();
+
+    }
+
+    // Creates the interactive calendar
+    private void createCalendar(){
+
+
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, final int year, final int month, final int dayOfMonth) {
 
                 // Set the correct month
                 Toast.makeText(getBaseContext(), "You have selected: " + dayOfMonth + "/" + (month + 1) + "/" + year, Toast.LENGTH_LONG).show();
-                 c.set(year, month, dayOfMonth);
+                c.set(year, month, dayOfMonth);
 
                 // Create a DatePicker dialog widget
                 DatePickerDialog dialog = new DatePickerDialog(CalendarApp.this, android.R.style.Theme_Holo_Light_Dialog, mDateSetListerner, year, month, dayOfMonth);
@@ -78,10 +87,13 @@ public class CalendarApp extends AppCompatActivity {
                         String yearS = Integer.toString(year);
                         String date = dayS  + "\\" +  monthS + "\\" + yearS;
 
+                        c = new GregorianCalendar(year, month, dayOfMonth);
+
                         // Pass some values to the next activity.
                         intent.putExtra(EXTRA_DATE, date);
                         intent.putExtra("date", gson.toJson(c));
                         intent.putExtra("username", username);
+                        intent.putExtra("type", type);
                         startActivity(intent);
                     }
                 });

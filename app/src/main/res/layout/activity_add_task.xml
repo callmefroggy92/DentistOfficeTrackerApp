@@ -4,90 +4,96 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/tile"
     tools:context="com.example.froggy.dentistofficetracker.AddTask"
-    android:background="@drawable/tile">
+    tools:layout_editor_absoluteY="81dp">
 
     <EditText
         android:id="@+id/editText_task"
-        android:layout_width="293dp"
-        android:layout_height="47dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="19dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="54dp"
         android:ems="10"
         android:hint="Enter your appointment details"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/editText_time"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.102" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/enter_task"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="112dp"
         android:onClick="addButtonClicked"
         android:text="@string/enter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_task"
-        app:layout_constraintVertical_bias="0.536" />
+        app:layout_constraintTop_toBottomOf="@+id/date_text_view" />
 
     <EditText
         android:id="@+id/editText_time"
-        android:layout_width="293dp"
-        android:layout_height="47dp"
-        android:layout_marginBottom="344dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginStart="45dp"
         android:ems="10"
         android:hint="Appointment time, HH:MM"
         android:inputType="textPersonName|time"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/AddTaskPatientName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_task" />
 
     <TextView
         android:id="@+id/date_text_view"
-        android:layout_width="293dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginStart="45dp"
         android:text="@string/you_have_selected"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_time"
-        app:layout_constraintVertical_bias="0.202"
         android:textAlignment="center"
+        android:textColor="#000000"
         android:textSize="25sp"
-        android:textColor="#000000"/>
+        app:layout_constraintBottom_toTopOf="@+id/enter_task"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <TextView
         android:id="@+id/textView7"
-        android:layout_width="293dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginStart="45dp"
         android:text="@string/you_have_selected"
         android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/date_text_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_time"
-        android:textSize="25sp"
-        android:textColor="#000000"/>
+        app:layout_constraintTop_toBottomOf="@+id/AddTaskPatientName" />
+
+    <EditText
+        android:id="@+id/AddTaskPatientName"
+        android:layout_width="293dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:ems="10"
+        android:hint="Patient's Name"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/textView7"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_time" />
 
 </android.support.constraint.ConstraintLayout>

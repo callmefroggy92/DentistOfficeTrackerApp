@@ -132,6 +132,7 @@ public class NavigationDrawer extends AppCompatActivity
             Intent intent = new Intent(this, CalendarApp.class);
             Log.v(TAG, "Starting Calendar activity");
             intent.putExtra("username", username);
+            intent.putExtra("type", type);
             startActivity(intent);
         } else if (id == R.id.nav_manage) {
             Intent i = new Intent(getApplicationContext(), Settings.class);

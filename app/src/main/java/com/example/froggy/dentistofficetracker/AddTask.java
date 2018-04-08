@@ -47,13 +47,16 @@ public class AddTask extends AppCompatActivity {
     private FirebaseDatabase database;
     private DatabaseReference myRef;
 
-
     // Store the date.
     private String text_date;
     private Calendar c;
 
     private Gson gson;
 
+    private String patientName;
+    private String patientUsername;
+    private String taskActivity;
+    private String timeActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,19 +110,54 @@ public class AddTask extends AppCompatActivity {
         }
 
         // Store the activity
-        final String taskActivity = editTask.getText().toString();
-        String timeActivity = editTime.getText().toString();
+        taskActivity = editTask.getText().toString();
+        timeActivity = editTime.getText().toString();
 
         // Adds the time to the date
         c.set(Calendar.HOUR_OF_DAY, new Integer(timeActivity.split(":")[0]));
         c.set(Calendar.MINUTE, new Integer(timeActivity.split(":")[1]));
 
+        getPatientsName();
+    }
+
+
+    private void addTaskToPatient(){
+        myRef = database.getInstance("https://calendar-dentist.firebaseio.com/").getReference().child(patientUsername).child(text_date);
+
+        DatabaseReference newOne = myRef.push();
+        newOne.child("task").setValue(taskActivity);
+        newOne.child("time").setValue(timeActivity);
+
         submit();
+    }
 
-        addNotification();
+    private void getPatientsName(){
 
-        Toast.makeText(getApplicationContext(), "Appointment succesfully added!", Toast.LENGTH_SHORT).show();
-        finish();
+        EditText patientNameText = findViewById(R.id.AddTaskPatientName);
+        patientName = patientNameText.getText().toString();
+
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot ds : dataSnapshot.getChildren()){
+                    if(ds.hasChild("name") && ds.child("name").getValue().toString().compareToIgnoreCase(patientName) == 0) {
+                        patientUsername = ds.getKey().toString();
+                        addTaskToPatient();
+                        return;
+                    }
+                }
+
+                Toast.makeText(getApplicationContext(), "Patient not found!", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
     }
 
     // Store in Firebase
@@ -127,8 +165,13 @@ public class AddTask extends AppCompatActivity {
         myRef = database.getInstance("https://calendar-dentist.firebaseio.com/").getReference().child(username).child(text_date);
 
         DatabaseReference newOne = myRef.push();
-        newOne.child("task").setValue(editTask.getText().toString());
-        newOne.child("time").setValue(editTime.getText().toString());
+        newOne.child("task").setValue(taskActivity);
+        newOne.child("time").setValue(timeActivity);
+
+        addNotification();
+
+        Toast.makeText(getApplicationContext(), "Appointment succesfully added!", Toast.LENGTH_SHORT).show();
+        finish();
     }
 
     // This private method adds a notification and alarm to reminder the user of the new appointment
