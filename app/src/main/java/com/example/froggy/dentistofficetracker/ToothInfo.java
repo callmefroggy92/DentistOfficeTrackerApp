@@ -73,10 +73,10 @@ private DatabaseReference mDatabase;
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                if(dataSnapshot.child("face").child("Face Name").getValue() != null) {
-                    textFaces.setText(dataSnapshot.child("face").child("Face Name").getValue().toString());
-                    textDiagnostic.setText(dataSnapshot.child("face").child("Diagnostic").child("Diagnostic name").getValue().toString());
-                    textProcedure.setText(dataSnapshot.child("face").child("Procedure").child("Procedure name").getValue().toString());
+                if(dataSnapshot.child("Face").child("Face Name").getValue() != null) {
+                    textFaces.setText(dataSnapshot.child("Face").child("Face Name").getValue().toString());
+                    textDiagnostic.setText(dataSnapshot.child("Face").child("Diagnostic").child("Diagnostic name").getValue().toString());
+                    textProcedure.setText(dataSnapshot.child("Face").child("Procedure").child("Procedure name").getValue().toString());
                 }
             }
 
