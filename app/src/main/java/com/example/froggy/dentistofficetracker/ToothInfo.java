@@ -57,8 +57,6 @@ private DatabaseReference mDatabase;
         pieceNum = (getIntent().getExtras().getString("teethNumber"));
         username = getIntent().getExtras().getString("username");
 
-
-        mDatabase = FirebaseDatabase.getInstance().getReference().child(username).child("Odontograma").child(pieceNum);
         textFaces = (TextView) findViewById(R.id.textFace);
         textDiagnostic = findViewById(R.id.textDiag);
 
@@ -69,14 +67,16 @@ private DatabaseReference mDatabase;
     private void getToothInfo(){
         textProcedure = findViewById(R.id.textProced);
 
+        mDatabase = FirebaseDatabase.getInstance().getReference().child(username).child("Odontograma").child(pieceNum);
+
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                if(dataSnapshot.getValue() != null) {
+                if(dataSnapshot.child("face").child("Face Name").getValue() != null) {
                     textFaces.setText(dataSnapshot.child("face").child("Face Name").getValue().toString());
-                    textDiagnostic.setText(dataSnapshot.child("face").child("diagnostic").child("Diagnostic name").getValue().toString());
-                    textProcedure.setText(dataSnapshot.child("face").child("procedure").child("Procedure name").getValue().toString());
+                    textDiagnostic.setText(dataSnapshot.child("face").child("Diagnostic").child("Diagnostic name").getValue().toString());
+                    textProcedure.setText(dataSnapshot.child("face").child("Procedure").child("Procedure name").getValue().toString());
                 }
             }
 
