@@ -303,6 +303,7 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
         Toast.makeText(this, bottonVal, Toast.LENGTH_LONG).show();
         Intent i = new Intent(this,ToothInfo.class);
         i.putExtra("teethNumber", bottonVal);
+        i.putExtra("username", username);
         startActivity(i);
         // Remember to use in the XML android:onClick="" and add the method to use at click
 

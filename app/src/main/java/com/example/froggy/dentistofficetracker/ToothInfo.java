@@ -24,10 +24,14 @@ import java.util.Map;
 
 public class ToothInfo extends Activity  {// this change lets the requestWindowFeature(Window.FEATURE_NO_TITLE) to work
     //public class ToothInfo extends AppCompatActivity {
-    TextView teethNum; // it receives the value from previews activity
-    TextView textFaces;
 
-    String pieceNum;
+    private TextView teethNum; // it receives the value from previews activity
+    private TextView textFaces;
+    private TextView textProcedure;
+    private TextView textDiagnostic;
+
+    private String pieceNum;
+    private String username;
 
 
 private DatabaseReference mDatabase;
@@ -45,25 +49,35 @@ private DatabaseReference mDatabase;
 
         // sets by intent the number on top of the piece diagram
         TextView teethNum = (TextView) findViewById(R.id.pieceNumber);
-        teethNum.setText(getIntent().getExtras().getString("teethNumber")); // sets  the value from previews activity to textView
+
+        // sets  the value from previews activity to textView
+        teethNum.setText(getIntent().getExtras().getString("teethNumber"));
+
+        // current piece been working on
+        pieceNum = (getIntent().getExtras().getString("teethNumber"));
+        username = getIntent().getExtras().getString("username");
 
 
-
-
-
-
-        // textviews that will be populated from fireBase
-        pieceNum = (getIntent().getExtras().getString("teethNumber")); // current piece been working on
-
-        mDatabase = FirebaseDatabase.getInstance().getReference().child(pieceNum);
+        mDatabase = FirebaseDatabase.getInstance().getReference().child(username).child("Odontograma").child(pieceNum);
         textFaces = (TextView) findViewById(R.id.textFace);
+        textDiagnostic = findViewById(R.id.textDiag);
 
-       mDatabase.addValueEventListener(new ValueEventListener() {
+        getToothInfo();
+
+    }
+
+    private void getToothInfo(){
+        textProcedure = findViewById(R.id.textProced);
+
+        mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                String name = dataSnapshot.getValue().toString();
-                textFaces.setText(name);
+                if(dataSnapshot.getValue() != null) {
+                    textFaces.setText(dataSnapshot.child("face").child("Face Name").getValue().toString());
+                    textDiagnostic.setText(dataSnapshot.child("face").child("diagnostic").child("Diagnostic name").getValue().toString());
+                    textProcedure.setText(dataSnapshot.child("face").child("procedure").child("Procedure name").getValue().toString());
+                }
             }
 
             @Override
@@ -71,43 +85,6 @@ private DatabaseReference mDatabase;
                 System.out.println("The read failed: " + databaseError.getCode());
             }
         });
-
-
-
-
-
-
     }
-
-
-
-
-
-
-
-
-    /*
-     // Call this to load the info from Firebase
-     private void loadInfo() {
-     myRef.child("Odontograma").addListenerForSingleValueEvent(new ValueEventListener() {
-
-    @Override public void onDataChange(DataSnapshot dataSnapshot) {
-    for (DataSnapshot ds : dataSnapshot.getChildren()) {
-    Tooth t = new Tooth();
-
-    t.diagnostic = ds.child(getIntent().getExtras().getString("teethNumber")).child("Diagnostic").getValue().toString();
-    t.face = ds.child(getIntent().getExtras().getString("teethNumber")).child("Face").child("Face").getValue().toString();
-    t.procedure = ds.child(getIntent().getExtras().getString("teethNumber")).child("Face").child("Procedure").child("Procedure").getValue().toString();
-    teeth.put(t.piece, t);
-    }
-
-    }
-    @Override public void onCancelled(DatabaseError databaseError) {
-
-    }
-    });
-     }
-     *******/
-
 }
 
