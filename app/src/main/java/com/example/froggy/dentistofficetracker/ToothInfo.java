@@ -26,9 +26,9 @@ public class ToothInfo extends Activity  {// this change lets the requestWindowF
     //public class ToothInfo extends AppCompatActivity {
 
     private TextView teethNum; // it receives the value from previews activity
-    private TextView textFaces;
-    private TextView textProcedure;
-    private TextView textDiagnostic;
+    private TextView textFacesDistal;
+    private TextView textProcedureDistal;
+    private TextView textDiagnosticDistal;
 
     private String pieceNum;
     private String username;
@@ -57,15 +57,15 @@ private DatabaseReference mDatabase;
         pieceNum = (getIntent().getExtras().getString("teethNumber"));
         username = getIntent().getExtras().getString("username");
 
-        textFaces = (TextView) findViewById(R.id.textFace);
-        textDiagnostic = findViewById(R.id.textDiag);
+        textFacesDistal = (TextView) findViewById(R.id.textFaceDistal);
+        textDiagnosticDistal = findViewById(R.id.textDiagDistal);
 
         getToothInfo();
 
     }
 
     private void getToothInfo(){
-        textProcedure = findViewById(R.id.textProced);
+        textProcedureDistal = findViewById(R.id.textProcedDistal);
 
         mDatabase = FirebaseDatabase.getInstance().getReference().child(username).child("Odontograma").child(pieceNum);
 
@@ -73,11 +73,16 @@ private DatabaseReference mDatabase;
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                if(dataSnapshot.child("Face").child("Face Name").getValue() != null) {
-                    textFaces.setText(dataSnapshot.child("Face").child("Face Name").getValue().toString());
-                    textDiagnostic.setText(dataSnapshot.child("Face").child("Diagnostic").child("Diagnostic name").getValue().toString());
-                    textProcedure.setText(dataSnapshot.child("Face").child("Procedure").child("Procedure name").getValue().toString());
+                if(dataSnapshot.child("Distal").getValue() != null) {
+                    textFacesDistal.setText(dataSnapshot.child("Distal").getKey().toString());
+                    textDiagnosticDistal.setText(dataSnapshot.child("Distal").child("Diagnostic").child("Diagnostic name").getValue().toString());
+                    textProcedureDistal.setText(dataSnapshot.child("Distal").child("Procedure").child("Procedure name").getValue().toString());
+
                 }
+
+
+
+
             }
 
             @Override

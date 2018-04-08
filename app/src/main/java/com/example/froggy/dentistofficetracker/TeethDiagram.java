@@ -350,13 +350,13 @@ public class TeethDiagram extends Activity implements AdapterView.OnItemSelected
         // mRefChild.child("Piece").child("Piece Number").setValue(item4);
 
         // creates Face and Face child with value  !!!!
-        mRefChild.child("Face").child("Face Name").setValue(item3);
+        mRefChild.child(item3).setValue(item3);
 
         // creates Diagnostic and diagnostic child with value but  inside face !!!!
-        mRefChild.child("Face").child("Diagnostic").child("Diagnostic name").setValue(item2);
+        mRefChild.child(item3).child("Diagnostic").child("Diagnostic name").setValue(item2);
 
         // creates Procedure and Procedure child with value but inside face !!!!
-        mRefChild.child("Face").child("Procedure").child("Procedure name").setValue(item);
+        mRefChild.child(item3).child("Procedure").child("Procedure name").setValue(item);
 
 
     }
