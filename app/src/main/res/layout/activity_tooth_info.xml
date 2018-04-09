@@ -53,78 +53,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/messialFaceText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="44dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="160dp"
-        android:text="@string/mesial"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/buccalFaceText"
-        android:layout_width="61dp"
-        android:layout_height="22dp"
-        android:layout_marginLeft="120dp"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="84dp"
-        android:text="@string/buccal"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/distalFaceText"
-        android:layout_width="60dp"
-        android:layout_height="21dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="101dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="101dp"
-        android:layout_marginTop="160dp"
-        android:text="Distal"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/messialFaceText"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Distal" />
-
-    <TextView
-        android:id="@+id/linguallFaceText"
-        android:layout_width="64dp"
-        android:layout_height="21dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="115dp"
-        android:layout_marginStart="115dp"
-        android:layout_marginTop="110dp"
-        android:text="@string/lingual"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buccalFaceText"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/occlusalFaceText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="160dp"
-        android:text="Occlusal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.198"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Occlusal" />
-
-    <TextView
         android:id="@+id/textView18"
         android:layout_width="118dp"
         android:layout_height="wrap_content"
@@ -138,18 +66,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textFaceDistal"
+        android:id="@+id/textFace"
         android:layout_width="279dp"
-        android:layout_height="37dp"
+        android:layout_height="48dp"
         android:layout_marginEnd="4dp"
         android:layout_marginRight="4dp"
         android:layout_marginTop="74dp"
-        android:text="Face Info"
+        android:text="Click the buttons"
         android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="No Info" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView19"
@@ -165,18 +92,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textDiagDistal"
+        android:id="@+id/textDiag"
         android:layout_width="267dp"
         android:layout_height="51dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="148dp"
-        android:text="Diag Info"
         android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="No Info" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView20"
@@ -192,67 +117,87 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textProcedDistal"
+        android:id="@+id/textProced"
         android:layout_width="268dp"
         android:layout_height="61dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="217dp"
-        android:text="Proc Info"
         android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/lingualBtn"
+        android:layout_width="54dp"
+        android:layout_height="31dp"
+        android:layout_marginLeft="118dp"
+        android:layout_marginStart="118dp"
+        android:layout_marginTop="159dp"
+        android:background="@android:color/background_light"
+        android:onClick="onClickOcclusal"
+        android:text="Occlusal"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="No Info" />
+        tools:text="Occlusal" />
 
-    <CheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="205dp"
-        android:layout_marginStart="205dp"
-        android:layout_marginTop="180dp"
+    <Button
+        android:id="@+id/buccalBtn"
+        android:layout_width="63dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="116dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="84dp"
+        android:background="@android:color/background_light"
+        android:onClick="onClickBuccal"
+        android:text="Buccal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Buccal" />
 
-    <CheckBox
-        android:id="@+id/checkBox3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="56dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="180dp"
+    <Button
+        android:id="@+id/lingualBtn"
+        android:layout_width="65dp"
+        android:layout_height="17dp"
+        android:layout_marginLeft="115dp"
+        android:layout_marginStart="115dp"
+        android:layout_marginTop="230dp"
+        android:background="@android:color/background_light"
+        android:onClick="onClickLingual"
+        android:text="Lingual"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Lingual" />
 
-    <CheckBox
-        android:id="@+id/checkBox4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="128dp"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="236dp"
+    <Button
+        android:id="@+id/distalBtn"
+        android:layout_width="57dp"
+        android:layout_height="21dp"
+        android:layout_marginLeft="193dp"
+        android:layout_marginStart="193dp"
+        android:layout_marginTop="155dp"
+        android:background="@android:color/background_light"
+        android:onClick="onClickDistal"
+        android:text="Distal"
+        android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Distal" />
 
-    <CheckBox
-        android:id="@+id/checkBox2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="128dp"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="175dp"
+    <Button
+        android:id="@+id/mesialBtn"
+        android:layout_width="55dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="42dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="156dp"
+        android:background="@android:color/background_light"
+        android:onClick="onClickMesial"
+        android:text="Mesial"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <CheckBox
-        android:id="@+id/checkBox5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="129dp"
-        android:layout_marginStart="129dp"
-        android:layout_marginTop="100dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Mesial" />
 
 </android.support.constraint.ConstraintLayout>

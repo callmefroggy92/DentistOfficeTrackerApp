@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,15 +27,17 @@ public class ToothInfo extends Activity  {// this change lets the requestWindowF
     //public class ToothInfo extends AppCompatActivity {
 
     private TextView teethNum; // it receives the value from previews activity
-    private TextView textFacesDistal;
-    private TextView textProcedureDistal;
-    private TextView textDiagnosticDistal;
+    private TextView textFaces;
+    private TextView textProcedure;
+    private TextView textDiagnostic;
 
     private String pieceNum;
     private String username;
 
 
 private DatabaseReference mDatabase;
+
+
 
 
     // This map will hold all the info from Firebase
@@ -57,32 +60,40 @@ private DatabaseReference mDatabase;
         pieceNum = (getIntent().getExtras().getString("teethNumber"));
         username = getIntent().getExtras().getString("username");
 
-        textFacesDistal = (TextView) findViewById(R.id.textFaceDistal);
-        textDiagnosticDistal = findViewById(R.id.textDiagDistal);
+        textFaces = (TextView) findViewById(R.id.textFace);
+        textDiagnostic = (TextView) findViewById(R.id.textDiag);
+        textProcedure = (TextView) findViewById(R.id.textProced);
 
-        getToothInfo();
+
+
+
+
+
+
+       // getToothInfo();
 
     }
 
-    private void getToothInfo(){
-        textProcedureDistal = findViewById(R.id.textProcedDistal);
+    public void onClickDistal(View v){
+
 
         mDatabase = FirebaseDatabase.getInstance().getReference().child(username).child("Odontograma").child(pieceNum);
 
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-
-                if(dataSnapshot.child("Distal").getValue() != null) {
-                    textFacesDistal.setText(dataSnapshot.child("Distal").getKey().toString());
-                    textDiagnosticDistal.setText(dataSnapshot.child("Distal").child("Diagnostic").child("Diagnostic name").getValue().toString());
-                    textProcedureDistal.setText(dataSnapshot.child("Distal").child("Procedure").child("Procedure name").getValue().toString());
+                    if (dataSnapshot.child("Distal").getValue() != null) {
+                        textFaces.setText(dataSnapshot.child("Distal").getKey().toString());
+                        textDiagnostic.setText(dataSnapshot.child("Distal").child("Diagnostic").child("Diagnostic name").getValue().toString());
+                        textProcedure.setText(dataSnapshot.child("Distal").child("Procedure").child("Procedure name").getValue().toString());
 
                 }
-
-
-
-
+                    else
+                    {
+                        textFaces.setText("No info saved in the Database");
+                        textDiagnostic.setText("No info saved in the Database");
+                        textProcedure.setText("No info saved in the Database");
+                    }
             }
 
             @Override
@@ -91,5 +102,134 @@ private DatabaseReference mDatabase;
             }
         });
     }
+
+
+    public void onClickMesial(View v){
+
+        mDatabase = FirebaseDatabase.getInstance().getReference().child(username).child("Odontograma").child(pieceNum);
+
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.child("Mesial").getValue() != null) {
+                    textFaces.setText(dataSnapshot.child("Mesial").getKey().toString());
+                    textDiagnostic.setText(dataSnapshot.child("Mesial").child("Diagnostic").child("Diagnostic name").getValue().toString());
+                    textProcedure.setText(dataSnapshot.child("Mesial").child("Procedure").child("Procedure name").getValue().toString());
+
+                }
+                else
+                {
+                    textFaces.setText("No info saved in the Database");
+                    textDiagnostic.setText("No info saved in the Database");
+                    textProcedure.setText("No info saved in the Database");
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
+
+
+
+    }
+
+    public void onClickLingual (View v) {
+
+        mDatabase = FirebaseDatabase.getInstance().getReference().child(username).child("Odontograma").child(pieceNum);
+
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.child("Lingual").getValue() != null) {
+                    textFaces.setText(dataSnapshot.child("Lingual").getKey().toString());
+                    textDiagnostic.setText(dataSnapshot.child("Lingual").child("Diagnostic").child("Diagnostic name").getValue().toString());
+                    textProcedure.setText(dataSnapshot.child("Lingual").child("Procedure").child("Procedure name").getValue().toString());
+
+                }
+                else
+                {
+                    textFaces.setText("No info saved in the Database");
+                    textDiagnostic.setText("No info saved in the Database");
+                    textProcedure.setText("No info saved in the Database");
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
+
+
+    }
+
+
+    public void onClickOcclusal (View v) {
+
+        mDatabase = FirebaseDatabase.getInstance().getReference().child(username).child("Odontograma").child(pieceNum);
+
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.child("Occlusal").getValue() != null) {
+                    textFaces.setText(dataSnapshot.child("Occlusal").getKey().toString());
+                    textDiagnostic.setText(dataSnapshot.child("Occlusal").child("Diagnostic").child("Diagnostic name").getValue().toString());
+                    textProcedure.setText(dataSnapshot.child("Occlusal").child("Procedure").child("Procedure name").getValue().toString());
+
+                }
+                else
+                {
+                    textFaces.setText("No info saved in the Database");
+                    textDiagnostic.setText("No info saved in the Database");
+                    textProcedure.setText("No info saved in the Database");
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
+
+
+    }
+
+
+    public void onClickBuccal(View v){
+
+        mDatabase = FirebaseDatabase.getInstance().getReference().child(username).child("Odontograma").child(pieceNum);
+
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.child("Buccal").getValue() != null) {
+                    textFaces.setText(dataSnapshot.child("Buccal").getKey().toString());
+                    textDiagnostic.setText(dataSnapshot.child("Buccal").child("Diagnostic").child("Diagnostic name").getValue().toString());
+                    textProcedure.setText(dataSnapshot.child("Buccal").child("Procedure").child("Procedure name").getValue().toString());
+
+                }
+                else
+                {
+                    textFaces.setText("No info saved in the Database");
+                    textDiagnostic.setText("No info saved in the Database");
+                    textProcedure.setText("No info saved in the Database");
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
+
+
+
+    }
+
+
+
+
 }
 
